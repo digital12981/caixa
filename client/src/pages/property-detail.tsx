@@ -83,14 +83,14 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
   if (verificationResult) {
     return (
       <div className="space-y-4">
-        <div className="bg-green-50 border border-green-200 p-4" style={{borderRadius: '2px'}}>
-          <h5 className="font-semibold text-green-800 mb-2">✅ Financiamento Aprovado!</h5>
-          <div className="text-sm text-green-700 space-y-1">
+        <div className="p-4" style={{backgroundColor: '#033c72', borderRadius: '2px'}}>
+          <h5 className="font-semibold text-white mb-2">✅ Financiamento Aprovado!</h5>
+          <div className="text-sm text-white space-y-1">
             <p><strong>Nome:</strong> {verificationResult.nome}</p>
             <p><strong>CPF:</strong> {verificationResult.cpf}</p>
             <p><strong>Data de Nascimento:</strong> {verificationResult.data_nascimento}</p>
           </div>
-          <p className="text-sm text-green-700 mt-3 font-medium">
+          <p className="text-sm text-white mt-3 font-medium">
             A Caixa aprovou o financiamento de 100% do valor do imóvel sem entrada para você!
           </p>
         </div>
@@ -521,7 +521,7 @@ export default function PropertyDetail() {
               <p className="text-gray-700 leading-relaxed">{property.description}</p>
             </div>
             
-            <div className="mt-8 p-6 bg-[#1964AD]" style={{backgroundColor: '#EEF4F5', borderRadius: '2px'}}>
+            <div className="mt-8 p-6" style={{backgroundColor: '#1964ad', borderRadius: '2px'}}>
               <h4 className="text-lg font-semibold text-white mb-4">
                 Verificação de Financiamento
               </h4>
