@@ -280,6 +280,13 @@
     gap: 15px;
   }
 
+  .caixa-logo-divider {
+    width: 2px;
+    height: 40px;
+    background-color: var(--caixa-orange);
+    margin: 0 10px;
+  }
+
   .caixa-header-logo img {
     height: 48px;
     width: auto;
@@ -382,6 +389,11 @@
     transition: background-color 0.2s ease;
   }
 
+  /* Hide divider on desktop */
+  .caixa-logo-divider {
+    display: none;
+  }
+
   .caixa-mobile-menu:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
@@ -397,6 +409,10 @@
     }
     
     .caixa-mobile-menu {
+      display: block;
+    }
+
+    .caixa-logo-divider {
       display: block;
     }
     
