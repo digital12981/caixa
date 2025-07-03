@@ -9,60 +9,80 @@ export default function Home() {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-caixa-blue to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Leilões de Imóveis Caixa
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Encontre oportunidades únicas para adquirir seu imóvel com condições especiais e preços competitivos
+      <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #005CA9 0%, #058ce1 50%, #0066cc 100%)' }}>
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center text-white">
+          <div className="border-l-4 border-caixa-yellow pl-6 mb-8 inline-block">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
+              Leilões de Imóveis
+            </h1>
+            <div className="text-2xl md:text-3xl font-semibold text-caixa-yellow">
+              Caixa Econômica Federal
+            </div>
+          </div>
+          
+          <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: "'CAIXA Std Book', 'Inter', sans-serif" }}>
+            Encontre oportunidades únicas para adquirir seu imóvel com <strong>condições especiais</strong> e <strong>preços competitivos</strong>. 
+            Processo transparente, seguro e regulamentado.
           </p>
-          <Link href="/state-selection">
-            <button className="btn text-white px-8 py-4 text-lg font-semibold hover:scale-105 transition-transform">
-              Buscar Imóveis Disponíveis
-            </button>
-          </Link>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="/state-selection">
+              <button className="btn text-white px-10 py-4 text-xl font-bold">
+                Buscar Imóveis Disponíveis
+              </button>
+            </Link>
+            <a href="#como-funciona" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-caixa-blue transition-all duration-200">
+              Saiba Como Funciona
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Info Section */}
-      <section className="py-16 bg-white">
+      <section id="como-funciona" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Como Funciona</h2>
+            <h2 className="text-3xl font-bold text-caixa-text mb-4" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>Como Funciona</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Processo transparente e seguro para aquisição de imóveis através de leilões oficiais
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <div className="bg-caixa-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8" />
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg border-l-4 border-caixa-yellow hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-caixa-blue to-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Search className="w-10 h-10" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">1. Busque Imóveis</h3>
-              <p className="text-gray-600">
-                Encontre imóveis disponíveis por estado e cidade, com informações detalhadas e fotos
+              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
+                1. Busque Imóveis
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Encontre imóveis disponíveis por estado e cidade, com informações detalhadas, fotos e valores atualizados
               </p>
             </div>
             
-            <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <div className="bg-caixa-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FileText className="w-8 h-8" />
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg border-l-4 border-caixa-orange hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-caixa-orange to-orange-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <FileText className="w-10 h-10" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">2. Analise Documentos</h3>
-              <p className="text-gray-600">
-                Acesse toda documentação necessária e editais para tomada de decisão informada
+              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
+                2. Analise Documentos
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Acesse toda documentação necessária e editais para tomada de decisão informada e segura
               </p>
             </div>
             
-            <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <div className="bg-caixa-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Gavel className="w-8 h-8" />
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg border-l-4 border-green-500 hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-green-500 to-green-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Gavel className="w-10 h-10" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">3. Participe do Leilão</h3>
-              <p className="text-gray-600">
-                Faça seus lances de forma segura através da plataforma oficial da Caixa
+              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
+                3. Participe do Leilão
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Faça seus lances de forma segura através da plataforma oficial da Caixa Econômica Federal
               </p>
             </div>
           </div>
