@@ -301,7 +301,7 @@ export default function PropertyDetail() {
                     {formatInstallment(property.price)} /mês
                   </div>
                   <div className="text-sm text-gray-600 mb-1">
-                    120x • Valor total: {formatCurrency(property.price)}
+                    120x • <span className="font-bold text-green-600">Valor total: {formatCurrency(property.price)}</span>
                   </div>
                   <div className="text-sm text-gray-500">
                     Avaliação: {formatCurrency(property.evaluation)}
