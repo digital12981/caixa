@@ -58,10 +58,10 @@ export default function LeiloesCaixaSignup() {
           <div className="text-center mb-12">
             <div className="mb-8">
               <img 
-                src="https://images.icon-icons.com/523/PNG/512/alert_icon-icons.com_52395.png" 
+                src="https://bombaparaiba.com.br/wp-content/uploads/2022/09/imoveis-caixa-1.jpg" 
                 alt="Imóveis Caixa Econômica Federal"
-                className="mx-auto h-auto shadow-lg"
-                style={{borderRadius: '2px', width: '250px'}}
+                className="mx-auto h-auto"
+                style={{borderRadius: '2px', width: '150px'}}
               />
             </div>
             <h1 className="text-4xl font-bold text-caixa-blue mb-4">
