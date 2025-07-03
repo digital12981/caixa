@@ -5,48 +5,8 @@ export function Footer() {
   return (
     <footer id="rodape" className="bg-white">
       <div className="content-rodape max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-5 gap-8">
-          {/* Primeira coluna */}
-          <div className="column-rodape">
-            <ul>
-              <li><a href="#" data-text="Leilões de Imóveis">Leilões de Imóveis</a></li>
-              <li><a href="#" data-text="Como Participar">Como Participar</a></li>
-              <li><a href="#" data-text="Editais">Editais</a></li>
-              <li><a href="#" data-text="Resultados">Resultados</a></li>
-            </ul>
-          </div>
-          
-          {/* Segunda coluna */}
-          <div className="column-rodape">
-            <ul>
-              <li><a href="#" data-text="Pessoa Física">Pessoa Física</a></li>
-              <li><a href="#" data-text="Pessoa Jurídica">Pessoa Jurídica</a></li>
-              <li><a href="#" data-text="Habitação">Habitação</a></li>
-              <li><a href="#" data-text="Investimentos">Investimentos</a></li>
-            </ul>
-          </div>
-          
-          {/* Terceira coluna */}
-          <div className="column-rodape">
-            <ul>
-              <li><a href="#" data-text="Governo">Governo</a></li>
-              <li><a href="#" data-text="Empresas">Empresas</a></li>
-              <li><a href="#" data-text="Correspondentes">Correspondentes</a></li>
-              <li><a href="#" data-text="Imprensa">Imprensa</a></li>
-            </ul>
-          </div>
-          
-          {/* Quarta coluna */}
-          <div className="column-rodape">
-            <ul>
-              <li><a href="#" data-text="Sustentabilidade">Sustentabilidade</a></li>
-              <li><a href="#" data-text="Ouvidoria">Ouvidoria</a></li>
-              <li><a href="#" data-text="Transparência">Transparência</a></li>
-              <li><a href="#" data-text="Trabalhe Conosco">Trabalhe Conosco</a></li>
-            </ul>
-          </div>
-          
-          {/* Quinta coluna - Contato */}
+        <div className="grid md:grid-cols-1 gap-8 text-center">
+          {/* Contato */}
           <div className="column-rodape">
             <p className="soft">Central de Atendimento</p>
             <p className="telefone">0800 726 0101</p>
@@ -55,7 +15,7 @@ export function Footer() {
             
             <div className="redes-sociais mt-6">
               <p className="soft mb-3">Redes Sociais</p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center">
                 <a href="#" className="icon-link">
                   <Facebook className="icon w-5 h-5" />
                 </a>

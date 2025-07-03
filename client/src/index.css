@@ -597,16 +597,13 @@
 
   @media screen and (max-width: 768px) {
     .content-rodape {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 20px;
+      text-align: center;
     }
 
     .column-rodape {
       margin-left: 0 !important;
-    }
-
-    .column-rodape li a {
-      font-size: 16px !important;
     }
 
     .link-footer ul {
@@ -622,16 +619,6 @@
   }
 
   @media screen and (max-width: 480px) {
-    .content-rodape {
-      grid-template-columns: 1fr;
-      gap: 15px;
-      text-align: center;
-    }
-
-    .column-rodape li a {
-      font-size: 18px !important;
-    }
-
     .informacao-rodape {
       justify-content: center !important;
       margin: 20px 0 !important;

@@ -105,6 +105,12 @@ Changelog:
   * Property cards redesigned with professional layout and discount badges
   * Button styles updated to match CAIXA's official design guidelines
   * Responsive design maintained across all components
+- July 03, 2025: Mobile optimization and footer simplification
+  * Header mobile layout improved with hamburger menu repositioned
+  * Search bar hidden on mobile devices for better space utilization
+  * Footer simplified to show only essential contact information and social media
+  * Responsive design enhanced across all breakpoints
+  * Property cards and page layouts optimized for mobile viewing
 ```
 
 ## User Preferences
