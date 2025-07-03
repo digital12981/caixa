@@ -348,13 +348,6 @@ export default function PropertyDetail() {
                   <Button className="btn w-full py-3 font-semibold" style={{borderRadius: '2px'}}>
                     Participar do Leilão
                   </Button>
-                  <Button 
-                    variant="secondary"
-                    className="w-full bg-gray-200 text-gray-800 py-3 hover:bg-gray-300"
-                    style={{borderRadius: '2px'}}
-                  >
-                    Baixar Edital
-                  </Button>
                 </div>
               </div>
             </div>
