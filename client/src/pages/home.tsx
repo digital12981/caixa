@@ -12,16 +12,17 @@ export default function Home() {
       <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #005CA9 0%, #058ce1 50%, #0066cc 100%)' }}>
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center text-white">
-          <div className="border-l-4 border-caixa-yellow pl-6 mb-8 inline-block">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
+          <div className="mb-8 inline-block">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white" style={{ fontFamily: "'CAIXA Std Bold'" }}>
               Leilões de Imóveis
             </h1>
-            <div className="text-2xl md:text-3xl font-semibold text-caixa-yellow">
+            <div className="w-24 h-1 bg-caixa-yellow mx-auto mb-4"></div>
+            <div className="text-2xl md:text-3xl font-semibold text-white">
               Caixa Econômica Federal
             </div>
           </div>
           
-          <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: "'CAIXA Std Book', 'Inter', sans-serif" }}>
+          <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: "'CAIXA Std Book'" }}>
             Encontre oportunidades únicas para adquirir seu imóvel com <strong>condições especiais</strong> e <strong>preços competitivos</strong>. 
             Processo transparente, seguro e regulamentado.
           </p>
@@ -43,7 +44,7 @@ export default function Home() {
       <section id="como-funciona" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-caixa-text mb-4" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>Como Funciona</h2>
+            <h2 className="text-3xl font-bold text-caixa-text mb-4" style={{ fontFamily: "'CAIXA Std Bold'" }}>Como Funciona</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Processo transparente e seguro para aquisição de imóveis através de leilões oficiais
             </p>
@@ -54,7 +55,7 @@ export default function Home() {
               <div className="bg-gradient-to-br from-caixa-blue to-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Search className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
+              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold'" }}>
                 1. Busque Imóveis
               </h3>
               <p className="text-gray-700 leading-relaxed">
@@ -66,7 +67,7 @@ export default function Home() {
               <div className="bg-gradient-to-br from-caixa-orange to-orange-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <FileText className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
+              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold'" }}>
                 2. Analise Documentos
               </h3>
               <p className="text-gray-700 leading-relaxed">
@@ -78,7 +79,7 @@ export default function Home() {
               <div className="bg-gradient-to-br from-green-500 to-green-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Gavel className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
+              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold'" }}>
                 3. Participe do Leilão
               </h3>
               <p className="text-gray-700 leading-relaxed">
