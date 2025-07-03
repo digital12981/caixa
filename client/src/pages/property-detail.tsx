@@ -327,19 +327,19 @@ export default function PropertyDetail() {
                 </div>
                 
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold mb-3">Informações do Leilão</h3>
+                  <h3 className="text-lg font-semibold mb-3">Detalhes do Imóvel</h3>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Data do Leilão:</span>
-                      <span className="font-medium">{property.auctionDate}</span>
+                      <span className="text-gray-600">Situação:</span>
+                      <span className="font-medium text-green-600">Desocupado</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Horário:</span>
-                      <span className="font-medium">14:00</span>
+                      <span className="text-gray-600">Débitos:</span>
+                      <span className="font-medium text-green-600">Sem débitos</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Local:</span>
-                      <span className="font-medium">Online</span>
+                      <span className="text-gray-600">Financiamento:</span>
+                      <span className="font-medium text-blue-600">100% financiável</span>
                     </div>
                   </div>
                 </div>
