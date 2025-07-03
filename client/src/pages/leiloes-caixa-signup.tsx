@@ -59,9 +59,9 @@ export default function LeiloesCaixaSignup() {
             <div className="mb-8">
               <img 
                 src="https://images.icon-icons.com/523/PNG/512/alert_icon-icons.com_52395.png" 
-                alt="Imóveis Caixa Econômica Federal"
+                alt="Alert Icon"
                 className="mx-auto h-auto"
-                style={{borderRadius: '2px', width: '100px'}}
+                style={{borderRadius: '2px', width: '120px'}}
               />
             </div>
             <h1 className="text-4xl font-bold text-caixa-blue mb-4">
