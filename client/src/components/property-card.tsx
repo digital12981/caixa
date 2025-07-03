@@ -8,8 +8,6 @@ interface PropertyCardProps {
 }
 
 export function PropertyCard({ property }: PropertyCardProps) {
-  const discount = calculateDiscount(property.price, property.evaluation);
-
   return (
     <Link href={`/property/${property.id}`}>
       <div className="bg-white border border-gray-200 rounded-sm shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:transform hover:scale-[1.02] overflow-hidden" style={{borderRadius: '2px'}}>
@@ -33,13 +31,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
               Leilão #{property.auctionNumber}
             </span>
           </div>
-          {discount > 0 && (
-            <div className="absolute bottom-4 left-4">
-              <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                {discount}% OFF
-              </span>
-            </div>
-          )}
+
         </div>
         
         <div className="p-4 md:p-6">
@@ -55,13 +47,8 @@ export function PropertyCard({ property }: PropertyCardProps) {
             <div className="text-xl md:text-2xl font-bold text-caixa-blue mb-1">
               {formatCurrency(property.price)}
             </div>
-            <div className="text-xs md:text-sm text-gray-500">
-              <span className="line-through">Avaliação: {formatCurrency(property.evaluation)}</span>
-              {discount > 0 && (
-                <div className="md:inline md:ml-2 text-green-600 font-semibold text-xs md:text-sm">
-                  Economia de {formatCurrency(property.evaluation - property.price)}
-                </div>
-              )}
+            <div className="text-xs md:text-sm text-gray-600">
+              Avaliação: {formatCurrency(property.evaluation)}
             </div>
           </div>
           

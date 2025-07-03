@@ -200,8 +200,6 @@ export default function PropertyDetail() {
 
   if (!property) return null;
 
-  const discount = calculateDiscount(property.price, property.evaluation);
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -299,19 +297,11 @@ export default function PropertyDetail() {
                 <p className="text-lg text-gray-600 mb-6">{property.location}</p>
                 
                 <div className="bg-gray-50 p-4 mb-6" style={{borderRadius: '2px'}}>
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="text-3xl font-bold text-caixa-blue">
-                      {formatCurrency(property.price)}
-                    </div>
-                    <div className="text-right">
-                      <div className="text-sm text-gray-500">Avaliação</div>
-                      <div className="text-lg text-gray-500 line-through">
-                        {formatCurrency(property.evaluation)}
-                      </div>
-                    </div>
+                  <div className="text-3xl font-bold text-caixa-blue mb-2">
+                    {formatCurrency(property.price)}
                   </div>
-                  <div className="text-sm text-green-600 font-medium">
-                    Economia de {discount}%
+                  <div className="text-sm text-gray-600">
+                    Avaliação: {formatCurrency(property.evaluation)}
                   </div>
                 </div>
                 
