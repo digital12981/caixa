@@ -64,9 +64,7 @@ export default function LeiloesCaixaSignup() {
                 style={{borderRadius: '2px', width: '120px'}}
               />
             </div>
-            <h1 className="text-4xl font-bold text-caixa-blue mb-4">
-              Programa Leilões Caixa
-            </h1>
+            <h1 className="font-bold mb-4 text-[30px] text-[#005ca9]">Caixa Informa:</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Para participar dos leilões de imóveis da Caixa, é necessário se inscrever no programa exclusivo que oferece benefícios especiais para participantes.
             </p>
