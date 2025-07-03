@@ -63,15 +63,15 @@ export default function Properties() {
           </div>
 
           {isLoading ? (
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {[...Array(4)].map((_, i) => (
                 <div key={i} className="bg-white border border-gray-200 rounded-lg shadow-md">
                   <Skeleton className="w-full h-48 rounded-t-lg" />
-                  <div className="p-6 space-y-4">
+                  <div className="p-4 md:p-6 space-y-3 md:space-y-4">
                     <Skeleton className="h-4 w-3/4" />
                     <Skeleton className="h-4 w-1/2" />
                     <Skeleton className="h-6 w-1/3" />
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-3 md:gap-4">
                       <Skeleton className="h-4 w-full" />
                       <Skeleton className="h-4 w-full" />
                       <Skeleton className="h-4 w-full" />
@@ -81,7 +81,7 @@ export default function Properties() {
               ))}
             </div>
           ) : properties && properties.length > 0 ? (
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {properties.map((property) => (
                 <PropertyCard key={property.id} property={property} />
               ))}

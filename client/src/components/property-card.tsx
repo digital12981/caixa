@@ -42,50 +42,50 @@ export function PropertyCard({ property }: PropertyCardProps) {
           )}
         </div>
         
-        <div className="p-6">
-          <h3 className="text-xl font-bold mb-2 text-caixa-text leading-tight">
+        <div className="p-4 md:p-6">
+          <h3 className="text-lg md:text-xl font-bold mb-2 text-caixa-text leading-tight">
             {property.title}
           </h3>
-          <p className="text-gray-600 mb-4 text-sm flex items-center">
+          <p className="text-gray-600 mb-3 md:mb-4 text-sm flex items-center">
             <span className="w-2 h-2 bg-caixa-orange rounded-full mr-2"></span>
             {property.location}
           </p>
           
-          <div className="mb-4">
-            <div className="text-2xl font-bold text-caixa-blue mb-1">
+          <div className="mb-3 md:mb-4">
+            <div className="text-xl md:text-2xl font-bold text-caixa-blue mb-1">
               {formatCurrency(property.price)}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-xs md:text-sm text-gray-500">
               <span className="line-through">Avaliação: {formatCurrency(property.evaluation)}</span>
               {discount > 0 && (
-                <span className="ml-2 text-green-600 font-semibold">
+                <div className="md:inline md:ml-2 text-green-600 font-semibold text-xs md:text-sm">
                   Economia de {formatCurrency(property.evaluation - property.price)}
-                </span>
+                </div>
               )}
             </div>
           </div>
           
-          <div className="grid grid-cols-3 gap-3 text-sm text-gray-600 mb-4 py-3 bg-gray-50 rounded-lg">
+          <div className="grid grid-cols-3 gap-2 md:gap-3 text-xs md:text-sm text-gray-600 mb-3 md:mb-4 py-2 md:py-3 bg-gray-50 rounded-lg">
             <div className="flex items-center justify-center">
-              <Bed className="w-4 h-4 mr-1 text-caixa-blue" />
+              <Bed className="w-3 h-3 md:w-4 md:h-4 mr-1 text-caixa-blue" />
               <span className="font-medium">{property.bedrooms}</span>
             </div>
             <div className="flex items-center justify-center border-x border-gray-200">
-              <Bath className="w-4 h-4 mr-1 text-caixa-blue" />
+              <Bath className="w-3 h-3 md:w-4 md:h-4 mr-1 text-caixa-blue" />
               <span className="font-medium">{property.bathrooms}</span>
             </div>
             <div className="flex items-center justify-center">
-              <Car className="w-4 h-4 mr-1 text-caixa-blue" />
+              <Car className="w-3 h-3 md:w-4 md:h-4 mr-1 text-caixa-blue" />
               <span className="font-medium">{property.parking}</span>
             </div>
           </div>
           
-          <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center justify-between text-xs md:text-sm">
             <div className="flex items-center text-gray-600">
-              <Calendar className="w-4 h-4 mr-2 text-caixa-orange" />
-              <span>{property.auctionDate}</span>
+              <Calendar className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-caixa-orange" />
+              <span className="text-xs md:text-sm">{property.auctionDate}</span>
             </div>
-            <span className="bg-caixa-orange text-white px-3 py-1 rounded-full text-xs font-semibold">
+            <span className="bg-caixa-orange text-white px-2 md:px-3 py-1 rounded-full text-xs font-semibold">
               Ver Detalhes
             </span>
           </div>

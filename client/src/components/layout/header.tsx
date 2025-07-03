@@ -7,13 +7,18 @@ export function Header() {
 
   return (
     <header className="caixa-header">
-      <div className="caixa-header-logo">
-        <Link href="/">
-          <img 
-            src={CAIXA_LOGO_URL} 
-            alt="Caixa Econômica Federal"
-          />
-        </Link>
+      <div className="caixa-header-left">
+        <button className="caixa-mobile-menu">
+          <Menu size={24} />
+        </button>
+        <div className="caixa-header-logo">
+          <Link href="/">
+            <img 
+              src={CAIXA_LOGO_URL} 
+              alt="Caixa Econômica Federal"
+            />
+          </Link>
+        </div>
       </div>
 
       <div className="caixa-header-nav">
@@ -50,12 +55,8 @@ export function Header() {
         
         <a href="#" className="caixa-account-btn">
           <User size={20} />
-          Minha Conta
+          <span>Minha Conta</span>
         </a>
-
-        <button className="caixa-mobile-menu">
-          <Menu size={24} />
-        </button>
       </div>
     </header>
   );
