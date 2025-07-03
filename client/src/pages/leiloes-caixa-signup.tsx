@@ -59,13 +59,7 @@ export default function LeiloesCaixaSignup() {
       
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4 max-w-4xl">
-          <button 
-            onClick={() => window.history.back()}
-            className="flex items-center text-caixa-blue hover:underline mb-6"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Voltar aos detalhes do imóvel
-          </button>
+          
 
           <div className="bg-white shadow-lg p-6 md:p-8" style={{borderRadius: '2px'}}>
             <div className="text-center mb-8">
