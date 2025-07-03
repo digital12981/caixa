@@ -57,6 +57,14 @@ export default function LeiloesCaixaSignup() {
       <section className="py-12">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
+            <div className="mb-8">
+              <img 
+                src="https://bombaparaiba.com.br/wp-content/uploads/2022/09/imoveis-caixa-1.jpg" 
+                alt="Imóveis Caixa Econômica Federal"
+                className="mx-auto w-full max-w-2xl h-auto shadow-lg"
+                style={{borderRadius: '2px'}}
+              />
+            </div>
             <h1 className="text-4xl font-bold text-caixa-blue mb-4">
               Programa Leilões Caixa
             </h1>
