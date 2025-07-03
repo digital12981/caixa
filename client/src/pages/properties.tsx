@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { PropertyCard } from "@/components/property-card";
@@ -7,90 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Property } from "@shared/schema";
 
-// Função para gerar propriedades fake baseadas na localização
-const generateFakeProperties = (city: string, state: string): Property[] => {
-  const baseProperties = [
-    {
-      id: 1,
-      title: `Casa Residencial de 3 Quartos - 200m² em ${city}`,
-      description: `Excelente casa residencial com área construída de 200m² em ${city}, ${state}. Imóvel com 3 quartos sendo 1 suíte, 4 banheiros completos, sala ampla, cozinha planejada, área de serviço e garagem para 2 carros.`,
-      price: 280000,
-      evaluation: 320000,
-      location: `Rua das Flores, 123 - ${city}/${state}`,
-      city: city,
-      state: state,
-      bedrooms: 3,
-      bathrooms: 4,
-      parking: 2,
-      type: "Casa",
-      images: ["https://img.olx.com.br/images/97/976592778481392.webp"],
-      auctionDate: "2025-02-15T10:00:00Z",
-      auctionNumber: "LLO001/2025",
-      available: true,
-    },
-    {
-      id: 2,
-      title: `Casa de 4 Quartos - 173m² em ${city}`,
-      description: `Ampla casa familiar com área construída de 173m² em ${city}, ${state}. Propriedade com 4 quartos sendo 2 suítes, 2 banheiros, sala de estar, sala de jantar, cozinha americana moderna, área gourmet, quintal espaçoso e garagem coberta para 2 carros.`,
-      price: 450000,
-      evaluation: 520000,
-      location: `Avenida Central, 456 - ${city}/${state}`,
-      city: city,
-      state: state,
-      bedrooms: 4,
-      bathrooms: 2,
-      parking: 2,
-      type: "Casa",
-      images: ["https://img.olx.com.br/images/23/233510424467668.webp"],
-      auctionDate: "2025-02-20T14:00:00Z",
-      auctionNumber: "LLO002/2025",
-      available: true,
-    },
-    {
-      id: 3,
-      title: `Casa Térrea - 190m² em ${city}`,
-      description: `Bela casa térrea com área construída de 190m² em ${city}, ${state}. 3 quartos sendo 1 suíte master, 2 banheiros, sala ampla com pé-direito alto, cozinha planejada, área gourmet com churrasqueira e jardim paisagístico.`,
-      price: 380000,
-      evaluation: 450000,
-      location: `Rua do Sol, 789 - ${city}/${state}`,
-      city: city,
-      state: state,
-      bedrooms: 3,
-      bathrooms: 2,
-      parking: 2,
-      type: "Casa",
-      images: ["https://img.olx.com.br/images/48/483483108848770.webp"],
-      auctionDate: "2025-02-25T10:30:00Z",
-      auctionNumber: "LLO003/2025",
-      available: true,
-    },
-    {
-      id: 4,
-      title: `Apartamento de 2 Quartos - 60m² em ${city}`,
-      description: `Moderno apartamento no coração da cidade com área útil de 60m² em ${city}, ${state}. 2 quartos com armários planejados, 2 banheiros completos, sala integrada com varanda, cozinha americana equipada, área de serviço e 1 vaga de garagem.`,
-      price: 180000,
-      evaluation: 220000,
-      location: `Edifício Central, Apto 801 - ${city}/${state}`,
-      city: city,
-      state: state,
-      bedrooms: 2,
-      bathrooms: 2,
-      parking: 1,
-      type: "Apartamento",
-      images: ["https://img.olx.com.br/images/97/974579631062270.webp"],
-      auctionDate: "2025-02-18T15:00:00Z",
-      auctionNumber: "LLO004/2025",
-      available: true,
-    },
-  ];
-
-  return baseProperties;
-};
-
 export default function Properties() {
   const [location, setLocation] = useLocation();
-  const [properties, setProperties] = useState<Property[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   
   // Usar window.location.search para capturar os parâmetros corretamente
   const urlParams = new URLSearchParams(window.location.search);
@@ -98,18 +16,11 @@ export default function Properties() {
   const state = urlParams.get('state') || '';
   const cep = urlParams.get('cep') || '';
 
-
-
-  useEffect(() => {
-    if (city && state) {
-      // Simula um pequeno delay de carregamento
-      setTimeout(() => {
-        const fakeProperties = generateFakeProperties(city, state);
-        setProperties(fakeProperties);
-        setIsLoading(false);
-      }, 1000);
-    }
-  }, [city, state]);
+  // Buscar propriedades da API usando o estado
+  const { data: properties = [], isLoading } = useQuery<Property[]>({
+    queryKey: ['/api/properties/state', state],
+    enabled: !!state,
+  });
 
   if (!city || !state) {
     return (
@@ -149,50 +60,42 @@ export default function Properties() {
                 </p>
               )}
             </div>
-            <Button
-              variant="secondary"
+            <Button 
               onClick={() => setLocation('/state-selection')}
-              className="bg-gray-500 text-white hover:bg-gray-600"
+              variant="outline"
             >
-              Novo CEP
+              Buscar em Outra Localização
             </Button>
           </div>
 
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="bg-white border border-gray-200 rounded-lg shadow-md">
-                  <Skeleton className="w-full h-48 rounded-t-lg" />
-                  <div className="p-4 md:p-6 space-y-3 md:space-y-4">
-                    <Skeleton className="h-4 w-3/4" />
-                    <Skeleton className="h-4 w-1/2" />
-                    <Skeleton className="h-6 w-1/3" />
-                    <div className="grid grid-cols-3 gap-3 md:gap-4">
-                      <Skeleton className="h-4 w-full" />
-                      <Skeleton className="h-4 w-full" />
-                      <Skeleton className="h-4 w-full" />
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="bg-white rounded-lg shadow-md p-6">
+                  <Skeleton className="h-48 w-full mb-4" />
+                  <Skeleton className="h-6 w-3/4 mb-2" />
+                  <Skeleton className="h-4 w-1/2 mb-4" />
+                  <Skeleton className="h-8 w-full" />
                 </div>
               ))}
             </div>
-          ) : properties && properties.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {properties.map((property) => (
-                <PropertyCard key={property.id} property={property} />
-              ))}
-            </div>
-          ) : (
+          ) : properties.length === 0 ? (
             <div className="text-center py-12">
               <h3 className="text-xl font-semibold text-gray-600 mb-4">
-                Nenhum imóvel encontrado
+                Nenhum imóvel encontrado nesta região
               </h3>
               <p className="text-gray-500 mb-6">
-                Não há imóveis disponíveis para leilão no estado selecionado no momento.
+                Infelizmente não temos imóveis disponíveis em {city}, {state} no momento.
               </p>
               <Button onClick={() => setLocation('/state-selection')}>
-                Escolher Outro Estado
+                Buscar em Outra Localização
               </Button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {properties.map((property: Property) => (
+                <PropertyCard key={property.id} property={property} />
+              ))}
             </div>
           )}
         </div>

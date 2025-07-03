@@ -118,6 +118,13 @@ Changelog:
   * Applied consistent 2px border radius across all UI components
   * Enhanced property detail pages with comprehensive information and image galleries
   * Synchronized property data between storage backend and detail page frontend
+- July 03, 2025: Price structure and display update
+  * Updated property prices: R$ 99.800, R$ 110.900, R$ 115.000, R$ 89.000
+  * Reduced evaluation values proportionally for better pricing realism
+  * Changed price display to show installment values (price ÷ 120) as main emphasis
+  * Removed discount/economy calculations and badges for cleaner interface
+  * Properties page now uses real API data instead of hardcoded fake properties
+  * Implemented TanStack Query for proper data fetching from backend
 ```
 
 ## User Preferences
