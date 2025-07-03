@@ -51,40 +51,37 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-lg shadow-lg border-l-4 border-caixa-yellow hover:shadow-xl transition-shadow">
-              <div className="bg-gradient-to-br from-caixa-blue to-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Search className="w-10 h-10" />
+            <div className="text-left p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-[#EEF4F5] p-6 mb-4" style={{ borderRadius: '2px' }}>
+                <h3 className="text-2xl mb-4" style={{ fontFamily: "'CAIXA Std Book'", color: 'var(--caixa-subtitle)' }}>
+                  <span className="font-bold" style={{ color: 'var(--caixa-orange)' }}>1.</span> Busque Imóveis
+                </h3>
+                <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
+                  Encontre imóveis disponíveis por estado e cidade, com informações detalhadas, fotos e valores atualizados
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold'", color: 'var(--caixa-subtitle)' }}>
-                1. Busque Imóveis
-              </h3>
-              <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
-                Encontre imóveis disponíveis por estado e cidade, com informações detalhadas, fotos e valores atualizados
-              </p>
             </div>
             
-            <div className="text-center p-8 bg-white rounded-lg shadow-lg border-l-4 border-caixa-orange hover:shadow-xl transition-shadow">
-              <div className="bg-gradient-to-br from-caixa-orange to-orange-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <FileText className="w-10 h-10" />
+            <div className="text-left p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-[#EEF4F5] p-6 mb-4" style={{ borderRadius: '2px' }}>
+                <h3 className="text-2xl mb-4" style={{ fontFamily: "'CAIXA Std Book'", color: 'var(--caixa-subtitle)' }}>
+                  <span className="font-bold" style={{ color: 'var(--caixa-orange)' }}>2.</span> Analise Documentos
+                </h3>
+                <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
+                  Acesse toda documentação necessária e editais para tomada de decisão informada e segura
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold'", color: 'var(--caixa-subtitle)' }}>
-                2. Analise Documentos
-              </h3>
-              <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
-                Acesse toda documentação necessária e editais para tomada de decisão informada e segura
-              </p>
             </div>
             
-            <div className="text-center p-8 bg-white rounded-lg shadow-lg border-l-4 border-green-500 hover:shadow-xl transition-shadow">
-              <div className="bg-gradient-to-br from-green-500 to-green-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Gavel className="w-10 h-10" />
+            <div className="text-left p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-[#EEF4F5] p-6 mb-4" style={{ borderRadius: '2px' }}>
+                <h3 className="text-2xl mb-4" style={{ fontFamily: "'CAIXA Std Book'", color: 'var(--caixa-subtitle)' }}>
+                  <span className="font-bold" style={{ color: 'var(--caixa-orange)' }}>3.</span> Participe do Leilão
+                </h3>
+                <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
+                  Faça seus lances de forma segura através da plataforma oficial da Caixa Econômica Federal
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold'", color: 'var(--caixa-subtitle)' }}>
-                3. Participe do Leilão
-              </h3>
-              <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
-                Faça seus lances de forma segura através da plataforma oficial da Caixa Econômica Federal
-              </p>
             </div>
           </div>
         </div>
