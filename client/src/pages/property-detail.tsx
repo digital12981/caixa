@@ -361,6 +361,21 @@ export default function PropertyDetail() {
           </div>
           
           <div className="mt-12">
+            <div className="bg-orange-50 border border-orange-200 p-6 mb-6" style={{borderRadius: '2px'}}>
+              <h4 className="text-lg font-semibold text-orange-800 mb-3">
+                Por que este imóvel está à venda pela Caixa?
+              </h4>
+              <p className="text-orange-700 leading-relaxed text-sm mb-3">
+                Este imóvel está disponível porque o proprietário anterior adquiriu o imóvel através de um financiamento habitacional da Caixa, 
+                mas acabou atrasando as parcelas e não conseguiu quitar a dívida. Por essa razão, o imóvel foi devolvido voluntariamente à Caixa 
+                e agora está sendo oferecido em leilão.
+              </p>
+              <p className="text-orange-700 leading-relaxed text-sm font-medium">
+                <strong>Garantia para você:</strong> Ao adquirir este imóvel, ele será entregue completamente livre de qualquer dívida de IPTU, 
+                financiamento ou outros débitos, com toda a documentação regularizada e completa.
+              </p>
+            </div>
+            
             <h3 className="text-2xl font-bold mb-6">Descrição do Imóvel</h3>
             <div className="bg-white p-6 shadow-lg" style={{borderRadius: '2px'}}>
               <p className="text-gray-700 leading-relaxed">{property.description}</p>
