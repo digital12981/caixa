@@ -23,13 +23,7 @@ export default function StateSelection() {
     setLocation(`/properties?state=${selectedState}`);
   };
 
-  const popularStates = [
-    { code: "SP", name: "São Paulo" },
-    { code: "RJ", name: "Rio de Janeiro" },
-    { code: "MG", name: "Minas Gerais" },
-    { code: "RS", name: "Rio Grande do Sul" },
-    { code: "PR", name: "Paraná" },
-  ];
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -80,26 +74,7 @@ export default function StateSelection() {
             </div>
           </div>
 
-          {/* Quick State Selection */}
-          <div className="mt-12">
-            <h3 className="text-xl font-semibold text-center mb-6" style={{ fontFamily: "'CAIXA Std Bold', 'Inter', sans-serif" }}>
-              Ou escolha diretamente:
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
-              {popularStates.map((state) => (
-                <button
-                  key={state.code}
-                  onClick={() => handleStateSelection(state.code)}
-                  className="p-3 md:p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-caixa-blue hover:bg-blue-50 transition-all shadow-sm hover:shadow-md active:scale-95"
-                >
-                  <div className="text-center">
-                    <div className="font-bold text-caixa-blue text-lg">{state.code}</div>
-                    <div className="text-xs md:text-sm text-gray-600 mt-1">{state.name}</div>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
+
         </div>
       </section>
       
