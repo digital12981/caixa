@@ -109,7 +109,7 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
   return (
     <div className="space-y-4">
       <div>
-        <Label htmlFor="cpf" className="text-sm font-medium text-gray-700">
+        <Label htmlFor="cpf" className="text-sm font-medium text-white">
           CPF
         </Label>
         <Input
@@ -141,7 +141,6 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
           <p className="text-sm text-red-600 mt-1">{error}</p>
         )}
       </div>
-
       <Button 
         onClick={handleCPFVerification}
         disabled={isVerifying || cpf.length < 14}
@@ -356,7 +355,6 @@ export default function PropertyDetail() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
@@ -524,10 +522,10 @@ export default function PropertyDetail() {
             </div>
             
             <div className="mt-8 p-6" style={{backgroundColor: '#EEF4F5', borderRadius: '2px'}}>
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">
+              <h4 className="text-lg font-semibold text-white mb-4">
                 Verificação de Financiamento
               </h4>
-              <p className="text-gray-700 mb-4 text-sm">
+              <p className="text-white mb-4 text-sm">
                 Informe seu CPF para verificar se a Caixa aprova o financiamento de 100% do valor do imóvel para você.
               </p>
               
@@ -536,7 +534,6 @@ export default function PropertyDetail() {
           </div>
         </div>
       </section>
-      
       <Footer />
     </div>
   );
