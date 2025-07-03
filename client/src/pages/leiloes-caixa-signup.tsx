@@ -62,7 +62,7 @@ export default function LeiloesCaixaSignup() {
                 src="https://bombaparaiba.com.br/wp-content/uploads/2022/09/imoveis-caixa-1.jpg" 
                 alt="Imóveis Caixa Econômica Federal"
                 className="mx-auto h-auto shadow-lg"
-                style={{borderRadius: '2px', width: '300px'}}
+                style={{borderRadius: '2px', width: '250px'}}
               />
             </div>
             <h1 className="text-4xl font-bold text-caixa-blue mb-4">
