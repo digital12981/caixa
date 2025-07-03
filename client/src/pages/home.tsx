@@ -44,8 +44,8 @@ export default function Home() {
       <section id="como-funciona" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-caixa-text mb-4" style={{ fontFamily: "'CAIXA Std Bold'" }}>Como Funciona</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold'", color: 'var(--caixa-subtitle)' }}>Como Funciona</h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--caixa-body-text)' }}>
               Processo transparente e seguro para aquisição de imóveis através de leilões oficiais
             </p>
           </div>
@@ -55,10 +55,10 @@ export default function Home() {
               <div className="bg-gradient-to-br from-caixa-blue to-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Search className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold'" }}>
+              <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold'", color: 'var(--caixa-subtitle)' }}>
                 1. Busque Imóveis
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
                 Encontre imóveis disponíveis por estado e cidade, com informações detalhadas, fotos e valores atualizados
               </p>
             </div>
@@ -67,10 +67,10 @@ export default function Home() {
               <div className="bg-gradient-to-br from-caixa-orange to-orange-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <FileText className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold'" }}>
+              <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold'", color: 'var(--caixa-subtitle)' }}>
                 2. Analise Documentos
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
                 Acesse toda documentação necessária e editais para tomada de decisão informada e segura
               </p>
             </div>
@@ -79,10 +79,10 @@ export default function Home() {
               <div className="bg-gradient-to-br from-green-500 to-green-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Gavel className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-caixa-text" style={{ fontFamily: "'CAIXA Std Bold'" }}>
+              <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold'", color: 'var(--caixa-subtitle)' }}>
                 3. Participe do Leilão
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
                 Faça seus lances de forma segura através da plataforma oficial da Caixa Econômica Federal
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function Home() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "'CAIXA Std Bold'", color: 'var(--caixa-subtitle)' }}>
               Vantagens dos Leilões Caixa
             </h2>
           </div>
@@ -102,32 +102,32 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <Percent className="text-caixa-blue w-12 h-12 mb-4" />
-              <h4 className="font-semibold mb-2">Preços Competitivos</h4>
-              <p className="text-gray-600 text-sm">
+              <h4 className="font-semibold mb-2" style={{ color: 'var(--caixa-subtitle)' }}>Preços Competitivos</h4>
+              <p className="text-sm" style={{ color: 'var(--caixa-body-text)' }}>
                 Imóveis com valores abaixo do mercado
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
               <Shield className="text-caixa-blue w-12 h-12 mb-4" />
-              <h4 className="font-semibold mb-2">Segurança Jurídica</h4>
-              <p className="text-gray-600 text-sm">
+              <h4 className="font-semibold mb-2" style={{ color: 'var(--caixa-subtitle)' }}>Segurança Jurídica</h4>
+              <p className="text-sm" style={{ color: 'var(--caixa-body-text)' }}>
                 Processo transparente e regulamentado
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
               <CreditCard className="text-caixa-blue w-12 h-12 mb-4" />
-              <h4 className="font-semibold mb-2">Financiamento</h4>
-              <p className="text-gray-600 text-sm">
+              <h4 className="font-semibold mb-2" style={{ color: 'var(--caixa-subtitle)' }}>Financiamento</h4>
+              <p className="text-sm" style={{ color: 'var(--caixa-body-text)' }}>
                 Condições especiais de financiamento
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
               <HomeIcon className="text-caixa-blue w-12 h-12 mb-4" />
-              <h4 className="font-semibold mb-2">Variedade</h4>
-              <p className="text-gray-600 text-sm">
+              <h4 className="font-semibold mb-2" style={{ color: 'var(--caixa-subtitle)' }}>Variedade</h4>
+              <p className="text-sm" style={{ color: 'var(--caixa-body-text)' }}>
                 Casas, apartamentos e terrenos
               </p>
             </div>

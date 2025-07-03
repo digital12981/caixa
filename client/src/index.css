@@ -116,6 +116,8 @@
   --caixa-yellow: #F9B200;
   --caixa-text: #1f2a47;
   --caixa-text-light: #006bae;
+  --caixa-body-text: #4C556C;
+  --caixa-subtitle: #0066b3;
 }
 
 .dark {
@@ -152,7 +154,7 @@
   body {
     @apply antialiased bg-background text-foreground;
     font-family: 'CAIXA Std Book';
-    color: var(--caixa-text);
+    color: var(--caixa-body-text);
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -165,7 +167,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'CAIXA Std Bold';
     font-weight: 700;
-    color: var(--caixa-text);
+    color: var(--caixa-subtitle);
     line-height: 1.2;
     margin-top: 0;
     letter-spacing: -0.02em;
