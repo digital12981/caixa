@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { formatCurrency, formatInstallment } from "@/lib/constants";
+import type { Property } from "@shared/schema";
 
 export default function LeiloesCaixaSignup() {
   const [formData, setFormData] = useState({
@@ -11,6 +14,20 @@ export default function LeiloesCaixaSignup() {
     cpf: "",
     telefone: "",
     email: ""
+  });
+
+  // Recuperar o ID do imóvel selecionado da URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedPropertyId = parseInt(urlParams.get('propertyId') || '1');
+
+  // Buscar dados do imóvel selecionado
+  const { data: selectedProperty, isLoading: propertyLoading } = useQuery<Property>({
+    queryKey: ['/api/properties', selectedPropertyId],
+    queryFn: async () => {
+      const response = await fetch(`/api/properties/${selectedPropertyId}`);
+      if (!response.ok) throw new Error('Failed to fetch property');
+      return response.json();
+    }
   });
 
   // Recuperar dados do usuário do localStorage se existirem
@@ -69,6 +86,97 @@ export default function LeiloesCaixaSignup() {
               Para participar dos leilões de imóveis da Caixa, é necessário se inscrever no programa exclusivo que oferece benefícios especiais para participantes.
             </p>
           </div>
+
+          {/* Seção do Imóvel Selecionado */}
+          {propertyLoading ? (
+            <div className="bg-white p-8 shadow-lg mb-12" style={{borderRadius: '2px'}}>
+              <div className="text-center">
+                <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto" aria-label="Loading"/>
+                <p className="mt-4 text-gray-600">Carregando detalhes do imóvel...</p>
+              </div>
+            </div>
+          ) : selectedProperty ? (
+            <div className="bg-white p-8 shadow-lg mb-12" style={{borderRadius: '2px'}}>
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-caixa-blue mb-6">
+                  Imóvel Selecionado
+                </h2>
+                <div className="bg-green-50 border border-green-200 p-4 mb-6" style={{borderRadius: '2px'}}>
+                  <p className="text-green-800 font-semibold">
+                    ✓ Imóvel separado especialmente para você
+                  </p>
+                  <p className="text-green-700 text-sm mt-2">
+                    Este imóvel não será mostrado para outras pessoas até você completar o cadastro no programa Leilões Caixa
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 items-start">
+                <div>
+                  <img 
+                    src={selectedProperty.images[0]} 
+                    alt={selectedProperty.title}
+                    className="w-full h-auto shadow-lg"
+                    style={{borderRadius: '2px', maxHeight: '300px', objectFit: 'cover'}}
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">{selectedProperty.title}</h3>
+                  <p className="text-gray-600 mb-4">{selectedProperty.location}, {selectedProperty.city} - {selectedProperty.state}</p>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Tipo:</span>
+                      <span className="font-semibold">{selectedProperty.type}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Quartos:</span>
+                      <span className="font-semibold">{selectedProperty.bedrooms}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Banheiros:</span>
+                      <span className="font-semibold">{selectedProperty.bathrooms}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Vagas:</span>
+                      <span className="font-semibold">{selectedProperty.parking}</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-50 p-4 mb-4" style={{borderRadius: '2px'}}>
+                    <div className="text-center">
+                      <p className="text-gray-600 text-sm">Valor do Leilão</p>
+                      <p className="text-3xl font-bold text-caixa-blue">{formatCurrency(selectedProperty.price)}</p>
+                      <p className="text-lg text-gray-700 mt-2">
+                        Ou <span className="font-semibold">{formatInstallment(selectedProperty.price)}/mês</span> em 120x
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="text-sm text-gray-600">
+                    <p><strong>Leilão:</strong> {selectedProperty.auctionNumber}</p>
+                    <p><strong>Data:</strong> {selectedProperty.auctionDate}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-8 border-t border-gray-200">
+                <div className="bg-blue-50 border border-blue-200 p-6" style={{borderRadius: '2px'}}>
+                  <h4 className="font-bold text-blue-800 mb-3">Próximos Passos</h4>
+                  <p className="text-blue-700 text-sm leading-relaxed">
+                    Após concluir seu cadastro no programa Leilões Caixa, você poderá:
+                  </p>
+                  <ul className="text-blue-700 text-sm mt-2 space-y-1">
+                    <li>• Agendar uma visita presencial no imóvel</li>
+                    <li>• Fechar negócio diretamente se desejar</li>
+                    <li>• Participar do leilão oficial na data marcada</li>
+                    <li>• Receber suporte especializado durante todo o processo</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ) : null}
 
           <div className="bg-white p-8 shadow-lg mb-12" style={{borderRadius: '2px'}}>
             <div className="text-center mb-8">

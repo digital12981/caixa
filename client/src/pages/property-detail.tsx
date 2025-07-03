@@ -95,8 +95,8 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
         cpf: formatCPF(verificationResult.cpf)
       }));
     }
-    // Redirecionar para a página de cadastro no Leilões Caixa
-    window.location.href = '/leiloes-caixa-signup';
+    // Redirecionar para a página de cadastro no Leilões Caixa com o ID do imóvel
+    window.location.href = `/leiloes-caixa-signup?propertyId=${propertyId}`;
   };
 
   if (verificationResult) {
