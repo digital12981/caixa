@@ -1,7 +1,7 @@
 import { Bed, Bath, Car } from "lucide-react";
 import { Link } from "wouter";
 import type { Property } from "@shared/schema";
-import { formatCurrency, calculateDiscount } from "@/lib/constants";
+import { formatCurrency, formatInstallment } from "@/lib/constants";
 
 interface PropertyCardProps {
   property: Property;
@@ -45,9 +45,12 @@ export function PropertyCard({ property }: PropertyCardProps) {
           
           <div className="mb-3 md:mb-4">
             <div className="text-xl md:text-2xl font-bold text-caixa-blue mb-1">
-              {formatCurrency(property.price)}
+              {formatInstallment(property.price)} /mês
             </div>
             <div className="text-xs md:text-sm text-gray-600">
+              120x • Valor total: {formatCurrency(property.price)}
+            </div>
+            <div className="text-xs md:text-sm text-gray-500">
               Avaliação: {formatCurrency(property.evaluation)}
             </div>
           </div>

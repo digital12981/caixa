@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { formatCurrency, calculateDiscount } from "@/lib/constants";
+import { formatCurrency, formatInstallment } from "@/lib/constants";
 import type { Property } from "@shared/schema";
 
 // Função para obter os dados completos das propriedades fake
@@ -15,8 +15,8 @@ const getPropertyData = (id: number): Property | null => {
       id: 1,
       title: "Casa Residencial de 3 Quartos - 200m²",
       description: "Excelente casa residencial com área construída de 200m². Imóvel com 3 quartos sendo 1 suíte, 4 banheiros completos, sala ampla, cozinha planejada, área de serviço e garagem para 2 carros. Localizada em bairro nobre, próxima a escolas, supermercados e transporte público. Casa em ótimo estado de conservação, pronta para morar.",
-      price: 280000,
-      evaluation: 320000,
+      price: 99800,
+      evaluation: 150000,
       location: "Rua das Flores, 123 - Centro",
       city: "São Paulo",
       state: "SP",
@@ -43,8 +43,8 @@ const getPropertyData = (id: number): Property | null => {
       id: 2,
       title: "Casa de 4 Quartos - 173m²",
       description: "Ampla casa familiar com área construída de 173m². Propriedade com 4 quartos sendo 2 suítes, 2 banheiros, sala de estar, sala de jantar, cozinha americana moderna, área gourmet, quintal espaçoso e garagem coberta para 2 carros. Ideal para famílias que buscam conforto e qualidade de vida.",
-      price: 450000,
-      evaluation: 520000,
+      price: 110900,
+      evaluation: 170000,
       location: "Avenida Central, 456 - Jardim América",
       city: "São Paulo",
       state: "SP",
@@ -70,8 +70,8 @@ const getPropertyData = (id: number): Property | null => {
       id: 3,
       title: "Casa Térrea - 190m²",
       description: "Bela casa térrea com área construída de 190m². 3 quartos sendo 1 suíte master, 2 banheiros, sala ampla com pé-direito alto, cozinha planejada, área gourmet com churrasqueira e jardim paisagístico. Garagem para 2 carros. Acabamentos de primeira qualidade e localização privilegiada.",
-      price: 380000,
-      evaluation: 450000,
+      price: 115000,
+      evaluation: 175000,
       location: "Rua do Sol, 789 - Vila Nova",
       city: "São Paulo",
       state: "SP",
@@ -95,8 +95,8 @@ const getPropertyData = (id: number): Property | null => {
       id: 4,
       title: "Apartamento de 2 Quartos - 60m²",
       description: "Moderno apartamento no coração da cidade com área útil de 60m². 2 quartos com armários planejados, 2 banheiros completos, sala integrada com varanda, cozinha americana equipada, área de serviço e 1 vaga de garagem. Edifício com portaria 24h, elevador e área de lazer. Localização estratégica com fácil acesso a transporte público.",
-      price: 180000,
-      evaluation: 220000,
+      price: 89000,
+      evaluation: 130000,
       location: "Edifício Central, Apto 801 - Centro",
       city: "São Paulo",
       state: "SP",
@@ -298,9 +298,12 @@ export default function PropertyDetail() {
                 
                 <div className="bg-gray-50 p-4 mb-6" style={{borderRadius: '2px'}}>
                   <div className="text-3xl font-bold text-caixa-blue mb-2">
-                    {formatCurrency(property.price)}
+                    {formatInstallment(property.price)} /mês
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-gray-600 mb-1">
+                    120x • Valor total: {formatCurrency(property.price)}
+                  </div>
+                  <div className="text-sm text-gray-500">
                     Avaliação: {formatCurrency(property.evaluation)}
                   </div>
                 </div>

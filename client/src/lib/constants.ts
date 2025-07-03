@@ -40,3 +40,11 @@ export const formatCurrency = (value: number): string => {
 export const calculateDiscount = (price: number, evaluation: number): number => {
   return Math.round((1 - price / evaluation) * 100);
 };
+
+export const formatInstallment = (price: number, installments: number = 120): string => {
+  const installmentValue = price / installments;
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(installmentValue);
+};
