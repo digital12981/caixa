@@ -112,12 +112,14 @@ export default function Properties() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   
-  const urlParams = new URLSearchParams(location.split('?')[1] || '');
+  // Usar window.location.search para capturar os parâmetros corretamente
+  const urlParams = new URLSearchParams(window.location.search);
   const city = urlParams.get('city') || '';
   const state = urlParams.get('state') || '';
   const cep = urlParams.get('cep') || '';
 
   console.log('Location atual:', location);
+  console.log('Window location search:', window.location.search);
   console.log('URL Params:', urlParams.toString());
   console.log('City:', city, 'State:', state, 'CEP:', cep);
 
