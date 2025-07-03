@@ -33,6 +33,17 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
     return cpfValue.replace(/\D/g, '');
   };
 
+  const formatCPF = (cpfValue: string) => {
+    const cleaned = cpfValue.replace(/\D/g, '');
+    return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+  };
+
+  const formatDate = (dateString: string) => {
+    // Remove the time part and convert to dd/mm/yyyy
+    const date = new Date(dateString);
+    return date.toLocaleDateString('pt-BR');
+  };
+
   const handleCPFVerification = async () => {
     if (cpf.length < 14) {
       setError("Por favor, digite um CPF válido");
@@ -87,8 +98,8 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
           <h5 className="font-semibold text-white mb-2">✅ Financiamento Aprovado!</h5>
           <div className="text-sm text-white space-y-1">
             <p><strong>Nome:</strong> {verificationResult.nome}</p>
-            <p><strong>CPF:</strong> {verificationResult.cpf}</p>
-            <p><strong>Data de Nascimento:</strong> {verificationResult.data_nascimento}</p>
+            <p><strong>CPF:</strong> {formatCPF(verificationResult.cpf)}</p>
+            <p><strong>Data de Nascimento:</strong> {formatDate(verificationResult.data_nascimento)}</p>
           </div>
           <p className="text-sm text-white mt-3 font-medium">
             A Caixa aprovou o financiamento de 100% do valor do imóvel sem entrada para você!
