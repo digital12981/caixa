@@ -88,7 +88,15 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
   };
 
   const handleBuyProperty = () => {
-    alert("Redirecionando para finalização da compra...");
+    // Salvar dados do usuário no localStorage
+    if (verificationResult) {
+      localStorage.setItem('userData', JSON.stringify({
+        nome: verificationResult.nome,
+        cpf: formatCPF(verificationResult.cpf)
+      }));
+    }
+    // Redirecionar para a página de cadastro no Leilões Caixa
+    window.location.href = '/leiloes-caixa-signup';
   };
 
   if (verificationResult) {

@@ -8,6 +8,7 @@ import Home from "@/pages/home";
 import StateSelection from "@/pages/state-selection";
 import Properties from "@/pages/properties";
 import PropertyDetail from "@/pages/property-detail";
+import LeiloesCaixaSignup from "@/pages/leiloes-caixa-signup";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/state-selection" component={StateSelection} />
       <Route path="/properties" component={Properties} />
       <Route path="/property/:id" component={PropertyDetail} />
+      <Route path="/leiloes-caixa-signup" component={LeiloesCaixaSignup} />
       <Route component={NotFound} />
     </Switch>
   );
