@@ -8,9 +8,6 @@ export function Header() {
   return (
     <header className="caixa-header">
       <div className="caixa-header-left">
-        <button className="caixa-mobile-menu">
-          <Menu size={24} />
-        </button>
         <div className="caixa-header-logo">
           <Link href="/">
             <img 
@@ -57,6 +54,10 @@ export function Header() {
           <User size={20} />
           <span>Minha Conta</span>
         </a>
+        
+        <button className="caixa-mobile-menu">
+          <Menu size={24} />
+        </button>
       </div>
     </header>
   );

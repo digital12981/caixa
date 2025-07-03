@@ -401,7 +401,7 @@
     }
     
     .caixa-header-actions {
-      gap: 0;
+      gap: 10px;
     }
 
     .caixa-search-box {
