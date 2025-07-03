@@ -111,6 +111,13 @@ Changelog:
   * Footer simplified to show only essential contact information and social media
   * Responsive design enhanced across all breakpoints
   * Property cards and page layouts optimized for mobile viewing
+- July 03, 2025: Property data update with real OLX images
+  * Reduced property count from 5 to 4 total properties (3 houses, 1 apartment)
+  * Updated all property images to use real OLX image URLs provided by user
+  * Updated property specifications with accurate area measurements and room counts
+  * Applied consistent 2px border radius across all UI components
+  * Enhanced property detail pages with comprehensive information and image galleries
+  * Synchronized property data between storage backend and detail page frontend
 ```
 
 ## User Preferences

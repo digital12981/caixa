@@ -29,82 +29,86 @@ export class MemStorage implements IStorage {
   private initializeProperties() {
     const sampleProperties: InsertProperty[] = [
       {
-        title: "Casa em Condomínio Fechado",
-        location: "Alphaville, Barueri - SP",
+        title: "Casa Residencial de 3 Quartos - 200m²",
+        location: "Rua das Flores, 123 - Centro",
         state: "SP",
-        city: "Barueri",
+        city: "São Paulo",
+        price: 280000,
+        evaluation: 320000,
+        type: "Casa",
+        bedrooms: 3,
+        bathrooms: 4,
+        parking: 2,
+        auctionDate: "15/02/2025",
+        auctionNumber: "LLO001/2025",
+        description: "Excelente casa residencial com área construída de 200m². Imóvel com 3 quartos sendo 1 suíte, 4 banheiros completos, sala ampla, cozinha planejada, área de serviço e garagem para 2 carros. Localizada em bairro nobre, próxima a escolas, supermercados e transporte público.",
+        images: [
+          "https://img.olx.com.br/images/97/976592778481392.webp",
+          "https://img.olx.com.br/images/97/979530653030789.webp",
+          "https://img.olx.com.br/images/97/978561292381133.webp"
+        ],
+        available: true
+      },
+      {
+        title: "Casa de 4 Quartos - 173m²",
+        location: "Avenida Central, 456 - Jardim América",
+        state: "SP",
+        city: "São Paulo",
         price: 450000,
-        evaluation: 580000,
+        evaluation: 520000,
+        type: "Casa",
+        bedrooms: 4,
+        bathrooms: 2,
+        parking: 2,
+        auctionDate: "20/02/2025",
+        auctionNumber: "LLO002/2025",
+        description: "Ampla casa familiar com área construída de 173m². Propriedade com 4 quartos sendo 2 suítes, 2 banheiros, sala de estar, sala de jantar, cozinha americana moderna, área gourmet, quintal espaçoso e garagem coberta para 2 carros.",
+        images: [
+          "https://img.olx.com.br/images/23/233510424467668.webp",
+          "https://img.olx.com.br/images/24/241579662489270.webp",
+          "https://img.olx.com.br/images/25/254535421386467.webp"
+        ],
+        available: true
+      },
+      {
+        title: "Casa Térrea - 190m²",
+        location: "Rua do Sol, 789 - Vila Nova",
+        state: "SP",
+        city: "São Paulo",
+        price: 380000,
+        evaluation: 450000,
         type: "Casa",
         bedrooms: 3,
         bathrooms: 2,
         parking: 2,
-        auctionDate: "15/12/2024",
-        auctionNumber: "2024001",
-        description: "Excelente casa em condomínio fechado com área de lazer completa, segurança 24h, e localização privilegiada próxima a shopping centers e escolas. Imóvel em bom estado de conservação com jardim e quintal.",
+        auctionDate: "25/02/2025",
+        auctionNumber: "LLO003/2025",
+        description: "Bela casa térrea com área construída de 190m². 3 quartos sendo 1 suíte master, 2 banheiros, sala ampla com pé-direito alto, cozinha planejada, área gourmet com churrasqueira e jardim paisagístico.",
         images: [
-          "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-          "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+          "https://img.olx.com.br/images/48/483483108848770.webp",
+          "https://img.olx.com.br/images/74/746410109574106.webp",
+          "https://img.olx.com.br/images/74/748473340204660.webp"
         ],
         available: true
       },
       {
-        title: "Apartamento Vista Mar",
-        location: "Copacabana, Rio de Janeiro - RJ",
-        state: "RJ",
-        city: "Rio de Janeiro",
-        price: 320000,
-        evaluation: 420000,
-        type: "Apartamento",
-        bedrooms: 2,
-        bathrooms: 1,
-        parking: 1,
-        auctionDate: "18/12/2024",
-        auctionNumber: "2024002",
-        description: "Apartamento com vista para o mar em Copacabana, uma das praias mais famosas do mundo. Localização privilegiada próximo a transporte público, comércio e pontos turísticos. Edifício com portaria 24h.",
-        images: [
-          "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-          "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-        ],
-        available: true
-      },
-      {
-        title: "Casa Térrea com Quintal",
-        location: "Vila Mariana, São Paulo - SP",
+        title: "Apartamento de 2 Quartos - 60m²",
+        location: "Edifício Central, Apto 801 - Centro",
         state: "SP",
         city: "São Paulo",
-        price: 280000,
-        evaluation: 350000,
-        type: "Casa",
-        bedrooms: 2,
-        bathrooms: 1,
-        parking: 1,
-        auctionDate: "20/12/2024",
-        auctionNumber: "2024003",
-        description: "Casa térrea em bairro nobre de São Paulo, próxima ao metrô e com fácil acesso ao centro da cidade. Imóvel com quintal amplo, ideal para famílias. Região com excelente infraestrutura urbana.",
-        images: [
-          "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-          "https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-        ],
-        available: true
-      },
-      {
-        title: "Apartamento com Sacada",
-        location: "Barra da Tijuca, Rio de Janeiro - RJ",
-        state: "RJ",
-        city: "Rio de Janeiro",
-        price: 380000,
-        evaluation: 480000,
+        price: 180000,
+        evaluation: 220000,
         type: "Apartamento",
-        bedrooms: 3,
+        bedrooms: 2,
         bathrooms: 2,
         parking: 1,
-        auctionDate: "22/12/2024",
-        auctionNumber: "2024004",
-        description: "Apartamento moderno na Barra da Tijuca com sacada e vista panorâmica. Condomínio com área de lazer completa incluindo piscina, academia e salão de festas. Próximo a shopping centers e praias.",
+        auctionDate: "18/02/2025",
+        auctionNumber: "LLO004/2025",
+        description: "Moderno apartamento no coração da cidade com área útil de 60m². 2 quartos com armários planejados, 2 banheiros completos, sala integrada com varanda, cozinha americana equipada, área de serviço e 1 vaga de garagem.",
         images: [
-          "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+          "https://img.olx.com.br/images/97/974579631062270.webp",
+          "https://img.olx.com.br/images/97/972552275953944.webp",
+          "https://img.olx.com.br/images/97/971562397621873.webp"
         ],
         available: true
       }
