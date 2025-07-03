@@ -131,6 +131,14 @@ Changelog:
   * System now works for any CEP in Brazil, displaying consistent results
   * Updated messaging to indicate "leilões disponíveis em todo o Brasil"
   * Total of 8 properties across 3 major Brazilian cities (SP, DF, RJ)
+- July 03, 2025: CPF verification and Leilões Caixa signup system
+  * Added informational box explaining why properties are available from Caixa
+  * Implemented CPF verification system with external API integration
+  * Added 8-second analysis timer with real-time countdown
+  * Created complete "Leilões Caixa" signup page with program benefits
+  * Integrated data flow from CPF verification to signup form
+  * Updated styling to use official Caixa colors (#1964ad, #033c72)
+  * Added phone and email formatting with validation
 ```
 
 ## User Preferences

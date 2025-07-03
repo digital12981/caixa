@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "wouter";
-import { ArrowLeft } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
@@ -8,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function LeiloesCaixaSignup() {
-  const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
     nome: "",
     cpf: "",
@@ -54,101 +51,100 @@ export default function LeiloesCaixaSignup() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#F9FBFB]">
       <Header />
       
-      <section className="py-8 md:py-12">
-        <div className="container mx-auto px-4 max-w-4xl">
-          
+      <section className="py-12">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-caixa-blue mb-4">
+              Programa Leilões Caixa
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Para participar dos leilões de imóveis da Caixa, é necessário se inscrever no programa exclusivo que oferece benefícios especiais para participantes.
+            </p>
+          </div>
 
-          <div className="bg-white shadow-lg p-6 md:p-8" style={{borderRadius: '2px'}}>
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-caixa-blue mb-4">
-                Leilões Caixa
-              </h1>
-              <p className="text-lg text-gray-700">
-                Programa Exclusivo para Participação em Leilões Imobiliários
-              </p>
-            </div>
-
-            <div className="mb-8 p-6" style={{backgroundColor: '#f8f9fa', borderRadius: '2px'}}>
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                ⚠️ Importante: Inscrição Obrigatória
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white p-8 shadow-lg" style={{borderRadius: '2px'}}>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                Inscrição Obrigatória
               </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                O programa "Leilões Caixa" é um requisito obrigatório para participação em todos os leilões imobiliários da Caixa Econômica Federal.
+              </p>
               <p className="text-gray-700 leading-relaxed">
-                Para participar dos leilões de imóveis da Caixa Econômica Federal, é obrigatória a inscrição 
-                no programa <strong>"Leilões Caixa"</strong>. Este é um programa exclusivo que garante sua 
-                elegibilidade para participar de todos os leilões imobiliários da instituição.
+                Após a inscrição, você terá acesso completo ao sistema de leilões e poderá participar de todos os processos licitatórios disponíveis.
               </p>
             </div>
 
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-caixa-blue mb-6">
-                Benefícios Exclusivos do Programa
+            <div className="bg-white p-8 shadow-lg" style={{borderRadius: '2px'}}>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                Investimento Único
               </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="p-4 border border-gray-200" style={{borderRadius: '2px'}}>
-                  <h3 className="font-semibold text-gray-800 mb-2">📋 Documentação Facilitada</h3>
-                  <p className="text-sm text-gray-600">
-                    Emissão automática de toda documentação necessária para participação nos leilões
-                  </p>
-                </div>
-                <div className="p-4 border border-gray-200" style={{borderRadius: '2px'}}>
-                  <h3 className="font-semibold text-gray-800 mb-2">💰 Financiamento Preferencial</h3>
-                  <p className="text-sm text-gray-600">
-                    Aprovação facilitada em financiamentos Caixa com taxas especiais para participantes
-                  </p>
-                </div>
-                <div className="p-4 border border-gray-200" style={{borderRadius: '2px'}}>
-                  <h3 className="font-semibold text-gray-800 mb-2">🏠 Desconto no IPTU</h3>
-                  <p className="text-sm text-gray-600">
-                    Desconto de até 15% no IPTU do primeiro ano para imóveis adquiridos em leilão
-                  </p>
-                </div>
-                <div className="p-4 border border-gray-200" style={{borderRadius: '2px'}}>
-                  <h3 className="font-semibold text-gray-800 mb-2">💳 Linha de Crédito Especial</h3>
-                  <p className="text-sm text-gray-600">
-                    Acesso a empréstimos com juros reduzidos para reforma e adequação do imóvel
-                  </p>
-                </div>
-                <div className="p-4 border border-gray-200" style={{borderRadius: '2px'}}>
-                  <h3 className="font-semibold text-gray-800 mb-2">🔔 Notificações Prioritárias</h3>
-                  <p className="text-sm text-gray-600">
-                    Receba alertas exclusivos sobre novos leilões antes da divulgação pública
-                  </p>
-                </div>
-                <div className="p-4 border border-gray-200" style={{borderRadius: '2px'}}>
-                  <h3 className="font-semibold text-gray-800 mb-2">🏆 Suporte Especializado</h3>
-                  <p className="text-sm text-gray-600">
-                    Atendimento preferencial com especialistas em leilões imobiliários
-                  </p>
-                </div>
+              <div className="text-center mb-4">
+                <span className="text-4xl font-bold text-caixa-blue">R$ 64,90</span>
+                <p className="text-gray-600 mt-2">Taxa de inscrição única</p>
               </div>
+              <p className="text-gray-700 text-center">
+                Pagamento único que garante acesso vitalício ao programa com todos os benefícios inclusos, sem mensalidades.
+              </p>
             </div>
+          </div>
 
-            <div className="mb-8 p-6" style={{backgroundColor: '#1964ad', borderRadius: '2px'}}>
-              <h2 className="text-xl font-semibold text-white mb-4">
-                💎 Investimento Único - Benefícios Vitalícios
-              </h2>
-              <div className="text-white">
-                <p className="mb-3">
-                  <strong>Taxa de Inscrição:</strong> <span className="text-2xl font-bold">R$ 64,90</span>
+          <div className="bg-white p-8 shadow-lg mb-12" style={{borderRadius: '2px'}}>
+            <h2 className="text-2xl font-bold text-caixa-blue mb-8 text-center">
+              Benefícios Exclusivos do Programa
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Documentação Facilitada</h3>
+                <p className="text-gray-600 text-sm">
+                  Emissão automática de toda documentação necessária para participação nos leilões
                 </p>
-                <p className="text-sm">
-                  Pagamento único que garante acesso vitalício ao programa "Leilões Caixa" e todos os seus benefícios. 
-                  Sem mensalidades ou taxas adicionais.
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Financiamento Preferencial</h3>
+                <p className="text-gray-600 text-sm">
+                  Aprovação facilitada em financiamentos Caixa com taxas especiais para participantes
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Desconto no IPTU</h3>
+                <p className="text-gray-600 text-sm">
+                  Desconto de até 15% no IPTU do primeiro ano para imóveis adquiridos em leilão
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Linha de Crédito Especial</h3>
+                <p className="text-gray-600 text-sm">
+                  Acesso a empréstimos com juros reduzidos para reforma e adequação do imóvel
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Notificações Prioritárias</h3>
+                <p className="text-gray-600 text-sm">
+                  Receba alertas exclusivos sobre novos leilões antes da divulgação pública
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Suporte Especializado</h3>
+                <p className="text-gray-600 text-sm">
+                  Atendimento preferencial com especialistas em leilões imobiliários
                 </p>
               </div>
             </div>
+          </div>
 
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-caixa-blue mb-6">
-                Complete seu Cadastro
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-white p-8 shadow-lg" style={{borderRadius: '2px'}}>
+            <h2 className="text-2xl font-bold text-caixa-blue mb-8 text-center">
+              Complete sua Inscrição
+            </h2>
+            
+            <div className="max-w-2xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <Label htmlFor="nome" className="text-sm font-medium text-gray-700">
+                  <Label htmlFor="nome" className="text-sm font-medium text-gray-700 mb-2 block">
                     Nome Completo
                   </Label>
                   <Input
@@ -156,14 +152,15 @@ export default function LeiloesCaixaSignup() {
                     type="text"
                     value={formData.nome}
                     onChange={(e) => handleInputChange('nome', e.target.value)}
-                    className="mt-1"
+                    className="w-full bg-gray-100"
                     style={{borderRadius: '2px'}}
                     readOnly
+                    disabled
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="cpf" className="text-sm font-medium text-gray-700">
+                  <Label htmlFor="cpf" className="text-sm font-medium text-gray-700 mb-2 block">
                     CPF
                   </Label>
                   <Input
@@ -171,15 +168,16 @@ export default function LeiloesCaixaSignup() {
                     type="text"
                     value={formData.cpf}
                     onChange={(e) => handleInputChange('cpf', e.target.value)}
-                    className="mt-1"
+                    className="w-full bg-gray-100"
                     style={{borderRadius: '2px'}}
                     readOnly
+                    disabled
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="telefone" className="text-sm font-medium text-gray-700">
-                    Telefone / Celular
+                  <Label htmlFor="telefone" className="text-sm font-medium text-gray-700 mb-2 block">
+                    Telefone / Celular *
                   </Label>
                   <Input
                     id="telefone"
@@ -188,14 +186,15 @@ export default function LeiloesCaixaSignup() {
                     onChange={handlePhoneChange}
                     placeholder="(11) 99999-9999"
                     maxLength={15}
-                    className="mt-1"
+                    className="w-full"
                     style={{borderRadius: '2px'}}
+                    required
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="email" className="text-sm font-medium text-gray-700">
-                    E-mail
+                  <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2 block">
+                    E-mail *
                   </Label>
                   <Input
                     id="email"
@@ -203,25 +202,26 @@ export default function LeiloesCaixaSignup() {
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     placeholder="seu@email.com"
-                    className="mt-1"
+                    className="w-full"
                     style={{borderRadius: '2px'}}
+                    required
                   />
                 </div>
               </div>
-            </div>
 
-            <div className="text-center">
-              <Button 
-                onClick={handlePayment}
-                disabled={!formData.telefone || !formData.email}
-                className="btn px-8 py-3 text-lg font-semibold"
-                style={{borderRadius: '2px'}}
-              >
-                Pagar Taxa de Inscrição - R$ 64,90
-              </Button>
-              <p className="text-sm text-gray-600 mt-3">
-                Após o pagamento, você receberá o acesso imediato ao programa Leilões Caixa
-              </p>
+              <div className="text-center">
+                <Button 
+                  onClick={handlePayment}
+                  disabled={!formData.telefone || !formData.email}
+                  className="btn px-12 py-4 text-lg font-semibold"
+                  style={{borderRadius: '2px'}}
+                >
+                  Finalizar Inscrição - R$ 64,90
+                </Button>
+                <p className="text-sm text-gray-600 mt-4">
+                  Após o pagamento, você receberá acesso imediato ao programa Leilões Caixa
+                </p>
+              </div>
             </div>
           </div>
         </div>
