@@ -117,6 +117,10 @@ export default function Properties() {
   const state = urlParams.get('state') || '';
   const cep = urlParams.get('cep') || '';
 
+  console.log('Location atual:', location);
+  console.log('URL Params:', urlParams.toString());
+  console.log('City:', city, 'State:', state, 'CEP:', cep);
+
   useEffect(() => {
     if (city && state) {
       // Simula um pequeno delay de carregamento
