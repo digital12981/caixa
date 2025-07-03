@@ -125,6 +125,12 @@ Changelog:
   * Removed discount/economy calculations and badges for cleaner interface
   * Properties page now uses real API data instead of hardcoded fake properties
   * Implemented TanStack Query for proper data fetching from backend
+- July 03, 2025: Nationwide property availability
+  * Added properties for DF (Brasília) and RJ (Rio de Janeiro) states
+  * Modified properties page to show all available properties regardless of searched location
+  * System now works for any CEP in Brazil, displaying consistent results
+  * Updated messaging to indicate "leilões disponíveis em todo o Brasil"
+  * Total of 8 properties across 3 major Brazilian cities (SP, DF, RJ)
 ```
 
 ## User Preferences

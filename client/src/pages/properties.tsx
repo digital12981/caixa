@@ -16,10 +16,10 @@ export default function Properties() {
   const state = urlParams.get('state') || '';
   const cep = urlParams.get('cep') || '';
 
-  // Buscar propriedades da API usando o estado
+  // Buscar todas as propriedades disponíveis independente do estado
   const { data: properties = [], isLoading } = useQuery<Property[]>({
-    queryKey: ['/api/properties/state', state],
-    enabled: !!state,
+    queryKey: ['/api/properties'],
+    enabled: true,
   });
 
   if (!city || !state) {
@@ -52,13 +52,11 @@ export default function Properties() {
                 Imóveis Disponíveis
               </h2>
               <p className="text-lg text-gray-600">
-                {isLoading ? 'Carregando...' : `${properties.length} imóveis encontrados em ${city}, ${state}`}
+                {isLoading ? 'Carregando...' : `${properties.length} imóveis disponíveis em leilão`}
               </p>
-              {cep && (
-                <p className="text-sm text-gray-500">
-                  Resultados baseados no CEP: {cep}
-                </p>
-              )}
+              <p className="text-sm text-gray-500">
+                Leilões disponíveis em todo o Brasil • Localização pesquisada: {city}, {state}
+              </p>
             </div>
             <Button 
               onClick={() => setLocation('/state-selection')}
@@ -82,13 +80,13 @@ export default function Properties() {
           ) : properties.length === 0 ? (
             <div className="text-center py-12">
               <h3 className="text-xl font-semibold text-gray-600 mb-4">
-                Nenhum imóvel encontrado nesta região
+                Nenhum leilão disponível no momento
               </h3>
               <p className="text-gray-500 mb-6">
-                Infelizmente não temos imóveis disponíveis em {city}, {state} no momento.
+                Não há leilões ativos disponíveis. Tente novamente mais tarde.
               </p>
-              <Button onClick={() => setLocation('/state-selection')}>
-                Buscar em Outra Localização
+              <Button onClick={() => setLocation('/')}>
+                Voltar ao Início
               </Button>
             </div>
           ) : (
