@@ -1,4 +1,4 @@
-import { Bed, Bath, Car, Calendar } from "lucide-react";
+import { Bed, Bath, Car } from "lucide-react";
 import { Link } from "wouter";
 import type { Property } from "@shared/schema";
 import { formatCurrency, calculateDiscount } from "@/lib/constants";
@@ -12,7 +12,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
 
   return (
     <Link href={`/property/${property.id}`}>
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:transform hover:scale-[1.02] overflow-hidden">
+      <div className="bg-white border border-gray-200 rounded-sm shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:transform hover:scale-[1.02] overflow-hidden" style={{borderRadius: '2px'}}>
         <div className="relative">
           <img 
             src={property.images[0]} 
@@ -80,14 +80,10 @@ export function PropertyCard({ property }: PropertyCardProps) {
             </div>
           </div>
           
-          <div className="flex items-center justify-between text-xs md:text-sm">
-            <div className="flex items-center text-gray-600">
-              <Calendar className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-caixa-orange" />
-              <span className="text-xs md:text-sm">{property.auctionDate}</span>
-            </div>
-            <span className="bg-caixa-orange text-white px-2 md:px-3 py-1 rounded-full text-xs font-semibold">
+          <div className="flex justify-center mt-4">
+            <button className="bg-caixa-orange text-white px-6 py-3 text-sm font-semibold w-full hover:bg-orange-600 transition-colors duration-200" style={{borderRadius: '2px'}}>
               Ver Detalhes
-            </span>
+            </button>
           </div>
         </div>
       </div>

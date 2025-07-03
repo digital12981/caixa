@@ -92,9 +92,6 @@ export default function StateSelection() {
         cep: cep
       });
       
-      console.log('Dados do CEP:', cepData);
-      console.log('URL gerada:', `/properties?${searchParams.toString()}`);
-      
       setLocation(`/properties?${searchParams.toString()}`);
     } catch (error) {
       toast({

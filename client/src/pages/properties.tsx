@@ -118,10 +118,7 @@ export default function Properties() {
   const state = urlParams.get('state') || '';
   const cep = urlParams.get('cep') || '';
 
-  console.log('Location atual:', location);
-  console.log('Window location search:', window.location.search);
-  console.log('URL Params:', urlParams.toString());
-  console.log('City:', city, 'State:', state, 'CEP:', cep);
+
 
   useEffect(() => {
     if (city && state) {
