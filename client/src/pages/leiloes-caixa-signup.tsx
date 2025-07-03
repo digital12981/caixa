@@ -65,29 +65,16 @@ export default function LeiloesCaixaSignup() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white p-8 shadow-lg" style={{borderRadius: '2px'}}>
+          <div className="bg-white p-8 shadow-lg mb-12" style={{borderRadius: '2px'}}>
+            <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">
                 Inscrição Obrigatória
               </h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-gray-700 leading-relaxed mb-4 max-w-3xl mx-auto">
                 O programa "Leilões Caixa" é um requisito obrigatório para participação em todos os leilões imobiliários da Caixa Econômica Federal.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
                 Após a inscrição, você terá acesso completo ao sistema de leilões e poderá participar de todos os processos licitatórios disponíveis.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 shadow-lg" style={{borderRadius: '2px'}}>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                Investimento Único
-              </h2>
-              <div className="text-center mb-4">
-                <span className="text-4xl font-bold text-caixa-blue">R$ 64,90</span>
-                <p className="text-gray-600 mt-2">Taxa de inscrição única</p>
-              </div>
-              <p className="text-gray-700 text-center">
-                Pagamento único que garante acesso vitalício ao programa com todos os benefícios inclusos, sem mensalidades.
               </p>
             </div>
           </div>
@@ -96,7 +83,7 @@ export default function LeiloesCaixaSignup() {
             <h2 className="text-2xl font-bold text-caixa-blue mb-8 text-center">
               Benefícios Exclusivos do Programa
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
                 <h3 className="font-bold text-gray-800 mb-3">Documentação Facilitada</h3>
                 <p className="text-gray-600 text-sm">
@@ -131,6 +118,21 @@ export default function LeiloesCaixaSignup() {
                 <h3 className="font-bold text-gray-800 mb-3">Suporte Especializado</h3>
                 <p className="text-gray-600 text-sm">
                   Atendimento preferencial com especialistas em leilões imobiliários
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-200 pt-8">
+              <div className="text-center bg-gray-50 p-8" style={{borderRadius: '2px'}}>
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  Investimento Único
+                </h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-caixa-blue">R$ 64,90</span>
+                  <p className="text-gray-600 mt-2">Taxa de inscrição única</p>
+                </div>
+                <p className="text-gray-700">
+                  Pagamento único que garante acesso vitalício ao programa com todos os benefícios inclusos, sem mensalidades.
                 </p>
               </div>
             </div>
