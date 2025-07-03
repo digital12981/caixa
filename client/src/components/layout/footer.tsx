@@ -1,52 +1,112 @@
 import { CAIXA_LOGO_URL } from "@/lib/constants";
+import { Facebook, Instagram, Youtube, Twitter } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <img 
-              src={CAIXA_LOGO_URL} 
-              alt="Caixa" 
-              className="h-8 mb-4"
-            />
-            <p className="text-gray-300 text-sm">
-              Caixa Econômica Federal - Leilões de Imóveis
-            </p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-4">Navegação</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white">Início</a></li>
-              <li><a href="#" className="hover:text-white">Como Participar</a></li>
-              <li><a href="#" className="hover:text-white">Editais</a></li>
-              <li><a href="#" className="hover:text-white">Contato</a></li>
+    <footer id="rodape" className="bg-white">
+      <div className="content-rodape max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-5 gap-8">
+          {/* Primeira coluna */}
+          <div className="column-rodape">
+            <ul>
+              <li><a href="#" data-text="Leilões de Imóveis">Leilões de Imóveis</a></li>
+              <li><a href="#" data-text="Como Participar">Como Participar</a></li>
+              <li><a href="#" data-text="Editais">Editais</a></li>
+              <li><a href="#" data-text="Resultados">Resultados</a></li>
             </ul>
           </div>
           
-          <div>
-            <h4 className="font-semibold mb-4">Informações</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white">Regulamento</a></li>
-              <li><a href="#" className="hover:text-white">Documentação</a></li>
-              <li><a href="#" className="hover:text-white">FAQ</a></li>
-              <li><a href="#" className="hover:text-white">Suporte</a></li>
+          {/* Segunda coluna */}
+          <div className="column-rodape">
+            <ul>
+              <li><a href="#" data-text="Pessoa Física">Pessoa Física</a></li>
+              <li><a href="#" data-text="Pessoa Jurídica">Pessoa Jurídica</a></li>
+              <li><a href="#" data-text="Habitação">Habitação</a></li>
+              <li><a href="#" data-text="Investimentos">Investimentos</a></li>
             </ul>
           </div>
           
-          <div>
-            <h4 className="font-semibold mb-4">Contato</h4>
-            <p className="text-sm text-gray-300 mb-2">Central de Atendimento</p>
-            <p className="text-sm text-gray-300 mb-2">0800 726 0101</p>
-            <p className="text-sm text-gray-300">Segunda a sexta: 8h às 18h</p>
+          {/* Terceira coluna */}
+          <div className="column-rodape">
+            <ul>
+              <li><a href="#" data-text="Governo">Governo</a></li>
+              <li><a href="#" data-text="Empresas">Empresas</a></li>
+              <li><a href="#" data-text="Correspondentes">Correspondentes</a></li>
+              <li><a href="#" data-text="Imprensa">Imprensa</a></li>
+            </ul>
+          </div>
+          
+          {/* Quarta coluna */}
+          <div className="column-rodape">
+            <ul>
+              <li><a href="#" data-text="Sustentabilidade">Sustentabilidade</a></li>
+              <li><a href="#" data-text="Ouvidoria">Ouvidoria</a></li>
+              <li><a href="#" data-text="Transparência">Transparência</a></li>
+              <li><a href="#" data-text="Trabalhe Conosco">Trabalhe Conosco</a></li>
+            </ul>
+          </div>
+          
+          {/* Quinta coluna - Contato */}
+          <div className="column-rodape">
+            <p className="soft">Central de Atendimento</p>
+            <p className="telefone">0800 726 0101</p>
+            <p className="soft">Segunda a sexta: 8h às 18h</p>
+            <p className="soft">Sábados: 10h às 16h</p>
+            
+            <div className="redes-sociais mt-6">
+              <p className="soft mb-3">Redes Sociais</p>
+              <div className="flex gap-4">
+                <a href="#" className="icon-link">
+                  <Facebook className="icon w-5 h-5" />
+                </a>
+                <a href="#" className="icon-link">
+                  <Instagram className="icon w-5 h-5" />
+                </a>
+                <a href="#" className="icon-link">
+                  <Youtube className="icon w-5 h-5" />
+                </a>
+                <a href="#" className="icon-link">
+                  <Twitter className="icon w-5 h-5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div className="border-t border-gray-700 pt-8 mt-8 text-center text-sm text-gray-300">
-          <p>&copy; 2024 Caixa Econômica Federal. Todos os direitos reservados.</p>
-        </div>
+      </div>
+      
+      {/* Seção de informações com logos */}
+      <div className="informacao-rodape">
+        <ul>
+          <li>
+            <a href="#">
+              <img src="https://via.placeholder.com/120x42/005CA9/FFFFFF?text=BANCO+CENTRAL" alt="Banco Central" />
+            </a>
+          </li>
+          <li>
+            <span className="divisor-rodape"></span>
+          </li>
+          <li>
+            <a href="#">
+              <img src="https://via.placeholder.com/120x42/005CA9/FFFFFF?text=GOVERNO+FEDERAL" alt="Governo Federal" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      {/* Links do footer */}
+      <div className="link-footer">
+        <ul>
+          <li><a href="#" data-text="Política de Privacidade">Política de Privacidade</a></li>
+          <li><a href="#" data-text="Termo de Uso">Termo de Uso</a></li>
+          <li><a href="#" data-text="Segurança">Segurança</a></li>
+          <li><a href="#" data-text="Acessibilidade">Acessibilidade</a></li>
+          <li><a href="#" data-text="Mapa do Site">Mapa do Site</a></li>
+        </ul>
+      </div>
+      
+      {/* Rodapé azul */}
+      <div className="rodape-azul">
+        <p>&copy; 2024 Caixa Econômica Federal. Todos os direitos reservados.</p>
       </div>
     </footer>
   );
