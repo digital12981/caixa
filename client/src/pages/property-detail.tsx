@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, Bed, Bath, Car } from "lucide-react";
+import { ArrowLeft, Bed, Bath, Car, ChevronLeft, ChevronRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
@@ -130,6 +130,7 @@ export default function PropertyDetail() {
   const [location, setLocation] = useLocation();
   const [property, setProperty] = useState<Property | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const propertyId = parseInt(location.split('/')[2] || '0');
 
@@ -138,6 +139,18 @@ export default function PropertyDetail() {
     setProperty(propertyData);
     setIsLoading(false);
   }, [propertyId]);
+
+  const nextImage = () => {
+    if (property && property.images.length > 1) {
+      setCurrentImageIndex((prev) => (prev + 1) % property.images.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (property && property.images.length > 1) {
+      setCurrentImageIndex((prev) => (prev - 1 + property.images.length) % property.images.length);
+    }
+  };
 
   if (!isLoading && !property) {
     return (
@@ -209,23 +222,59 @@ export default function PropertyDetail() {
             <div>
               {/* Property image gallery */}
               <div className="mb-6">
-                <img 
-                  src={property.images[0]} 
-                  alt={property.title}
-                  className="w-full h-96 object-cover shadow-lg mb-4"
-                  style={{borderRadius: '2px'}}
-                />
-                <div className="grid grid-cols-2 gap-2">
-                  {property.images.slice(1).map((img: string, index: number) => (
-                    <img 
-                      key={index}
-                      src={img} 
-                      alt={`${property.title} - ${index + 2}`}
-                      className="w-full h-24 object-cover cursor-pointer hover:opacity-75 transition-opacity"
-                      style={{borderRadius: '2px'}}
-                    />
-                  ))}
+                {/* Carrossel de Imagens */}
+                <div className="relative">
+                  <img 
+                    src={property.images[currentImageIndex]} 
+                    alt={`${property.title} - ${currentImageIndex + 1}`}
+                    className="w-full h-96 object-cover shadow-lg"
+                    style={{borderRadius: '2px'}}
+                  />
+                  
+                  {/* Botões de navegação do carrossel */}
+                  {property.images.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 hover:bg-opacity-70 transition-all"
+                        style={{borderRadius: '2px'}}
+                      >
+                        <ChevronLeft className="w-6 h-6" />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 hover:bg-opacity-70 transition-all"
+                        style={{borderRadius: '2px'}}
+                      >
+                        <ChevronRight className="w-6 h-6" />
+                      </button>
+                    </>
+                  )}
+                  
+                  {/* Indicadores do carrossel */}
+                  {property.images.length > 1 && (
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                      {property.images.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`w-3 h-3 rounded-full transition-all ${
+                            index === currentImageIndex 
+                              ? 'bg-white' 
+                              : 'bg-white bg-opacity-50 hover:bg-opacity-70'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
+                
+                {/* Contador de imagens */}
+                {property.images.length > 1 && (
+                  <div className="text-center mt-2 text-sm text-gray-600">
+                    {currentImageIndex + 1} de {property.images.length} fotos
+                  </div>
+                )}
               </div>
             </div>
             
