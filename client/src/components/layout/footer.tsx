@@ -15,7 +15,7 @@ export function Footer() {
             
             <div className="redes-sociais mt-6">
               <p className="soft mb-3">Redes Sociais</p>
-              <div className="flex gap-4 justify-center">
+              <div className="flex gap-4 justify-center pt-[31px] pb-[31px]">
                 <a href="#" className="icon-link">
                   <Facebook className="icon w-5 h-5" />
                 </a>
@@ -33,9 +33,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-      
-
-      
       {/* Links do footer */}
       <div className="link-footer">
         <ul>
@@ -46,7 +43,6 @@ export function Footer() {
           <li><a href="#" data-text="Mapa do Site">Mapa do Site</a></li>
         </ul>
       </div>
-      
       {/* Rodapé azul */}
       <div className="rodape-azul">
         <p>&copy; 2024 Caixa Econômica Federal. Todos os direitos reservados.</p>
