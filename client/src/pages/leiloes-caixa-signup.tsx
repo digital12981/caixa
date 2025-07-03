@@ -146,17 +146,12 @@ export default function LeiloesCaixaSignup() {
 
                   <div className="bg-gray-50 p-4 mb-4" style={{borderRadius: '2px'}}>
                     <div className="text-center">
-                      <p className="text-gray-600 text-sm">Valor do Leilão</p>
+                      <p className="text-gray-600 text-sm">Valor do Imóvel</p>
                       <p className="text-3xl font-bold text-caixa-blue">{formatCurrency(selectedProperty.price)}</p>
                       <p className="text-lg text-gray-700 mt-2">
                         Ou <span className="font-semibold">{formatInstallment(selectedProperty.price)}/mês</span> em 120x
                       </p>
                     </div>
-                  </div>
-
-                  <div className="text-sm text-gray-600">
-                    <p><strong>Leilão:</strong> {selectedProperty.auctionNumber}</p>
-                    <p><strong>Data:</strong> {selectedProperty.auctionDate}</p>
                   </div>
                 </div>
               </div>
@@ -170,7 +165,6 @@ export default function LeiloesCaixaSignup() {
                   <ul className="text-blue-700 text-sm mt-2 space-y-1">
                     <li>• Agendar uma visita presencial no imóvel</li>
                     <li>• Fechar negócio diretamente se desejar</li>
-                    <li>• Participar do leilão oficial na data marcada</li>
                     <li>• Receber suporte especializado durante todo o processo</li>
                   </ul>
                 </div>
