@@ -34,24 +34,7 @@ export function Footer() {
         </div>
       </div>
       
-      {/* Seção de informações com logos */}
-      <div className="informacao-rodape">
-        <ul>
-          <li>
-            <a href="#">
-              <img src="https://via.placeholder.com/120x42/005CA9/FFFFFF?text=BANCO+CENTRAL" alt="Banco Central" />
-            </a>
-          </li>
-          <li>
-            <span className="divisor-rodape"></span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="https://via.placeholder.com/120x42/005CA9/FFFFFF?text=GOVERNO+FEDERAL" alt="Governo Federal" />
-            </a>
-          </li>
-        </ul>
-      </div>
+
       
       {/* Links do footer */}
       <div className="link-footer">

@@ -548,47 +548,12 @@
     border: 2px solid var(--caixa-blue);
   }
 
-  .informacao-rodape {
-    display: flex;
-    justify-content: center;
-    margin: 2% 0;
-    width: 100%;
-  }
-
-  .informacao-rodape ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .informacao-rodape ul li {
-    display: block;
-    position: relative;
-  }
-
-  .informacao-rodape a img {
-    max-height: 42px;
-    width: auto;
-    height: auto;
-  }
-
-  .divisor-rodape {
-    display: inline-block;
-    height: 3rem;
-    border-left: 1px solid #3A4857;
-    margin: 0 20px;
-    margin-bottom: -0.2em;
-  }
-
-  .informacao-rodape a,
   .link-footer a {
     text-decoration: none;
     font-family: 'CAIXA Std Book';
     font-weight: 500;
   }
 
-  .informacao-rodape a:hover,
   .link-footer a:hover {
     font-weight: bold;
     text-decoration: underline !important;
@@ -606,9 +571,14 @@
     padding: 0;
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 20px;
+    max-width: 7xl;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .link-footer ul li {
@@ -726,7 +696,8 @@
     .link-footer ul {
       flex-direction: column;
       gap: 10px;
-      text-align: center;
+      align-items: flex-start;
+      padding-left: 1rem;
     }
 
     .link-footer ul li {
