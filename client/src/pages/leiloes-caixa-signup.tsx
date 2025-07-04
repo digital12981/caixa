@@ -105,7 +105,7 @@ export default function LeiloesCaixaSignup() {
                   <p className="text-green-800 font-semibold">
                     ✓ Imóvel separado especialmente para você
                   </p>
-                  <p className="text-green-700 mt-2 text-[16px]">
+                  <p className="text-green-700 text-sm mt-2">
                     Este imóvel não será mostrado para outras pessoas até você completar o cadastro no programa Leilões Caixa
                   </p>
                 </div>
@@ -127,11 +127,11 @@ export default function LeiloesCaixaSignup() {
 
                   <div className="bg-orange-50 border border-orange-300 p-4 mb-4" style={{borderRadius: '2px'}}>
                     <div className="text-center">
-                      <h4 className="font-bold text-orange-800 mb-3 text-[18px]">⚠️ Acesso Restrito</h4>
-                      <p className="text-orange-700 mb-2 text-[16px]">
+                      <h4 className="font-bold text-orange-800 mb-3">⚠️ Acesso Restrito</h4>
+                      <p className="text-orange-700 text-sm leading-relaxed mb-2">
                         Apenas membros do programa Leilões Caixa podem agendar visitas e adquirir imóveis de leilão da Caixa Econômica Federal.
                       </p>
-                      <p className="text-orange-700 text-[16px] mt-[7px] mb-[7px]">
+                      <p className="text-orange-700 text-xs">
                         <strong>Lei Federal nº 8.666/93 Art. 22-A:</strong> É obrigatória a participação em programa específico para aquisição de bens oriundos de execução judicial em instituições financeiras federais.
                       </p>
                     </div>
@@ -141,11 +141,11 @@ export default function LeiloesCaixaSignup() {
 
               <div className="mt-8 pt-8 border-t border-gray-200">
                 <div className="bg-blue-50 border border-blue-200 p-6" style={{borderRadius: '2px'}}>
-                  <h4 className="font-bold text-blue-800 mb-3 text-[18px]">Próximos Passos</h4>
-                  <p className="text-blue-700 text-[16px]">
+                  <h4 className="font-bold text-blue-800 mb-3">Próximos Passos</h4>
+                  <p className="text-blue-700 text-sm leading-relaxed">
                     Após concluir seu cadastro no programa Leilões Caixa, você poderá:
                   </p>
-                  <ul className="text-blue-700 mt-2 space-y-1 text-[16px]">
+                  <ul className="text-blue-700 text-sm mt-2 space-y-1">
                     <li>• Agendar uma visita presencial no imóvel</li>
                     <li>• Fechar negócio diretamente se desejar</li>
                     <li>• Receber suporte especializado durante todo o processo</li>
@@ -154,7 +154,6 @@ export default function LeiloesCaixaSignup() {
               </div>
             </div>
           ) : null}
-
 
           <div className="bg-white p-8 shadow-lg mb-12" style={{borderRadius: '2px'}}>
             <div className="text-center mb-8">
@@ -168,8 +167,53 @@ export default function LeiloesCaixaSignup() {
                 Após a inscrição, você terá acesso completo ao sistema de leilões e poderá participar de todos os processos licitatórios disponíveis.
               </p>
             </div>
+          </div>
+
+          <div className="bg-white p-8 shadow-lg" style={{borderRadius: '2px'}}>
+            <h2 className="text-2xl font-bold text-caixa-blue mb-8 text-center">
+              Benefícios Exclusivos do Programa
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Documentação Facilitada</h3>
+                <p className="text-gray-600 text-sm">
+                  Emissão automática de toda documentação necessária para participação nos leilões
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Financiamento Preferencial</h3>
+                <p className="text-gray-600 text-sm">
+                  Aprovação facilitada em financiamentos Caixa com taxas especiais para participantes
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Desconto no IPTU</h3>
+                <p className="text-gray-600 text-sm">
+                  Desconto de até 15% no IPTU do primeiro ano para imóveis adquiridos em leilão
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Linha de Crédito Especial</h3>
+                <p className="text-gray-600 text-sm">
+                  Acesso a empréstimos com juros reduzidos para reforma e adequação do imóvel
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Notificações Prioritárias</h3>
+                <p className="text-gray-600 text-sm">
+                  Receba alertas exclusivos sobre novos leilões antes da divulgação pública
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
+                <h3 className="font-bold text-gray-800 mb-3">Suporte Especializado</h3>
+                <p className="text-gray-600 text-sm">
+                  Atendimento preferencial com especialistas em leilões imobiliários
+                </p>
+              </div>
+            </div>
+
             <div className="border-t border-gray-200 pt-8">
-              <div className="text-center bg-gray-50 p-8" style={{borderRadius: '2px'}}>
+              <div className="text-center bg-gray-50 p-8 mb-8" style={{borderRadius: '2px'}}>
                 <div className="mb-4">
                   <span className="text-4xl font-bold text-caixa-blue">R$ 64,90</span>
                   <p className="text-gray-600 mt-2">Taxa de inscrição única</p>
@@ -178,94 +222,92 @@ export default function LeiloesCaixaSignup() {
                   Pagamento único que garante acesso vitalício ao programa com todos os benefícios inclusos, sem mensalidades.
                 </p>
               </div>
-            </div>
-          </div>
 
-          <div className="bg-white p-8 shadow-lg" style={{borderRadius: '2px'}}>
-            <h2 className="text-2xl font-bold text-caixa-blue mb-8 text-center">
-              Complete sua Inscrição
-            </h2>
-            
-            <div className="max-w-2xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <Label htmlFor="nome" className="text-sm font-medium text-gray-700 mb-2 block">
-                    Nome Completo
-                  </Label>
-                  <Input
-                    id="nome"
-                    type="text"
-                    value={formData.nome}
-                    onChange={(e) => handleInputChange('nome', e.target.value)}
-                    className="w-full bg-gray-100"
-                    style={{borderRadius: '2px'}}
-                    readOnly
-                    disabled
-                  />
+              <h2 className="text-2xl font-bold text-caixa-blue mb-8 text-center">
+                Complete sua Inscrição
+              </h2>
+              
+              <div className="max-w-2xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <Label htmlFor="nome" className="text-sm font-medium text-gray-700 mb-2 block">
+                      Nome Completo
+                    </Label>
+                    <Input
+                      id="nome"
+                      type="text"
+                      value={formData.nome}
+                      onChange={(e) => handleInputChange('nome', e.target.value)}
+                      className="w-full bg-gray-100"
+                      style={{borderRadius: '2px'}}
+                      readOnly
+                      disabled
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="cpf" className="text-sm font-medium text-gray-700 mb-2 block">
+                      CPF
+                    </Label>
+                    <Input
+                      id="cpf"
+                      type="text"
+                      value={formData.cpf}
+                      onChange={(e) => handleInputChange('cpf', e.target.value)}
+                      className="w-full bg-gray-100"
+                      style={{borderRadius: '2px'}}
+                      readOnly
+                      disabled
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="telefone" className="text-sm font-medium text-gray-700 mb-2 block">
+                      Telefone / Celular *
+                    </Label>
+                    <Input
+                      id="telefone"
+                      type="text"
+                      value={formData.telefone}
+                      onChange={handlePhoneChange}
+                      placeholder="(11) 99999-9999"
+                      maxLength={15}
+                      className="w-full"
+                      style={{borderRadius: '2px'}}
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2 block">
+                      E-mail *
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      placeholder="seu@email.com"
+                      className="w-full"
+                      style={{borderRadius: '2px'}}
+                      required
+                    />
+                  </div>
                 </div>
-                
-                <div>
-                  <Label htmlFor="cpf" className="text-sm font-medium text-gray-700 mb-2 block">
-                    CPF
-                  </Label>
-                  <Input
-                    id="cpf"
-                    type="text"
-                    value={formData.cpf}
-                    onChange={(e) => handleInputChange('cpf', e.target.value)}
-                    className="w-full bg-gray-100"
-                    style={{borderRadius: '2px'}}
-                    readOnly
-                    disabled
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="telefone" className="text-sm font-medium text-gray-700 mb-2 block">
-                    Telefone / Celular *
-                  </Label>
-                  <Input
-                    id="telefone"
-                    type="text"
-                    value={formData.telefone}
-                    onChange={handlePhoneChange}
-                    placeholder="(11) 99999-9999"
-                    maxLength={15}
-                    className="w-full"
-                    style={{borderRadius: '2px'}}
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2 block">
-                    E-mail *
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
-                    placeholder="seu@email.com"
-                    className="w-full"
-                    style={{borderRadius: '2px'}}
-                    required
-                  />
-                </div>
-              </div>
 
-              <div className="text-center">
-                <Button 
-                  onClick={handlePayment}
-                  disabled={!formData.telefone || !formData.email}
-                  className="btn px-12 py-4 text-lg font-semibold"
-                  style={{borderRadius: '2px'}}
-                >
-                  Finalizar Inscrição - R$ 64,90
-                </Button>
-                <p className="text-sm text-gray-600 mt-4">
-                  Após o pagamento, você receberá acesso imediato ao programa Leilões Caixa
-                </p>
+                <div className="text-center">
+                  <Button 
+                    onClick={handlePayment}
+                    disabled={!formData.telefone || !formData.email}
+                    className="btn px-12 py-4 text-lg font-semibold"
+                    style={{borderRadius: '2px'}}
+                  >
+                    Finalizar Inscrição - R$ 64,90
+                  </Button>
+                  <p className="text-sm text-gray-600 mt-4">
+                    Após o pagamento, você receberá acesso imediato ao programa Leilões Caixa
+                  </p>
+                </div>
               </div>
             </div>
           </div>
