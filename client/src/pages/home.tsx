@@ -68,10 +68,10 @@ export default function Home() {
             <div className="text-left p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="bg-[#EEF4F5] p-6 mb-4" style={{ borderRadius: '2px' }}>
                 <h3 className="text-2xl mb-4" style={{ fontFamily: "'CAIXA Std Book'", color: 'var(--caixa-subtitle)' }}>
-                  <span className="font-bold" style={{ color: 'var(--caixa-orange)' }}>2.</span> Analise Documentos
+                  <span className="font-bold" style={{ color: 'var(--caixa-orange)' }}>2.</span> Cadastre-se no Leilões Caixa
                 </h3>
                 <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
-                  Acesse toda documentação necessária e editais para tomada de decisão informada e segura
+                  É obrigatório se cadastrar no programa exclusivo para adquirir imóveis da Caixa. É cobrada uma taxa única de inscrição no valor de R$ 64,90.
                 </p>
               </div>
             </div>
@@ -79,10 +79,10 @@ export default function Home() {
             <div className="text-left p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="bg-[#EEF4F5] p-6 mb-4" style={{ borderRadius: '2px' }}>
                 <h3 className="text-2xl mb-4" style={{ fontFamily: "'CAIXA Std Book'", color: 'var(--caixa-subtitle)' }}>
-                  <span className="font-bold" style={{ color: 'var(--caixa-orange)' }}>3.</span> Participe do Leilão
+                  <span className="font-bold" style={{ color: 'var(--caixa-orange)' }}>3.</span> Compre Diretamente
                 </h3>
                 <p className="leading-relaxed mb-6" style={{ color: 'var(--caixa-body-text)' }}>
-                  Faça seus lances de forma segura através da plataforma oficial da Caixa Econômica Federal
+                  Os imóveis disponíveis são vendidos diretamente pela Caixa sem a necessidade de leilão. Basta agendar uma visita e fechar negócio. Documentação entregue em até 7 dias.
                 </p>
                 <Link href="/state-selection">
                   <button className="btn text-white px-6 py-3 text-lg font-bold w-full">

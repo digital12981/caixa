@@ -116,7 +116,7 @@ export default function StateSelection() {
             </p>
           </div>
 
-          <div className="bg-gray-50 p-8 rounded-lg">
+          <div className="bg-gray-50 p-8 rounded-lg pt-[36px] pb-[36px] mt-[60px] mb-[60px] ml-[1px] mr-[1px]">
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 CEP:
