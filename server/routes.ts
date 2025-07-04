@@ -5,6 +5,14 @@ import { paymentService } from "./payment-service";
 
 // Cache para manter consistência dos bairros durante a sessão
 const neighborhoodCache = new Map<string, string[]>();
+// Clear cache on startup to ensure clean data
+neighborhoodCache.clear();
+
+// Função para limpar o cache (useful for development)
+function clearNeighborhoodCache() {
+  neighborhoodCache.clear();
+  console.log('Neighborhood cache cleared');
+}
 
 // Function to get nearby neighborhoods using Perplexity AI
 async function getNearbyNeighborhoods(city: string, state: string): Promise<string[]> {
@@ -55,8 +63,16 @@ async function getNearbyNeighborhoods(city: string, state: string): Promise<stri
     const cleanText = citiesText.split('*')[0].split('\n')[0];
     const neighborhoods = cleanText
       .split(',')
-      .map((n: string) => n.trim())
-      .filter((n: string) => n.length > 0 && n.length < 50) // Filter out explanatory text
+      .map((n: string) => {
+        // Remove números, dois pontos, e caracteres especiais, manter apenas letras e espaços
+        return n.trim()
+          .replace(/^\d+\.\s*/, '') // Remove números no início (1. 2. etc)
+          .replace(/:/g, '') // Remove dois pontos
+          .replace(/[^\w\s\u00C0-\u017F]/g, '') // Remove caracteres especiais, mantém acentos
+          .replace(/\.$/, '') // Remove ponto no final
+          .trim();
+      })
+      .filter((n: string) => n.length > 2 && n.length < 30) // Filter out explanatory text
       .slice(0, 4); // Ensure we only get 4 neighborhoods
     const result = neighborhoods.length >= 1 ? neighborhoods : [city]; // Fallback to at least the original city
     
@@ -79,6 +95,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       timestamp: new Date().toISOString(),
       environment: process.env.NODE_ENV || "development"
     });
+  });
+
+  // Clear neighborhood cache endpoint (development)
+  app.post("/api/clear-cache", (req, res) => {
+    clearNeighborhoodCache();
+    res.json({ success: true, message: "Cache cleared" });
   });
 
   // Get all properties
