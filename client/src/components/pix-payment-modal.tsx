@@ -180,6 +180,23 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
           </div>
         )}
 
+        {/* Box informativa sobre cadastro */}
+        {paymentData && !isLoading && (
+          <div className="mx-6">
+            <div 
+              className="p-4 text-center"
+              style={{
+                backgroundColor: '#EEF4F5',
+                borderRadius: '2px'
+              }}
+            >
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Após o pagamento, você será cadastrado no programa <strong>Leilões Caixa</strong> e poderá comprar qualquer imóvel disponível nos leilões Caixa.
+              </p>
+            </div>
+          </div>
+        )}
+
 
       </div>
       {/* Botão fechar no canto superior direito */}
