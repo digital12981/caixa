@@ -128,7 +128,7 @@ export default function LeiloesCaixaSignup() {
                   <div className="bg-orange-50 border border-orange-300 p-4 mb-4" style={{borderRadius: '2px'}}>
                     <div className="text-center">
                       <h4 className="font-bold text-orange-800 mb-3">⚠️ Acesso Restrito</h4>
-                      <p className="text-orange-700 text-sm leading-relaxed mb-2">
+                      <p className="text-orange-700 mb-2 text-[16px]">
                         Apenas membros do programa Leilões Caixa podem agendar visitas e adquirir imóveis de leilão da Caixa Econômica Federal.
                       </p>
                       <p className="text-orange-700 text-xs">
