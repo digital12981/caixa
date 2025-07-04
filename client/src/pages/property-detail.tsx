@@ -23,7 +23,7 @@ interface CPFResponse {
   DADOS: CPFData;
 }
 
-function CPFVerificationForm({ propertyId }: { propertyId: number }) {
+function CPFVerificationForm({ propertyId, city, state }: { propertyId: number; city: string; state: string }) {
   const [cpf, setCpf] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
   const [verificationResult, setVerificationResult] = useState<CPFData | null>(null);
@@ -96,8 +96,12 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
         cpf: formatCPF(verificationResult.cpf)
       }));
     }
-    // Redirecionar para a página de cadastro no Leilões Caixa com o ID do imóvel
-    window.location.href = `/leiloes-caixa-signup?propertyId=${propertyId}`;
+    // Redirecionar para a página de cadastro no Leilões Caixa com o ID do imóvel e parâmetros de localização
+    const params = new URLSearchParams();
+    params.append('propertyId', propertyId.toString());
+    if (city) params.append('city', city);
+    if (state) params.append('state', state);
+    window.location.href = `/leiloes-caixa-signup?${params.toString()}`;
   };
 
   if (verificationResult) {
@@ -561,7 +565,7 @@ export default function PropertyDetail() {
                 Informe seu CPF para verificar se a Caixa aprova o financiamento de 100% do valor do imóvel para você.
               </p>
               
-              <CPFVerificationForm propertyId={property.id} />
+              <CPFVerificationForm propertyId={property.id} city={city} state={state} />
             </div>
           </div>
         </div>

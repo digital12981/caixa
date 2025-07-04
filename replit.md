@@ -158,6 +158,8 @@ Changelog:
   * Implemented text parsing to extract clean neighborhood names from AI responses
   * System now shows neighborhoods like Vila Madalena, Pinheiros (SP) or Vila Belmiro, Marapé (Santos)
   * Ensures compliance with user requirement for 25k+ resident neighborhoods within 20km radius
+  * Fixed signup page to properly pass location parameters and display updated property addresses
+  * Corrected property detail page to include city/state parameters when redirecting to signup
 ```
 
 ## User Preferences

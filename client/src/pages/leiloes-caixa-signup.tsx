@@ -19,12 +19,15 @@ export default function LeiloesCaixaSignup() {
   // Recuperar o ID do imóvel selecionado da URL
   const urlParams = new URLSearchParams(window.location.search);
   const selectedPropertyId = parseInt(urlParams.get('propertyId') || '1');
+  const city = urlParams.get('city') || '';
+  const state = urlParams.get('state') || '';
 
   // Buscar dados do imóvel selecionado
   const { data: selectedProperty, isLoading: propertyLoading } = useQuery<Property>({
-    queryKey: ['/api/properties', selectedPropertyId],
+    queryKey: ['/api/properties', selectedPropertyId, city, state],
     queryFn: async () => {
-      const response = await fetch(`/api/properties/${selectedPropertyId}`);
+      const queryString = city && state ? `?city=${encodeURIComponent(city)}&state=${encodeURIComponent(state)}` : '';
+      const response = await fetch(`/api/properties/${selectedPropertyId}${queryString}`);
       if (!response.ok) throw new Error('Failed to fetch property');
       return response.json();
     }
