@@ -141,7 +141,7 @@ export default function LeiloesCaixaSignup() {
 
               <div className="mt-8 pt-8 border-t border-gray-200">
                 <div className="bg-blue-50 border border-blue-200 p-6" style={{borderRadius: '2px'}}>
-                  <h4 className="font-bold text-blue-800 mb-3">Próximos Passos</h4>
+                  <h4 className="font-bold text-blue-800 mb-3 text-[18px]">Próximos Passos</h4>
                   <p className="text-blue-700 text-sm leading-relaxed">
                     Após concluir seu cadastro no programa Leilões Caixa, você poderá:
                   </p>
