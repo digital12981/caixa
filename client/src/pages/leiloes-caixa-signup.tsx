@@ -155,6 +155,7 @@ export default function LeiloesCaixaSignup() {
             </div>
           ) : null}
 
+
           <div className="bg-white p-8 shadow-lg mb-12" style={{borderRadius: '2px'}}>
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">
@@ -167,56 +168,8 @@ export default function LeiloesCaixaSignup() {
                 Após a inscrição, você terá acesso completo ao sistema de leilões e poderá participar de todos os processos licitatórios disponíveis.
               </p>
             </div>
-          </div>
-
-          <div className="bg-white p-8 shadow-lg mb-12" style={{borderRadius: '2px'}}>
-            <h2 className="text-2xl font-bold text-caixa-blue mb-8 text-center">
-              Benefícios Exclusivos do Programa
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
-                <h3 className="font-bold text-gray-800 mb-3">Documentação Facilitada</h3>
-                <p className="text-gray-600 text-sm">
-                  Emissão automática de toda documentação necessária para participação nos leilões
-                </p>
-              </div>
-              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
-                <h3 className="font-bold text-gray-800 mb-3">Financiamento Preferencial</h3>
-                <p className="text-gray-600 text-sm">
-                  Aprovação facilitada em financiamentos Caixa com taxas especiais para participantes
-                </p>
-              </div>
-              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
-                <h3 className="font-bold text-gray-800 mb-3">Desconto no IPTU</h3>
-                <p className="text-gray-600 text-sm">
-                  Desconto de até 15% no IPTU do primeiro ano para imóveis adquiridos em leilão
-                </p>
-              </div>
-              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
-                <h3 className="font-bold text-gray-800 mb-3">Linha de Crédito Especial</h3>
-                <p className="text-gray-600 text-sm">
-                  Acesso a empréstimos com juros reduzidos para reforma e adequação do imóvel
-                </p>
-              </div>
-              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
-                <h3 className="font-bold text-gray-800 mb-3">Notificações Prioritárias</h3>
-                <p className="text-gray-600 text-sm">
-                  Receba alertas exclusivos sobre novos leilões antes da divulgação pública
-                </p>
-              </div>
-              <div className="p-6 bg-gray-50" style={{borderRadius: '2px'}}>
-                <h3 className="font-bold text-gray-800 mb-3">Suporte Especializado</h3>
-                <p className="text-gray-600 text-sm">
-                  Atendimento preferencial com especialistas em leilões imobiliários
-                </p>
-              </div>
-            </div>
-
             <div className="border-t border-gray-200 pt-8">
               <div className="text-center bg-gray-50 p-8" style={{borderRadius: '2px'}}>
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                  Investimento Único
-                </h3>
                 <div className="mb-4">
                   <span className="text-4xl font-bold text-caixa-blue">R$ 64,90</span>
                   <p className="text-gray-600 mt-2">Taxa de inscrição única</p>
