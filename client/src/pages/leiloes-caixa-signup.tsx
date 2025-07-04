@@ -145,7 +145,7 @@ export default function LeiloesCaixaSignup() {
                   <p className="text-blue-700 text-[16px]">
                     Após concluir seu cadastro no programa Leilões Caixa, você poderá:
                   </p>
-                  <ul className="text-blue-700 text-sm mt-2 space-y-1">
+                  <ul className="text-blue-700 mt-2 space-y-1 text-[16px]">
                     <li>• Agendar uma visita presencial no imóvel</li>
                     <li>• Fechar negócio diretamente se desejar</li>
                     <li>• Receber suporte especializado durante todo o processo</li>
