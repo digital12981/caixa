@@ -28,7 +28,19 @@ function CPFVerificationForm({ propertyId, city, state }: { propertyId: number; 
   const [isVerifying, setIsVerifying] = useState(false);
   const [verificationResult, setVerificationResult] = useState<CPFData | null>(null);
   const [error, setError] = useState("");
-  const [countdown, setCountdown] = useState(8);
+  const [currentStatus, setCurrentStatus] = useState(0);
+
+  // Status messages que rotacionam durante a verificação
+  const statusMessages = [
+    "Consultando dados...",
+    "Verificando histórico de crédito...", 
+    "Analisando capacidade de pagamento...",
+    "Consultando sistema CAIXA...",
+    "Validando documentos...",
+    "Processando aprovação...",
+    "Confirmando financiamento 100%...",
+    "Finalizando consulta..."
+  ];
 
   const cleanCPF = (cpfValue: string) => {
     return cpfValue.replace(/\D/g, '');
@@ -53,16 +65,16 @@ function CPFVerificationForm({ propertyId, city, state }: { propertyId: number; 
 
     setIsVerifying(true);
     setError("");
-    setCountdown(8);
+    setCurrentStatus(0);
 
-    // Countdown timer
-    const countdownInterval = setInterval(() => {
-      setCountdown(prev => {
-        if (prev <= 1) {
-          clearInterval(countdownInterval);
-          return 0;
+    // Status rotation timer - changes every 1 second
+    const statusInterval = setInterval(() => {
+      setCurrentStatus(prev => {
+        if (prev >= statusMessages.length - 1) {
+          clearInterval(statusInterval);
+          return prev;
         }
-        return prev - 1;
+        return prev + 1;
       });
     }, 1000);
 
@@ -82,9 +94,9 @@ function CPFVerificationForm({ propertyId, city, state }: { propertyId: number; 
     } catch (err) {
       setError("Erro ao verificar CPF. Tente novamente.");
     } finally {
-      clearInterval(countdownInterval);
+      clearInterval(statusInterval);
       setIsVerifying(false);
-      setCountdown(8);
+      setCurrentStatus(0);
     }
   };
 
@@ -176,7 +188,7 @@ function CPFVerificationForm({ propertyId, city, state }: { propertyId: number; 
         {isVerifying ? (
           <span className="flex items-center justify-center">
             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-            Consultando CPF para liberação de financiamento 100%... ({countdown}s)
+            {statusMessages[currentStatus]}
           </span>
         ) : (
           cpf.length >= 14 ? "Verificar Financiamento" : "Participar do Leilão"
