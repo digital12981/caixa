@@ -2,8 +2,8 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 
-// Function to get nearby cities using Perplexity AI
-async function getNearbyCities(city: string, state: string): Promise<string[]> {
+// Function to get nearby neighborhoods using Perplexity AI
+async function getNearbyNeighborhoods(city: string, state: string): Promise<string[]> {
   try {
     const response = await fetch('https://api.perplexity.ai/chat/completions', {
       method: 'POST',
@@ -16,11 +16,11 @@ async function getNearbyCities(city: string, state: string): Promise<string[]> {
         messages: [
           {
             role: 'system',
-            content: 'Be precise and concise. Return only the city names separated by commas, no additional text.'
+            content: 'Retorne apenas nomes separados por vírgula. Máximo 20 palavras.'
           },
           {
             role: 'user',
-            content: `List 4 cities within 30km of ${city}, ${state}, Brazil. Include ${city} as the first city. Return only city names separated by commas.`
+            content: `4 bairros de ${city}, ${state}:`
           }
         ],
         max_tokens: 100,
@@ -39,15 +39,17 @@ async function getNearbyCities(city: string, state: string): Promise<string[]> {
     const data = await response.json();
     const citiesText = data.choices?.[0]?.message?.content || '';
     
-    // Parse cities from response and clean them
-    const cities = citiesText
+    // Parse neighborhoods from response and clean them
+    // Extract only the first part (before any explanations or asterisks)
+    const cleanText = citiesText.split('*')[0].split('\n')[0];
+    const neighborhoods = cleanText
       .split(',')
-      .map((c: string) => c.trim())
-      .filter((c: string) => c.length > 0)
-      .slice(0, 4); // Ensure we only get 4 cities
-    return cities.length >= 1 ? cities : [city]; // Fallback to at least the original city
+      .map((n: string) => n.trim())
+      .filter((n: string) => n.length > 0 && n.length < 50) // Filter out explanatory text
+      .slice(0, 4); // Ensure we only get 4 neighborhoods
+    return neighborhoods.length >= 1 ? neighborhoods : [city]; // Fallback to at least the original city
   } catch (error) {
-    console.error('Error fetching nearby cities:', error);
+    console.error('Error fetching nearby neighborhoods:', error);
     return [city]; // Fallback to original city
   }
 }
@@ -59,9 +61,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { city, state } = req.query;
       const properties = await storage.getProperties();
       
-      // If city and state are provided, update locations with nearby cities
+      // If city and state are provided, update locations with nearby neighborhoods
       if (city && state) {
-        const nearbyCities = await getNearbyCities(city as string, state as string);
+        const nearbyCities = await getNearbyNeighborhoods(city as string, state as string);
         
         // Update each property with a nearby city
         const updatedProperties = properties.map((property, index) => ({
@@ -105,9 +107,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ message: "Property not found" });
       }
       
-      // If city and state are provided, update location with nearby cities
+      // If city and state are provided, update location with nearby neighborhoods
       if (city && state) {
-        const nearbyCities = await getNearbyCities(city as string, state as string);
+        const nearbyCities = await getNearbyNeighborhoods(city as string, state as string);
         const cityIndex = (id - 1) % nearbyCities.length; // Use property ID to determine which city to use
         const updatedProperty = {
           ...property,
