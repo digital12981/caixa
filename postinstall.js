@@ -7,12 +7,21 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 
-console.log('Heroku postinstall: Preparing application...');
+console.log('🔧 Heroku postinstall: Preparing application...');
+console.log('📋 Node version:', process.version);
+console.log('📋 Working directory:', process.cwd());
+console.log('📋 Environment:', process.env.NODE_ENV);
 
 try {
   // Build server first - compile TypeScript to JavaScript for Heroku
-  console.log('Building server for production...');
-  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/server.js', {
+  console.log('🔨 Building server for production...');
+  
+  // Ensure dist directory exists
+  if (!fs.existsSync('dist')) {
+    fs.mkdirSync('dist', { recursive: true });
+  }
+  
+  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/server.js --sourcemap --log-level=info', {
     stdio: 'inherit',
     timeout: 60000
   });
@@ -25,10 +34,39 @@ try {
     env: { ...process.env, NODE_ENV: 'production' }
   });
   
-  // Copy client assets to server directory for production serving
-  if (fs.existsSync('dist/public')) {
-    execSync('mkdir -p server && cp -r dist/public server/', { stdio: 'inherit' });
-    console.log('✅ Client assets built and copied successfully');
+  // Verify client assets location
+  const distPublicPath = 'dist/public';
+  
+  if (fs.existsSync(distPublicPath)) {
+    console.log('✅ Client assets built in dist/public/ (Vite configuration)');
+    console.log('📁 Available in dist/public:', fs.readdirSync(distPublicPath).join(', '));
+  } else if (fs.existsSync('dist')) {
+    console.log('📁 Available in dist:', fs.readdirSync('dist').join(', '));
+    
+    // Check if assets are in dist root instead of dist/public
+    const hasAssets = fs.existsSync('dist/index.html') || fs.existsSync('dist/assets');
+    
+    if (hasAssets) {
+      console.log('📋 Client assets found in dist/ root, moving to dist/public/...');
+      
+      // Move assets to the expected dist/public structure
+      execSync('mkdir -p dist/public', { stdio: 'inherit' });
+      
+      // Move all files except server.js to dist/public
+      const files = fs.readdirSync('dist').filter(file => 
+        !file.startsWith('server.js') && file !== 'public'
+      );
+      
+      files.forEach(file => {
+        execSync(`mv dist/${file} dist/public/`, { stdio: 'inherit' });
+      });
+      
+      console.log('✅ Client assets moved to dist/public/');
+    } else {
+      console.log('⚠️ No client assets found');
+    }
+  } else {
+    console.log('⚠️ Dist directory not found');
   }
   
   console.log('✅ Application built successfully for Heroku');
@@ -38,12 +76,27 @@ try {
   
   // Fallback: try client build only
   try {
+    console.log('🔄 Attempting fallback build...');
     execSync('npx vite build', { stdio: 'inherit', timeout: 300000 });
-    if (fs.existsSync('dist/public')) {
-      execSync('mkdir -p server && cp -r dist/public server/', { stdio: 'inherit' });
+    
+    // Check what was actually built
+    if (fs.existsSync('dist')) {
+      const distFiles = fs.readdirSync('dist');
+      console.log('📁 Fallback build created:', distFiles.join(', '));
+      
+      // Copy all files except server.js to server/public
+      execSync('mkdir -p server/public', { stdio: 'inherit' });
+      
+      distFiles.forEach(file => {
+        if (!file.startsWith('server.js')) {
+          execSync(`cp -r dist/${file} server/public/`, { stdio: 'inherit' });
+        }
+      });
+      
+      console.log('✅ Fallback build completed');
     }
-    console.log('✅ Client build completed, server will run with tsx');
   } catch (fallbackError) {
-    console.warn('⚠️ All builds failed, running in development mode');
+    console.warn('⚠️ All builds failed:', fallbackError.message);
+    console.log('Server will run in development mode');
   }
 }
