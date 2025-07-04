@@ -557,7 +557,7 @@ export default function PropertyDetail() {
               <p className="text-gray-700 leading-relaxed">{property.description}</p>
             </div>
             
-            <div className="mt-8 p-6" style={{backgroundColor: '#1964ad', borderRadius: '2px'}}>
+            <div className="p-6 mt-[66px] mb-[66px] ml-[-10px] mr-[-10px] pl-[24px] pr-[24px] pt-[50px] pb-[50px]" style={{backgroundColor: '#1964ad', borderRadius: '2px'}}>
               <h4 className="text-lg font-semibold text-white mb-4">
                 Verificação de Financiamento
               </h4>
