@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatCurrency, formatInstallment } from "@/lib/constants";
+import { PixPaymentModal } from "@/components/pix-payment-modal";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 import type { Property } from "@shared/schema";
 
 export default function LeiloesCaixaSignup() {
@@ -14,6 +17,44 @@ export default function LeiloesCaixaSignup() {
     cpf: "",
     telefone: "",
     email: ""
+  });
+  
+  const [showPixModal, setShowPixModal] = useState(false);
+  const [pixPaymentData, setPixPaymentData] = useState<any>(null);
+  const { toast } = useToast();
+
+  // Mutation para processar pagamento PIX
+  const pixPaymentMutation = useMutation({
+    mutationFn: async (paymentData: any) => {
+      const response = await fetch('/api/payment/pix', {
+        method: 'POST',
+        body: JSON.stringify(paymentData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Erro ao processar pagamento');
+      }
+      
+      return response.json();
+    },
+    onSuccess: (data) => {
+      setPixPaymentData(data);
+      toast({
+        title: "PIX gerado com sucesso!",
+        description: "Use o QR Code ou copie o código PIX para pagar.",
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Erro ao gerar PIX",
+        description: error.message || "Não foi possível gerar o pagamento PIX.",
+        variant: "destructive",
+      });
+    },
   });
 
   // Recuperar o ID do imóvel selecionado da URL
@@ -65,9 +106,40 @@ export default function LeiloesCaixaSignup() {
   };
 
   const handlePayment = () => {
+    // Validar se todos os campos estão preenchidos
+    if (!formData.nome || !formData.cpf || !formData.telefone || !formData.email) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos antes de continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Validar formato do email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Email inválido",
+        description: "Por favor, insira um email válido.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     // Salvar dados do formulário
     localStorage.setItem('signupData', JSON.stringify(formData));
-    alert("Redirecionando para o pagamento da Taxa de Inscrição...");
+    
+    // Abrir modal e processar pagamento PIX
+    setShowPixModal(true);
+    setPixPaymentData(null);
+    
+    pixPaymentMutation.mutate({
+      name: formData.nome,
+      email: formData.email,
+      cpf: formData.cpf,
+      phone: formData.telefone,
+    });
   };
 
   return (
@@ -273,6 +345,14 @@ export default function LeiloesCaixaSignup() {
         </div>
       </section>
       <Footer />
+      
+      {/* Modal de Pagamento PIX */}
+      <PixPaymentModal
+        isOpen={showPixModal}
+        onClose={() => setShowPixModal(false)}
+        paymentData={pixPaymentData}
+        isLoading={pixPaymentMutation.isPending}
+      />
     </div>
   );
 }

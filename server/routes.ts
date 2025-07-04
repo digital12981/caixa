@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { paymentService } from "./payment-service";
 
 // Cache para manter consistência dos bairros durante a sessão
 const neighborhoodCache = new Map<string, string[]>();
@@ -143,6 +144,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch property" });
+    }
+  });
+
+  // Rota para processar pagamentos PIX
+  app.post("/api/payment/pix", async (req, res) => {
+    try {
+      const { name, email, cpf, phone } = req.body;
+      
+      // Validar dados obrigatórios
+      if (!name || !email || !cpf) {
+        return res.status(400).json({ message: "Nome, email e CPF são obrigatórios" });
+      }
+      
+      // Criar pagamento PIX no valor de R$ 64,90
+      const paymentData = {
+        name,
+        email,
+        cpf,
+        phone,
+        amount: 64.90,
+        items: [{
+          title: 'Cadastro Leilões Caixa',
+          quantity: 1,
+          unitPrice: 6490, // valor em centavos
+          tangible: false
+        }]
+      };
+      
+      const payment = await paymentService.createPixPayment(paymentData);
+      res.json(payment);
+    } catch (error: any) {
+      console.error('Erro ao processar pagamento:', error.message);
+      res.status(500).json({ message: error.message || "Erro ao processar pagamento" });
     }
   });
 
