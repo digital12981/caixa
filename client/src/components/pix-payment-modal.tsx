@@ -115,15 +115,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
               Valor: <span className="font-bold text-lg">R$ 64,90</span>
             </p>
             
-            {/* Cronômetro */}
-            {(isLoading || paymentData) && (
-              <div className="flex items-center justify-center space-x-2" style={{color: '#b8590a'}}>
-                <Clock className="h-5 w-5" />
-                <span className="text-xl font-mono font-bold">
-                  {formatTime(timeLeft)}
-                </span>
-              </div>
-            )}
+            
             
             <p className="text-sm" style={{color: '#d17d00'}}>
               Complete o pagamento antes que o tempo expire
