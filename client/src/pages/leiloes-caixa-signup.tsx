@@ -265,6 +265,7 @@ export default function LeiloesCaixaSignup() {
                 </p>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </section>
