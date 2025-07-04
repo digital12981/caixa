@@ -41,7 +41,7 @@ export class MemStorage implements IStorage {
         parking: 2,
         auctionDate: "15/02/2025",
         auctionNumber: "LLO001/2025",
-        description: "Excelente casa residencial com área construída de 200m². Imóvel com 3 quartos sendo 1 suíte, 4 banheiros completos, sala ampla, cozinha planejada, área de serviço e garagem para 2 carros. Localizada em bairro nobre, próxima a escolas, supermercados e transporte público.",
+        description: "Casa residencial com 200m² de área construída. 3 quartos sendo 1 suíte, 4 banheiros e 2 vagas de garagem. Este imóvel é de venda direta sem leilão. O interessado realiza uma visita acompanhada por um corretor da Caixa e, se houver interesse, pode fechar o acordo no mesmo dia e já conseguir toda a documentação do imóvel.",
         images: [
           "https://img.olx.com.br/images/97/976592778481392.webp",
           "https://img.olx.com.br/images/97/979530653030789.webp",
@@ -62,7 +62,7 @@ export class MemStorage implements IStorage {
         parking: 2,
         auctionDate: "20/02/2025",
         auctionNumber: "LLO002/2025",
-        description: "Ampla casa familiar com área construída de 173m². Propriedade com 4 quartos sendo 2 suítes, 2 banheiros, sala de estar, sala de jantar, cozinha americana moderna, área gourmet, quintal espaçoso e garagem coberta para 2 carros.",
+        description: "Casa familiar com 173m² de área construída. 4 quartos sendo 2 suítes, 2 banheiros e 2 vagas de garagem. Este imóvel é de venda direta sem leilão. O interessado realiza uma visita acompanhada por um corretor da Caixa e, se houver interesse, pode fechar o acordo no mesmo dia e já conseguir toda a documentação do imóvel.",
         images: [
           "https://img.olx.com.br/images/23/233510424467668.webp",
           "https://img.olx.com.br/images/24/241579662489270.webp",
@@ -83,7 +83,7 @@ export class MemStorage implements IStorage {
         parking: 2,
         auctionDate: "25/02/2025",
         auctionNumber: "LLO003/2025",
-        description: "Bela casa térrea com área construída de 190m². 3 quartos sendo 1 suíte master, 2 banheiros, sala ampla com pé-direito alto, cozinha planejada, área gourmet com churrasqueira e jardim paisagístico.",
+        description: "Casa térrea com 190m² de área construída. 3 quartos sendo 1 suíte, 2 banheiros e 2 vagas de garagem. Este imóvel é de venda direta sem leilão. O interessado realiza uma visita acompanhada por um corretor da Caixa e, se houver interesse, pode fechar o acordo no mesmo dia e já conseguir toda a documentação do imóvel.",
         images: [
           "https://img.olx.com.br/images/48/483483108848770.webp",
           "https://img.olx.com.br/images/74/746410109574106.webp",
@@ -104,7 +104,7 @@ export class MemStorage implements IStorage {
         parking: 1,
         auctionDate: "18/02/2025",
         auctionNumber: "LLO004/2025",
-        description: "Moderno apartamento no coração da cidade com área útil de 60m². 2 quartos com armários planejados, 2 banheiros completos, sala integrada com varanda, cozinha americana equipada, área de serviço e 1 vaga de garagem.",
+        description: "Apartamento com 60m² de área útil. 2 quartos, 2 banheiros e 1 vaga de garagem. Este imóvel é de venda direta sem leilão. O interessado realiza uma visita acompanhada por um corretor da Caixa e, se houver interesse, pode fechar o acordo no mesmo dia e já conseguir toda a documentação do imóvel.",
         images: [
           "https://img.olx.com.br/images/97/974579631062270.webp",
           "https://img.olx.com.br/images/97/972552275953944.webp",

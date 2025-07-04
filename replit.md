@@ -183,6 +183,12 @@ Changelog:
   * Zero npm hooks dependency - compiles and starts in any Heroku environment
   * Procfile: "web: node heroku-start.js" - production ready deployment
   * Maintains 100% functionality between Replit development and Heroku production
+- July 04, 2025: Property descriptions updated for direct sale model
+  * Changed all 4 property descriptions to focus on technical specifications only
+  * Removed marketing language, kept only: area, bedrooms, bathrooms, parking spaces
+  * Added information about direct sale process (no auction required)
+  * Explains visit with Caixa realtor and same-day deal closing with documentation
+  * Simplified and standardized description format across all properties
 ```
 
 ## User Preferences
