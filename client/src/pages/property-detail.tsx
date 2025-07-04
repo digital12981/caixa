@@ -138,7 +138,9 @@ function CPFVerificationForm({ propertyId, city, state }: { propertyId: number; 
         </Label>
         <Input
           id="cpf"
-          type="text"
+          type="tel"
+          inputMode="numeric"
+          pattern="[0-9]*"
           value={cpf}
           onChange={(e) => {
             const value = e.target.value;
@@ -174,7 +176,7 @@ function CPFVerificationForm({ propertyId, city, state }: { propertyId: number; 
         {isVerifying ? (
           <span className="flex items-center justify-center">
             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-            Analisando CPF... ({countdown}s)
+            Consultando CPF para liberação de financiamento 100%... ({countdown}s)
           </span>
         ) : (
           cpf.length >= 14 ? "Verificar Financiamento" : "Participar do Leilão"
