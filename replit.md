@@ -160,6 +160,8 @@ Changelog:
   * Ensures compliance with user requirement for 25k+ resident neighborhoods within 20km radius
   * Fixed signup page to properly pass location parameters and display updated property addresses
   * Corrected property detail page to include city/state parameters when redirecting to signup
+  * Resolved state display issue - properties now show correct original state (SP, DF, RJ) instead of always showing searched state
+  * Updated property database to include diverse locations across Brazil (São Paulo-SP, Brasília-DF, Rio de Janeiro-RJ)
 ```
 
 ## User Preferences

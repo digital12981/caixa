@@ -73,8 +73,8 @@ export class MemStorage implements IStorage {
       {
         title: "Casa Térrea - 190m²",
         location: "Rua do Sol, 789 - Vila Nova",
-        state: "SP",
-        city: "São Paulo",
+        state: "DF",
+        city: "Brasília",
         price: 115000,
         evaluation: 175000,
         type: "Casa",
@@ -94,8 +94,8 @@ export class MemStorage implements IStorage {
       {
         title: "Apartamento de 2 Quartos - 60m²",
         location: "Edifício Central, Apto 801 - Centro",
-        state: "SP",
-        city: "São Paulo",
+        state: "RJ",
+        city: "Rio de Janeiro",
         price: 89000,
         evaluation: 130000,
         type: "Apartamento",

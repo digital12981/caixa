@@ -65,11 +65,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (city && state) {
         const nearbyCities = await getNearbyNeighborhoods(city as string, state as string);
         
-        // Update each property with a nearby city
+        // Update each property with a nearby city, but keep original state
         const updatedProperties = properties.map((property, index) => ({
           ...property,
           city: nearbyCities[index % nearbyCities.length] || (city as string),
-          location: `${nearbyCities[index % nearbyCities.length] || (city as string)}, ${state}`
+          location: `${nearbyCities[index % nearbyCities.length] || (city as string)}, ${property.state}`
         }));
         
         res.json(updatedProperties);
@@ -114,7 +114,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const updatedProperty = {
           ...property,
           city: nearbyCities[cityIndex] || (city as string),
-          location: `${nearbyCities[cityIndex] || (city as string)}, ${state}`
+          location: `${nearbyCities[cityIndex] || (city as string)}, ${property.state}`
         };
         res.json(updatedProperty);
       } else {
