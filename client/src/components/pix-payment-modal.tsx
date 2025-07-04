@@ -93,7 +93,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
         zIndex: 9999
       }}
     >
-      <div className="flex flex-col h-full justify-center space-y-4 py-6">
+      <div className="flex flex-col h-full justify-center space-y-4 py-6" style={{transform: 'translateY(-10%)'}}>
         {/* Box laranja com status aguardando pagamento */}
         <div 
           className="p-4 mx-4"
@@ -180,19 +180,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
           </div>
         )}
 
-        {/* Botão fechar */}
-        {!isLoading && (
-          <div className="mx-4">
-            <Button 
-              onClick={onClose}
-              variant="outline"
-              className="w-full h-10 text-base"
-              style={{borderRadius: '2px'}}
-            >
-              Fechar
-            </Button>
-          </div>
-        )}
+
       </div>
       
       {/* Botão fechar no canto superior direito */}
