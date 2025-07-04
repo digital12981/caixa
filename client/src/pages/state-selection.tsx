@@ -117,16 +117,18 @@ export default function StateSelection() {
           </div>
 
           <div className="bg-gray-50 p-8 rounded-lg pt-[36px] pb-[36px] mt-[60px] mb-[60px] ml-[1px] mr-[1px]">
-            <div className="mb-6">
+            <div className="mb-6 flex flex-col items-center">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 CEP:
               </label>
               <Input
-                type="text"
+                type="tel"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 placeholder="00000-000"
                 value={cep}
                 onChange={handleCepChange}
-                className="w-full text-lg p-4"
+                className="w-64 text-lg p-4 text-center"
                 maxLength={9}
               />
               <p className="text-sm text-gray-500 mt-1">
@@ -138,7 +140,7 @@ export default function StateSelection() {
               <Button
                 onClick={handleFormSubmit}
                 disabled={isLoading}
-                className="btn"
+                className="btn px-12 py-4 text-xl"
               >
                 {isLoading ? "Buscando..." : "Buscar Imóveis"}
               </Button>
