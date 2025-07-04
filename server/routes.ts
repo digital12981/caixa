@@ -133,7 +133,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const updatedProperty = {
           ...property,
           city: nearbyCities[cityIndex] || (city as string),
-          location: `${nearbyCities[cityIndex] || (city as string)}, ${property.state}`
+          state: state as string, // Use the searched state instead of property's original state
+          location: `${nearbyCities[cityIndex] || (city as string)}, ${state as string}`
         };
         res.json(updatedProperty);
       } else {
