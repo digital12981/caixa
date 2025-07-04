@@ -1,0 +1,197 @@
+Application Logs
+2025-07-04T18:29:39.930432+00:00 app[web.1]:     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+2025-07-04T18:29:39.930433+00:00 app[web.1]:     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+2025-07-04T18:29:39.930433+00:00 app[web.1]:     at node:internal/main/run_main_module:36:49 {
+2025-07-04T18:29:39.930434+00:00 app[web.1]:   code: 'MODULE_NOT_FOUND',
+2025-07-04T18:29:39.930434+00:00 app[web.1]:   requireStack: []
+2025-07-04T18:29:39.930434+00:00 app[web.1]: }
+2025-07-04T18:29:39.930434+00:00 app[web.1]: 
+2025-07-04T18:29:39.930435+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:29:39.971079+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:29:39.995577+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T18:30:05.595203+00:00 heroku[web.1]: State changed from crashed to starting
+2025-07-04T18:30:10.818969+00:00 heroku[web.1]: Starting process with command `node dist/server.js`
+2025-07-04T18:30:05.366821+00:00 app[api]: Deploy c053716f by user paulinhomecanico1212@gmail.com
+2025-07-04T18:30:11.477584+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:30:11.427867+00:00 app[web.1]: node:internal/modules/cjs/loader:1404
+2025-07-04T18:30:11.427911+00:00 app[web.1]:   throw err;
+2025-07-04T18:30:11.427912+00:00 app[web.1]:   ^
+2025-07-04T18:30:11.427912+00:00 app[web.1]: 
+2025-07-04T18:30:11.427912+00:00 app[web.1]: Error: Cannot find module '/app/dist/server.js'
+2025-07-04T18:30:11.427913+00:00 app[web.1]:     at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+2025-07-04T18:30:11.427913+00:00 app[web.1]:     at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+2025-07-04T18:30:11.427914+00:00 app[web.1]:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+2025-07-04T18:30:11.427914+00:00 app[web.1]:     at Function._load (node:internal/modules/cjs/loader:1211:37)
+2025-07-04T18:30:11.427914+00:00 app[web.1]:     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+2025-07-04T18:30:11.427915+00:00 app[web.1]:     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+2025-07-04T18:30:11.427915+00:00 app[web.1]:     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+2025-07-04T18:30:11.427915+00:00 app[web.1]:     at node:internal/main/run_main_module:36:49 {
+2025-07-04T18:30:11.427916+00:00 app[web.1]:   code: 'MODULE_NOT_FOUND',
+2025-07-04T18:30:11.427916+00:00 app[web.1]:   requireStack: []
+2025-07-04T18:30:11.427917+00:00 app[web.1]: }
+2025-07-04T18:30:11.427917+00:00 app[web.1]: 
+2025-07-04T18:30:11.427917+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:30:11.514165+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T18:30:05.366821+00:00 app[api]: Release v12 created by user paulinhomecanico1212@gmail.com
+2025-07-04T18:30:09.000000+00:00 app[api]: Build succeeded
+2025-07-04T18:30:58.210201+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=73ba6f73-91bf-4caf-2050-e90f6779b1ec fwd="" dyno= connect=0ms service=0ms status=503 bytes=567 protocol=http1.1 tls=true tls_version=unknown
+2025-07-04T18:32:13.436815+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=544cae51-77cb-251b-64d1-5f3f21ca45a8 fwd="" dyno= connect=0ms service=0ms status=503 bytes=567 protocol=http1.1 tls=true tls_version=unknown
+2025-07-04T18:33:08.348219+00:00 heroku[web.1]: State changed from crashed to starting
+2025-07-04T18:33:13.627527+00:00 heroku[web.1]: Starting process with command `node server-heroku.js`
+2025-07-04T18:33:14.200029+00:00 app[web.1]: Heroku: Starting application...
+2025-07-04T18:33:14.200043+00:00 app[web.1]: Node version: v22.17.0
+2025-07-04T18:33:14.200044+00:00 app[web.1]: PORT: 7064
+2025-07-04T18:33:14.200044+00:00 app[web.1]: Compiled server not found, starting TypeScript compilation...
+2025-07-04T18:33:14.862549+00:00 app[web.1]: npm warn exec The following package was not found and will be installed: tsx@4.20.3
+2025-07-04T18:33:15.837050+00:00 app[web.1]: 
+2025-07-04T18:33:15.837070+00:00 app[web.1]: node:internal/modules/run_main:123
+2025-07-04T18:33:15.837070+00:00 app[web.1]:     triggerUncaughtException(
+2025-07-04T18:33:15.837071+00:00 app[web.1]:     ^
+2025-07-04T18:33:15.837198+00:00 app[web.1]: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/server/vite.ts
+2025-07-04T18:33:15.837198+00:00 app[web.1]:     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)
+2025-07-04T18:33:15.837200+00:00 app[web.1]:     at packageResolve (node:internal/modules/esm/resolve:768:81)
+2025-07-04T18:33:15.837200+00:00 app[web.1]:     at moduleResolve (node:internal/modules/esm/resolve:854:18)
+2025-07-04T18:33:15.837201+00:00 app[web.1]:     at defaultResolve (node:internal/modules/esm/resolve:984:11)
+2025-07-04T18:33:15.837201+00:00 app[web.1]:     at nextResolve (node:internal/modules/esm/hooks:748:28)
+2025-07-04T18:33:15.837204+00:00 app[web.1]:     at resolveBase (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751653995731:2:3811)
+2025-07-04T18:33:15.837204+00:00 app[web.1]:     at resolveDirectory (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751653995731:2:4310)
+2025-07-04T18:33:15.837204+00:00 app[web.1]:     at resolveTsPaths (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751653995731:2:5051)
+2025-07-04T18:33:15.837205+00:00 app[web.1]:     at async resolve (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751653995731:2:5422)
+2025-07-04T18:33:15.837205+00:00 app[web.1]:     at async nextResolve (node:internal/modules/esm/hooks:748:22) {
+2025-07-04T18:33:15.837205+00:00 app[web.1]:   code: 'ERR_MODULE_NOT_FOUND'
+2025-07-04T18:33:15.837205+00:00 app[web.1]: }
+2025-07-04T18:33:15.837205+00:00 app[web.1]: 
+2025-07-04T18:33:15.837206+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:33:15.849587+00:00 app[web.1]: npm notice
+2025-07-04T18:33:15.849588+00:00 app[web.1]: npm notice New major version of npm available! 10.9.2 -> 11.4.2
+2025-07-04T18:33:15.849589+00:00 app[web.1]: npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+2025-07-04T18:33:15.849589+00:00 app[web.1]: npm notice To update run: npm install -g npm@11.4.2
+2025-07-04T18:33:15.849589+00:00 app[web.1]: npm notice
+2025-07-04T18:33:15.886947+00:00 app[web.1]: Server exited with code 1
+2025-07-04T18:33:15.943028+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:33:15.971172+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T18:32:40.000000+00:00 app[api]: Build started by user paulinhomecanico1212@gmail.com
+2025-07-04T18:33:08.114549+00:00 app[api]: Release v13 created by user paulinhomecanico1212@gmail.com
+2025-07-04T18:33:08.114549+00:00 app[api]: Deploy 8a35a744 by user paulinhomecanico1212@gmail.com
+2025-07-04T18:33:11.000000+00:00 app[api]: Build succeeded
+2025-07-04T18:33:57.693129+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=4242b510-cd27-d90d-8014-5156bfa5d84b fwd="" dyno= connect=0ms service=0ms status=503 bytes=567 protocol=http1.1 tls=true tls_version=unknown
+2025-07-04T18:35:12.893171+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=70346d7f-2fd0-60c8-ee1e-c86beabf14ad fwd="" dyno= connect=0ms service=0ms status=503 bytes=567 protocol=http1.1 tls=true tls_version=unknown
+2025-07-04T18:35:21.363945+00:00 heroku[web.1]: State changed from crashed to starting
+2025-07-04T18:35:27.394798+00:00 heroku[web.1]: Starting process with command `node server-heroku.js`
+2025-07-04T18:35:28.040577+00:00 app[web.1]: Heroku: Starting application...
+2025-07-04T18:35:28.040905+00:00 app[web.1]: Node version: v22.17.0
+2025-07-04T18:35:28.040938+00:00 app[web.1]: PORT: 50961
+2025-07-04T18:35:28.041088+00:00 app[web.1]: Compiled server not found, starting TypeScript compilation...
+2025-07-04T18:35:28.965799+00:00 app[web.1]: npm warn exec The following package was not found and will be installed: tsx@4.20.3
+2025-07-04T18:35:29.966556+00:00 app[web.1]: 
+2025-07-04T18:35:29.966578+00:00 app[web.1]: node:internal/modules/run_main:123
+2025-07-04T18:35:29.966578+00:00 app[web.1]:     triggerUncaughtException(
+2025-07-04T18:35:29.966579+00:00 app[web.1]:     ^
+2025-07-04T18:35:29.966753+00:00 app[web.1]: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/server/vite.ts
+2025-07-04T18:35:29.966754+00:00 app[web.1]:     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)
+2025-07-04T18:35:29.966755+00:00 app[web.1]:     at packageResolve (node:internal/modules/esm/resolve:768:81)
+2025-07-04T18:35:29.966756+00:00 app[web.1]:     at moduleResolve (node:internal/modules/esm/resolve:854:18)
+2025-07-04T18:35:29.966757+00:00 app[web.1]:     at defaultResolve (node:internal/modules/esm/resolve:984:11)
+2025-07-04T18:35:29.966757+00:00 app[web.1]:     at nextResolve (node:internal/modules/esm/hooks:748:28)
+2025-07-04T18:35:29.966758+00:00 app[web.1]:     at resolveBase (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751654129835:2:3811)
+2025-07-04T18:35:29.966759+00:00 app[web.1]:     at resolveDirectory (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751654129835:2:4310)
+2025-07-04T18:35:29.966759+00:00 app[web.1]:     at resolveTsPaths (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751654129835:2:5051)
+2025-07-04T18:35:29.966760+00:00 app[web.1]:     at async resolve (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751654129835:2:5422)
+2025-07-04T18:35:29.966760+00:00 app[web.1]:     at async nextResolve (node:internal/modules/esm/hooks:748:22) {
+2025-07-04T18:35:29.966760+00:00 app[web.1]:   code: 'ERR_MODULE_NOT_FOUND'
+2025-07-04T18:35:29.966761+00:00 app[web.1]: }
+2025-07-04T18:35:29.966761+00:00 app[web.1]: 
+2025-07-04T18:35:29.966761+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:35:29.980637+00:00 app[web.1]: npm notice
+2025-07-04T18:35:29.980638+00:00 app[web.1]: npm notice New major version of npm available! 10.9.2 -> 11.4.2
+2025-07-04T18:35:29.980639+00:00 app[web.1]: npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+2025-07-04T18:35:29.980639+00:00 app[web.1]: npm notice To update run: npm install -g npm@11.4.2
+2025-07-04T18:35:29.980639+00:00 app[web.1]: npm notice
+2025-07-04T18:35:30.027517+00:00 app[web.1]: Server exited with code 1
+2025-07-04T18:35:30.086488+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:35:30.113258+00:00 heroku[web.1]: State changed from starting to crashed
+Disconnected from log stream. There may be events happening that you do not see here! Attempting to reconnect...
+2025-07-04T18:35:29.966761+00:00 app[web.1]: 
+2025-07-04T18:35:29.966761+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:35:29.980637+00:00 app[web.1]: npm notice
+2025-07-04T18:35:29.980638+00:00 app[web.1]: npm notice New major version of npm available! 10.9.2 -> 11.4.2
+2025-07-04T18:35:29.980639+00:00 app[web.1]: npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+2025-07-04T18:35:29.980639+00:00 app[web.1]: npm notice To update run: npm install -g npm@11.4.2
+2025-07-04T18:35:29.980639+00:00 app[web.1]: npm notice
+2025-07-04T18:35:30.027517+00:00 app[web.1]: Server exited with code 1
+2025-07-04T18:35:30.086488+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:35:30.113258+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T18:53:00.000000+00:00 app[api]: Build started by user paulinhomecanico1212@gmail.com
+2025-07-04T18:53:27.147977+00:00 heroku[web.1]: State changed from crashed to starting
+2025-07-04T18:53:26.881370+00:00 app[api]: Release v14 created by user paulinhomecanico1212@gmail.com
+2025-07-04T18:53:26.881370+00:00 app[api]: Deploy 8a35a744 by user paulinhomecanico1212@gmail.com
+2025-07-04T18:53:30.000000+00:00 app[api]: Build succeeded
+2025-07-04T18:53:32.294238+00:00 heroku[web.1]: Starting process with command `node server-heroku.js`
+2025-07-04T18:53:32.869773+00:00 app[web.1]: Heroku: Starting application...
+2025-07-04T18:53:32.870148+00:00 app[web.1]: Node version: v22.17.0
+2025-07-04T18:53:32.870177+00:00 app[web.1]: PORT: 14575
+2025-07-04T18:53:32.870337+00:00 app[web.1]: Compiled server not found, starting TypeScript compilation...
+2025-07-04T18:53:33.576575+00:00 app[web.1]: npm warn exec The following package was not found and will be installed: tsx@4.20.3
+2025-07-04T18:53:34.414363+00:00 app[web.1]: 
+2025-07-04T18:53:34.414377+00:00 app[web.1]: node:internal/modules/run_main:123
+2025-07-04T18:53:34.414378+00:00 app[web.1]:     triggerUncaughtException(
+2025-07-04T18:53:34.414379+00:00 app[web.1]:     ^
+2025-07-04T18:53:34.414495+00:00 app[web.1]: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/server/vite.ts
+2025-07-04T18:53:34.414495+00:00 app[web.1]:     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)
+2025-07-04T18:53:34.414496+00:00 app[web.1]:     at packageResolve (node:internal/modules/esm/resolve:768:81)
+2025-07-04T18:53:34.414497+00:00 app[web.1]:     at moduleResolve (node:internal/modules/esm/resolve:854:18)
+2025-07-04T18:53:34.414497+00:00 app[web.1]:     at defaultResolve (node:internal/modules/esm/resolve:984:11)
+2025-07-04T18:53:34.414497+00:00 app[web.1]:     at nextResolve (node:internal/modules/esm/hooks:748:28)
+2025-07-04T18:53:34.414498+00:00 app[web.1]:     at resolveBase (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751655214309:2:3811)
+2025-07-04T18:53:34.414498+00:00 app[web.1]:     at resolveDirectory (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751655214309:2:4310)
+2025-07-04T18:53:34.414498+00:00 app[web.1]:     at resolveTsPaths (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751655214309:2:5051)
+2025-07-04T18:53:34.414498+00:00 app[web.1]:     at async resolve (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751655214309:2:5422)
+2025-07-04T18:53:34.414499+00:00 app[web.1]:     at async nextResolve (node:internal/modules/esm/hooks:748:22) {
+2025-07-04T18:53:34.414499+00:00 app[web.1]:   code: 'ERR_MODULE_NOT_FOUND'
+2025-07-04T18:53:34.414499+00:00 app[web.1]: }
+2025-07-04T18:53:34.414499+00:00 app[web.1]: 
+2025-07-04T18:53:34.414510+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:53:34.427701+00:00 app[web.1]: npm notice
+2025-07-04T18:53:34.427702+00:00 app[web.1]: npm notice New major version of npm available! 10.9.2 -> 11.4.2
+2025-07-04T18:53:34.427702+00:00 app[web.1]: npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+2025-07-04T18:53:34.427703+00:00 app[web.1]: npm notice To update run: npm install -g npm@11.4.2
+2025-07-04T18:53:34.427703+00:00 app[web.1]: npm notice
+2025-07-04T18:53:34.467078+00:00 app[web.1]: Server exited with code 1
+2025-07-04T18:53:34.506526+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:53:34.530646+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T18:53:34.536357+00:00 heroku[web.1]: State changed from crashed to starting
+2025-07-04T18:53:36.698022+00:00 heroku[router]: sock=client at=warning code=H27 desc="Client Request Interrupted" method=GET path="/" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=25a97cb4-9f37-f6dc-e66d-c3e56b496a20 fwd="" dyno= connect=0ms service=0ms status=499 bytes=567 protocol=http1.1 tls=true tls_version=unknown
+2025-07-04T18:53:39.427444+00:00 heroku[web.1]: Starting process with command `node server-heroku.js`
+2025-07-04T18:53:39.981787+00:00 app[web.1]: Heroku: Starting application...
+2025-07-04T18:53:39.982070+00:00 app[web.1]: Node version: v22.17.0
+2025-07-04T18:53:39.982097+00:00 app[web.1]: PORT: 7829
+2025-07-04T18:53:39.982233+00:00 app[web.1]: Compiled server not found, starting TypeScript compilation...
+2025-07-04T18:53:40.633784+00:00 app[web.1]: npm warn exec The following package was not found and will be installed: tsx@4.20.3
+2025-07-04T18:53:41.457870+00:00 app[web.1]: 
+2025-07-04T18:53:41.457899+00:00 app[web.1]: node:internal/modules/run_main:123
+2025-07-04T18:53:41.457900+00:00 app[web.1]:     triggerUncaughtException(
+2025-07-04T18:53:41.457901+00:00 app[web.1]:     ^
+2025-07-04T18:53:41.458013+00:00 app[web.1]: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/server/vite.ts
+2025-07-04T18:53:41.458013+00:00 app[web.1]:     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)
+2025-07-04T18:53:41.458014+00:00 app[web.1]:     at packageResolve (node:internal/modules/esm/resolve:768:81)
+2025-07-04T18:53:41.458015+00:00 app[web.1]:     at moduleResolve (node:internal/modules/esm/resolve:854:18)
+2025-07-04T18:53:41.458015+00:00 app[web.1]:     at defaultResolve (node:internal/modules/esm/resolve:984:11)
+2025-07-04T18:53:41.458016+00:00 app[web.1]:     at nextResolve (node:internal/modules/esm/hooks:748:28)
+2025-07-04T18:53:41.458017+00:00 app[web.1]:     at resolveBase (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751655221353:2:3811)
+2025-07-04T18:53:41.458017+00:00 app[web.1]:     at resolveDirectory (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751655221353:2:4310)
+2025-07-04T18:53:41.458018+00:00 app[web.1]:     at resolveTsPaths (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751655221353:2:5051)
+2025-07-04T18:53:41.458018+00:00 app[web.1]:     at async resolve (file:///app/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/esm/index.mjs?1751655221353:2:5422)
+2025-07-04T18:53:41.458018+00:00 app[web.1]:     at async nextResolve (node:internal/modules/esm/hooks:748:22) {
+2025-07-04T18:53:41.458018+00:00 app[web.1]:   code: 'ERR_MODULE_NOT_FOUND'
+2025-07-04T18:53:41.458019+00:00 app[web.1]: }
+2025-07-04T18:53:41.458019+00:00 app[web.1]: 
+2025-07-04T18:53:41.458019+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:53:41.469464+00:00 app[web.1]: npm notice
+2025-07-04T18:53:41.469465+00:00 app[web.1]: npm notice New major version of npm available! 10.9.2 -> 11.4.2
+2025-07-04T18:53:41.469465+00:00 app[web.1]: npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+2025-07-04T18:53:41.469466+00:00 app[web.1]: npm notice To update run: npm install -g npm@11.4.2
+2025-07-04T18:53:41.469466+00:00 app[web.1]: npm notice
+2025-07-04T18:53:41.507386+00:00 app[web.1]: Server exited with code 1
+2025-07-04T18:53:41.549681+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:53:41.569754+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T18:54:52.169513+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=2898d17c-fc63-28d6-27e2-8bd4429e783a fwd="" dyno= connect=0ms service=0ms status=503 bytes=567 protocol=http1.1 tls=true tls_version=unknown
