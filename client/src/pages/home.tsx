@@ -27,15 +27,18 @@ export default function Home() {
             Processo transparente, seguro e regulamentado.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/state-selection">
-              <button className="btn text-white px-10 py-4 text-xl font-bold">
-                Buscar Imóveis Disponíveis
-              </button>
-            </Link>
-            <a href="#como-funciona" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-caixa-blue transition-all duration-200">
+          <div className="flex justify-center">
+            <button 
+              onClick={() => {
+                document.getElementById('como-funciona')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-caixa-blue transition-all duration-200"
+            >
               Saiba Como Funciona
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -78,9 +81,14 @@ export default function Home() {
                 <h3 className="text-2xl mb-4" style={{ fontFamily: "'CAIXA Std Book'", color: 'var(--caixa-subtitle)' }}>
                   <span className="font-bold" style={{ color: 'var(--caixa-orange)' }}>3.</span> Participe do Leilão
                 </h3>
-                <p className="leading-relaxed" style={{ color: 'var(--caixa-body-text)' }}>
+                <p className="leading-relaxed mb-6" style={{ color: 'var(--caixa-body-text)' }}>
                   Faça seus lances de forma segura através da plataforma oficial da Caixa Econômica Federal
                 </p>
+                <Link href="/state-selection">
+                  <button className="btn text-white px-6 py-3 text-lg font-bold w-full">
+                    Buscar Imóveis Disponíveis
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
