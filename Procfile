@@ -1,1 +1,1 @@
-web: node server-prod.js
+web: node --import tsx/esm server/index.ts
