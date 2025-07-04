@@ -93,10 +93,10 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
         zIndex: 9999
       }}
     >
-      <div className="flex flex-col h-full justify-center space-y-4 py-6" style={{transform: 'translateY(-10%)'}}>
+      <div className="flex flex-col h-full justify-center space-y-4 py-6 max-w-md mx-auto" style={{transform: 'translateY(-10%) translateX(-5px)'}}>
         {/* Box laranja com status aguardando pagamento */}
         <div 
-          className="p-4 mx-4"
+          className="p-4 mx-6"
           style={{
             backgroundColor: '#fef3e2',
             border: '1px solid #d17d00',
@@ -133,7 +133,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
         {/* QR Code */}
         {paymentData?.pixQrCode && !isLoading && (
-          <div className="flex justify-center mx-4">
+          <div className="flex justify-center mx-6">
             <img 
               src={paymentData.pixQrCode} 
               alt="QR Code PIX" 
@@ -145,7 +145,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
         {/* Código PIX */}
         {paymentData?.pixCode && !isLoading && (
-          <div className="space-y-3 mx-4">
+          <div className="space-y-3 mx-6">
             <div className="text-center">
               <p className="text-sm font-medium mb-2" style={{color: '#1964ad'}}>Código PIX (Copia e Cola):</p>
               <div 
