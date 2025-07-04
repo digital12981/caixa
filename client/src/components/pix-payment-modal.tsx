@@ -74,7 +74,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full max-w-none mx-4 max-h-[95vh] overflow-y-auto" style={{borderRadius: '2px'}}>
+      <DialogContent className="w-full max-w-none mx-2 max-h-[95vh] overflow-y-auto left-1/2 transform -translate-x-1/2" style={{borderRadius: '2px'}}>
         <DialogHeader className="sr-only">
           <DialogTitle>Pagamento PIX</DialogTitle>
           <DialogDescription>
@@ -84,22 +84,26 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
         <div className="space-y-4 py-3">
           {/* Box laranja com status aguardando pagamento */}
           <div 
-            className="bg-orange-100 border-l-4 border-orange-500 p-4 mb-6"
-            style={{borderRadius: '2px'}}
+            className="p-4 mb-6"
+            style={{
+              backgroundColor: '#fef3e2',
+              border: '1px solid #d17d00',
+              borderRadius: '2px'
+            }}
           >
             <div className="flex items-center justify-center space-x-3 mb-3">
-              <Loader2 className="h-6 w-6 animate-spin text-orange-600" />
-              <h3 className="text-lg font-bold text-orange-800">Aguardando Pagamento</h3>
+              <Loader2 className="h-6 w-6 animate-spin" style={{color: '#d17d00'}} />
+              <h3 className="text-lg font-bold" style={{color: '#b8590a'}}>Aguardando Pagamento</h3>
             </div>
             
             <div className="text-center space-y-2">
-              <p className="text-orange-700 font-medium">
+              <p className="font-medium" style={{color: '#b8590a'}}>
                 Valor: <span className="font-bold">R$ 64,90</span>
               </p>
               
               {/* Cronômetro */}
               {(isLoading || paymentData) && (
-                <div className="flex items-center justify-center space-x-2 text-orange-700">
+                <div className="flex items-center justify-center space-x-2" style={{color: '#b8590a'}}>
                   <Clock className="h-4 w-4" />
                   <span className="text-lg font-mono font-bold">
                     {formatTime(timeLeft)}
@@ -107,7 +111,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
                 </div>
               )}
               
-              <p className="text-orange-600 text-sm">
+              <p className="text-sm" style={{color: '#d17d00'}}>
                 Complete o pagamento antes que o tempo expire
               </p>
             </div>
