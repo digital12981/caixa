@@ -93,7 +93,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
         zIndex: 9999
       }}
     >
-      <div className="flex flex-col h-full justify-center space-y-4 py-6 max-w-md mx-auto" style={{transform: 'translateY(-5%) translateX(-5px)'}}>
+      <div className="flex flex-col h-full justify-center space-y-4 py-6 max-w-md mx-auto" style={{transform: 'translateY(0%) translateX(-5px)'}}>
         {/* Box laranja com status aguardando pagamento */}
         <div 
           className="p-4 mx-6"
