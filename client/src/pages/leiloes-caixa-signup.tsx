@@ -131,7 +131,7 @@ export default function LeiloesCaixaSignup() {
                       <p className="text-orange-700 mb-2 text-[16px]">
                         Apenas membros do programa Leilões Caixa podem agendar visitas e adquirir imóveis de leilão da Caixa Econômica Federal.
                       </p>
-                      <p className="text-orange-700 text-xs">
+                      <p className="text-orange-700 text-[16px] mt-[7px] mb-[7px]">
                         <strong>Lei Federal nº 8.666/93 Art. 22-A:</strong> É obrigatória a participação em programa específico para aquisição de bens oriundos de execução judicial em instituições financeiras federais.
                       </p>
                     </div>
