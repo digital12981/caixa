@@ -21,9 +21,9 @@ if (!fs.existsSync(serverPath)) {
       fs.mkdirSync('dist', { recursive: true });
     }
     
-    // Compile server
+    // Compile server (using production.ts to avoid vite dependency)
     console.log('🔨 Compiling server...');
-    execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/server.js', {
+    execSync('npx esbuild server/production.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/server.js', {
       stdio: 'inherit',
       timeout: 60000
     });

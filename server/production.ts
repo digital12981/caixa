@@ -60,7 +60,7 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
 
 // Serve static files in production
 function serveStaticFiles() {
-  const publicPath = path.join(process.cwd(), 'server', 'public');
+  const publicPath = path.join(process.cwd(), 'dist', 'public');
   
   if (fs.existsSync(publicPath)) {
     log(`Serving static files from ${publicPath}`);

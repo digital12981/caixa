@@ -1,0 +1,48 @@
+Application Logs
+2025-07-04T19:16:32.469328+00:00 app[web.1]: npm notice
+2025-07-04T19:16:32.469329+00:00 app[web.1]: npm notice New major version of npm available! 10.9.2 -> 11.4.2
+2025-07-04T19:16:32.469330+00:00 app[web.1]: npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+2025-07-04T19:16:32.469330+00:00 app[web.1]: npm notice To update run: npm install -g npm@11.4.2
+2025-07-04T19:16:32.469330+00:00 app[web.1]: npm notice
+2025-07-04T19:16:32.512176+00:00 app[web.1]: tsx exited with code 1
+2025-07-04T19:16:32.512286+00:00 app[web.1]: Trying direct TypeScript import...
+2025-07-04T19:16:32.513215+00:00 app[web.1]: All server startup methods failed: Cannot find package 'tsx' imported from /app/server-simple.js
+2025-07-04T19:16:32.564019+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T19:16:32.592871+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T19:22:48.842760+00:00 heroku[web.1]: State changed from crashed to starting
+2025-07-04T19:22:53.958720+00:00 heroku[web.1]: Starting process with command `node heroku-start.js`
+2025-07-04T19:22:54.484227+00:00 app[web.1]: 🚀 Heroku Startup Script
+2025-07-04T19:22:54.484286+00:00 app[web.1]: 📋 Node: v22.17.0
+2025-07-04T19:22:54.484289+00:00 app[web.1]: 📋 Environment: production
+2025-07-04T19:22:54.484289+00:00 app[web.1]: 📋 Port: 45984
+2025-07-04T19:22:54.484291+00:00 app[web.1]: ⚠️ Server not compiled, building now...
+2025-07-04T19:22:54.484291+00:00 app[web.1]: 🔨 Compiling server...
+2025-07-04T19:22:55.205096+00:00 app[web.1]: npm warn exec The following package was not found and will be installed: esbuild@0.25.5
+2025-07-04T19:22:55.806578+00:00 app[web.1]: 
+2025-07-04T19:22:55.806591+00:00 app[web.1]:   dist/server.js  20.4kb
+2025-07-04T19:22:55.806591+00:00 app[web.1]: 
+2025-07-04T19:22:55.806591+00:00 app[web.1]: ⚡ Done in 4ms
+2025-07-04T19:22:55.809122+00:00 app[web.1]: npm notice
+2025-07-04T19:22:55.809126+00:00 app[web.1]: npm notice New major version of npm available! 10.9.2 -> 11.4.2
+2025-07-04T19:22:55.809127+00:00 app[web.1]: npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+2025-07-04T19:22:55.809127+00:00 app[web.1]: npm notice To update run: npm install -g npm@11.4.2
+2025-07-04T19:22:55.809128+00:00 app[web.1]: npm notice
+2025-07-04T19:22:55.852784+00:00 app[web.1]: ✅ Server compiled successfully
+2025-07-04T19:22:55.852833+00:00 app[web.1]: 🚀 Starting server...
+2025-07-04T19:22:55.888493+00:00 app[web.1]: ❌ Server startup failed: Cannot find package 'vite' imported from /app/dist/server.js
+2025-07-04T19:22:55.889848+00:00 app[web.1]: Stack: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server.js
+2025-07-04T19:22:55.889849+00:00 app[web.1]:     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)
+2025-07-04T19:22:55.889850+00:00 app[web.1]:     at packageResolve (node:internal/modules/esm/resolve:768:81)
+2025-07-04T19:22:55.889851+00:00 app[web.1]:     at moduleResolve (node:internal/modules/esm/resolve:854:18)
+2025-07-04T19:22:55.889851+00:00 app[web.1]:     at defaultResolve (node:internal/modules/esm/resolve:984:11)
+2025-07-04T19:22:55.889851+00:00 app[web.1]:     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:780:12)
+2025-07-04T19:22:55.889852+00:00 app[web.1]:     at #cachedDefaultResolve (node:internal/modules/esm/loader:704:25)
+2025-07-04T19:22:55.889852+00:00 app[web.1]:     at ModuleLoader.resolve (node:internal/modules/esm/loader:687:38)
+2025-07-04T19:22:55.889852+00:00 app[web.1]:     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:305:38)
+2025-07-04T19:22:55.889852+00:00 app[web.1]:     at ModuleJob._link (node:internal/modules/esm/module_job:175:49)
+2025-07-04T19:22:55.944331+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T19:22:55.969339+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T19:22:21.000000+00:00 app[api]: Build started by user paulinhomecanico1212@gmail.com
+2025-07-04T19:22:52.000000+00:00 app[api]: Build succeeded
+2025-07-04T19:22:48.586464+00:00 app[api]: Release v18 created by user paulinhomecanico1212@gmail.com
+2025-07-04T19:22:48.586464+00:00 app[api]: Deploy 9b543582 by user paulinhomecanico1212@gmail.com
