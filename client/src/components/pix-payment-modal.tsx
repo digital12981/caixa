@@ -74,44 +74,46 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full max-w-none mx-2 max-h-[95vh] overflow-y-auto left-1/2 transform -translate-x-1/2" style={{borderRadius: '2px'}}>
+      <DialogContent className="w-full h-full max-w-none max-h-none p-4 overflow-y-auto" style={{borderRadius: '0px', position: 'fixed', top: 0, left: 0, right: 0, bottom: 0}}>
         <DialogHeader className="sr-only">
           <DialogTitle>Pagamento PIX</DialogTitle>
           <DialogDescription>
             Modal para pagamento via PIX no valor de R$ 64,90 para cadastro no Leilões Caixa
           </DialogDescription>
         </DialogHeader>
-        <div className="space-y-4 py-3">
+        <div className="flex flex-col h-full justify-center space-y-6 py-8">
           {/* Box laranja com status aguardando pagamento */}
           <div 
-            className="p-4 mb-6"
+            className="p-6 mx-4"
             style={{
               backgroundColor: '#fef3e2',
               border: '1px solid #d17d00',
               borderRadius: '2px'
             }}
           >
-            <div className="flex items-center justify-center space-x-3 mb-3">
-              <Loader2 className="h-6 w-6 animate-spin" style={{color: '#d17d00'}} />
-              <h3 className="text-lg font-bold" style={{color: '#b8590a'}}>Aguardando Pagamento</h3>
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-3 mb-4">
+              <Loader2 className="h-8 w-8 animate-spin" style={{color: '#d17d00'}} />
+              <h3 className="text-xl sm:text-2xl font-bold text-center" style={{color: '#b8590a'}}>
+                Aguardando Pagamento
+              </h3>
             </div>
             
-            <div className="text-center space-y-2">
-              <p className="font-medium" style={{color: '#b8590a'}}>
-                Valor: <span className="font-bold">R$ 64,90</span>
+            <div className="text-center space-y-4">
+              <p className="text-lg font-medium" style={{color: '#b8590a'}}>
+                Valor: <span className="font-bold text-xl">R$ 64,90</span>
               </p>
               
               {/* Cronômetro */}
               {(isLoading || paymentData) && (
                 <div className="flex items-center justify-center space-x-2" style={{color: '#b8590a'}}>
-                  <Clock className="h-4 w-4" />
-                  <span className="text-lg font-mono font-bold">
+                  <Clock className="h-6 w-6" />
+                  <span className="text-2xl font-mono font-bold">
                     {formatTime(timeLeft)}
                   </span>
                 </div>
               )}
               
-              <p className="text-sm" style={{color: '#d17d00'}}>
+              <p className="text-base" style={{color: '#d17d00'}}>
                 Complete o pagamento antes que o tempo expire
               </p>
             </div>
@@ -119,11 +121,11 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
           {/* QR Code */}
           {paymentData?.pixQrCode && !isLoading && (
-            <div className="flex justify-center">
+            <div className="flex justify-center mx-4">
               <img 
                 src={paymentData.pixQrCode} 
                 alt="QR Code PIX" 
-                className="w-32 h-32 border border-gray-200"
+                className="w-48 h-48 sm:w-56 sm:h-56 border border-gray-200"
                 style={{borderRadius: '2px'}}
               />
             </div>
@@ -131,11 +133,11 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
           {/* Código PIX */}
           {paymentData?.pixCode && !isLoading && (
-            <div className="space-y-2">
+            <div className="space-y-4 mx-4">
               <div className="text-center">
-                <p className="text-sm font-medium text-gray-700 mb-1">Código PIX (Copia e Cola):</p>
+                <p className="text-base font-medium mb-3" style={{color: '#1964ad'}}>Código PIX (Copia e Cola):</p>
                 <div 
-                  className="bg-gray-50 p-2 text-xs font-mono break-all border"
+                  className="bg-gray-50 p-4 text-sm font-mono break-all border"
                   style={{borderRadius: '2px'}}
                 >
                   {paymentData.pixCode}
@@ -144,21 +146,21 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
               
               <Button 
                 onClick={copyToClipboard}
-                className="w-full"
+                className="w-full h-12 text-lg font-semibold"
                 style={{
-                  backgroundColor: copied ? '#22c55e' : '#1964ad',
+                  backgroundColor: copied ? '#22c55e' : '#d17d00',
                   borderRadius: '2px'
                 }}
                 disabled={copied}
               >
                 {copied ? (
                   <>
-                    <CheckCircle className="w-4 h-4 mr-2" />
+                    <CheckCircle className="w-5 h-5 mr-2" />
                     Copiado!
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4 mr-2" />
+                    <Copy className="w-5 h-5 mr-2" />
                     Copiar Código PIX
                   </>
                 )}
