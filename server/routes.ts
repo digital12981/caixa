@@ -81,13 +81,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (city && state) {
         const nearbyCities = await getNearbyNeighborhoods(city as string, state as string);
         
-        // Update each property with a nearby city, but keep original state
+        // Update each property with a nearby city and searched state
         const updatedProperties = properties.map((property) => {
           const cityIndex = (property.id - 1) % nearbyCities.length; // Use property ID to ensure consistency
           return {
             ...property,
             city: nearbyCities[cityIndex] || (city as string),
-            location: `${nearbyCities[cityIndex] || (city as string)}, ${property.state}`
+            state: state as string, // Use the searched state instead of property's original state
+            location: `${nearbyCities[cityIndex] || (city as string)}, ${state as string}`
           };
         });
         

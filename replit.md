@@ -164,6 +164,8 @@ Changelog:
   * Updated property database to include diverse locations across Brazil (São Paulo-SP, Brasília-DF, Rio de Janeiro-RJ)
   * Implemented neighborhood cache system to ensure location consistency between property list and detail pages
   * Fixed inconsistency where same property showed different neighborhoods on list vs detail view
+  * Corrected state display bug where /properties page showed original states instead of searched state
+  * All pages now correctly display searched state (DF, RJ, etc.) instead of defaulting to "SP"
 ```
 
 ## User Preferences
