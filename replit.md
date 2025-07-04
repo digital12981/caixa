@@ -172,6 +172,14 @@ Changelog:
   * Added comprehensive form validation (required fields, email format) before payment processing
   * Implemented fallback system for development environment when external API fails
   * Mobile-optimized modal with reduced QR code size (128px) and compact spacing for better mobile experience
+- July 04, 2025: Heroku deployment configuration
+  * Modified server to use dynamic port (process.env.PORT) for Heroku compatibility
+  * Created Procfile specifying web process as "npm run start"
+  * Added app.json with Heroku-specific configuration and buildpack settings
+  * Moved critical build dependencies (TypeScript, esbuild, Vite, etc.) to regular dependencies
+  * Created heroku-postbuild.js script for automated build process on Heroku
+  * Added comprehensive HEROKU_DEPLOYMENT.md guide with step-by-step deployment instructions
+  * Configured environment variables for production deployment (NODE_ENV, NPM_CONFIG_PRODUCTION)
 ```
 
 ## User Preferences

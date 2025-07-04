@@ -1,0 +1,36 @@
+{
+  "name": "Caixa Real Estate Auction Platform",
+  "description": "A comprehensive Caixa Econômica Federal real estate auction platform",
+  "image": "heroku/nodejs",
+  "stack": "heroku-22",
+  "keywords": ["node", "express", "react", "vite", "real-estate", "auction", "brazil"],
+  "website": "https://github.com/heroku/node-js-getting-started",
+  "repository": "https://github.com/heroku/node-js-getting-started",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/main/public/node.svg",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "echo 'Deployment completed successfully'"
+  },
+  "env": {
+    "NODE_ENV": {
+      "description": "The Node.js environment",
+      "value": "production"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Install devDependencies in production for build",
+      "value": "false"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "addons": []
+}

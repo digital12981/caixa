@@ -72,6 +72,15 @@ async function getNearbyNeighborhoods(city: string, state: string): Promise<stri
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Health check endpoint for Heroku
+  app.get("/health", (req, res) => {
+    res.status(200).json({ 
+      status: "healthy", 
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV || "development"
+    });
+  });
+
   // Get all properties
   app.get("/api/properties", async (req, res) => {
     try {
