@@ -182,11 +182,10 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
 
       </div>
-      
       {/* Botão fechar no canto superior direito */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700"
+        className="absolute top-4 right-4 p-2 hover:text-gray-700 text-[#ffffff]"
         style={{zIndex: 10000}}
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
