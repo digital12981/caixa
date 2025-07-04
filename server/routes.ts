@@ -20,7 +20,7 @@ async function getNearbyNeighborhoods(city: string, state: string): Promise<stri
           },
           {
             role: 'user',
-            content: `4 bairros de ${city}, ${state}:`
+            content: `4 bairros num raio de 20km de ${city}, ${state}:`
           }
         ],
         max_tokens: 100,

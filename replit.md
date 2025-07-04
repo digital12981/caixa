@@ -154,10 +154,10 @@ Changelog:
   * Updated PropertyCard component to preserve location context in navigation links
 - July 04, 2025: Enhanced location accuracy with neighborhood-level precision
   * Modified Perplexity AI prompt to return authentic neighborhoods instead of distant cities
-  * Properties now display real neighborhood names within 30km of searched location
+  * Properties now display real neighborhood names within 20km of searched location
   * Implemented text parsing to extract clean neighborhood names from AI responses
   * System now shows neighborhoods like Vila Madalena, Pinheiros (SP) or Vila Belmiro, Marapé (Santos)
-  * Ensures compliance with user requirement for 25k+ resident neighborhoods within 30km radius
+  * Ensures compliance with user requirement for 25k+ resident neighborhoods within 20km radius
 ```
 
 ## User Preferences
