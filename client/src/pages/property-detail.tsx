@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, Bed, Bath, Car, ChevronLeft, ChevronRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -179,7 +180,7 @@ function CPFVerificationForm({ propertyId }: { propertyId: number }) {
   );
 }
 
-// Função para obter os dados completos das propriedades fake
+// Old static data function - no longer used, keeping for reference
 const getPropertyData = (id: number): Property | null => {
   const properties: Property[] = [
     {
@@ -299,17 +300,29 @@ const getPropertyData = (id: number): Property | null => {
 
 export default function PropertyDetail() {
   const [location, setLocation] = useLocation();
-  const [property, setProperty] = useState<Property | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const propertyId = parseInt(location.split('/')[2] || '0');
+  
+  // Get city and state from URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const city = urlParams.get('city') || '';
+  const state = urlParams.get('state') || '';
 
-  useEffect(() => {
-    const propertyData = getPropertyData(propertyId);
-    setProperty(propertyData);
-    setIsLoading(false);
-  }, [propertyId]);
+  // Fetch property data from API with dynamic location
+  const { data: property, isLoading } = useQuery<Property>({
+    queryKey: ['/api/properties', propertyId, city, state],
+    queryFn: async () => {
+      const params = new URLSearchParams();
+      if (city) params.append('city', city);
+      if (state) params.append('state', state);
+      
+      const response = await fetch(`/api/properties/${propertyId}?${params.toString()}`);
+      if (!response.ok) throw new Error('Failed to fetch property');
+      return response.json();
+    },
+    enabled: !!propertyId,
+  });
 
   const nextImage = () => {
     if (property && property.images.length > 1) {

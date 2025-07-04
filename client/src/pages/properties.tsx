@@ -16,9 +16,18 @@ export default function Properties() {
   const state = urlParams.get('state') || '';
   const cep = urlParams.get('cep') || '';
 
-  // Buscar todas as propriedades disponíveis independente do estado
+  // Buscar propriedades com localização baseada na cidade pesquisada
   const { data: properties = [], isLoading } = useQuery<Property[]>({
-    queryKey: ['/api/properties'],
+    queryKey: ['/api/properties', city, state],
+    queryFn: async () => {
+      const params = new URLSearchParams();
+      if (city) params.append('city', city);
+      if (state) params.append('state', state);
+      
+      const response = await fetch(`/api/properties?${params.toString()}`);
+      if (!response.ok) throw new Error('Failed to fetch properties');
+      return response.json();
+    },
     enabled: true,
   });
 

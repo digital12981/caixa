@@ -145,6 +145,13 @@ Changelog:
   * Reduced property count from 8 to 4 to eliminate perceived duplicates
   * Removed additional properties from DF and RJ, keeping only São Paulo properties
   * App now displays 4 properties instead of 8 for cleaner user experience
+- July 04, 2025: Dynamic location system with Perplexity AI integration
+  * Integrated Perplexity AI API to find cities within 30km of user's searched location
+  * Properties now display authentic nearby cities instead of fictional addresses
+  * Updated API endpoints to accept city/state parameters for dynamic location updates
+  * Property detail pages now receive and display contextual location information
+  * Implemented proper URL parameter passing between pages to maintain search context
+  * Updated PropertyCard component to preserve location context in navigation links
 ```
 
 ## User Preferences

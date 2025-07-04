@@ -8,8 +8,16 @@ interface PropertyCardProps {
 }
 
 export function PropertyCard({ property }: PropertyCardProps) {
+  // Get current URL parameters to preserve search context
+  const urlParams = new URLSearchParams(window.location.search);
+  const city = urlParams.get('city') || '';
+  const state = urlParams.get('state') || '';
+  
+  // Build URL with preserved search parameters
+  const propertyUrl = `/property/${property.id}${city && state ? `?city=${encodeURIComponent(city)}&state=${encodeURIComponent(state)}` : ''}`;
+  
   return (
-    <Link href={`/property/${property.id}`}>
+    <Link href={propertyUrl}>
       <div className="bg-white border border-gray-200 rounded-sm shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:transform hover:scale-[1.02] overflow-hidden" style={{borderRadius: '2px'}}>
         <div className="relative">
           <img 
