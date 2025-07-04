@@ -166,6 +166,12 @@ Changelog:
   * Fixed inconsistency where same property showed different neighborhoods on list vs detail view
   * Corrected state display bug where /properties page showed original states instead of searched state
   * All pages now correctly display searched state (DF, RJ, etc.) instead of defaulting to "SP"
+- July 04, 2025: PIX payment system integration
+  * Integrated For4Payments API for R$ 64,90 PIX transactions when users complete signup form
+  * Created responsive modal with animated spinner, QR Code display, and copy-to-clipboard functionality
+  * Added comprehensive form validation (required fields, email format) before payment processing
+  * Implemented fallback system for development environment when external API fails
+  * Mobile-optimized modal with reduced QR code size (128px) and compact spacing for better mobile experience
 ```
 
 ## User Preferences

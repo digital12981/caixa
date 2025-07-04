@@ -42,14 +42,14 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md mx-auto" style={{borderRadius: '2px'}}>
+      <DialogContent className="max-w-sm mx-auto max-h-[90vh] overflow-y-auto" style={{borderRadius: '2px'}}>
         <DialogHeader>
           <DialogTitle className="text-center text-xl font-bold" style={{color: '#1964ad'}}>
             Pagamento PIX
           </DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-6 py-4">
+        <div className="space-y-4 py-3">
           {/* Status e spinner */}
           <div className="flex flex-col items-center space-y-3">
             {isLoading ? (
@@ -76,7 +76,7 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
               <img 
                 src={paymentData.pixQrCode} 
                 alt="QR Code PIX" 
-                className="w-48 h-48 border border-gray-200"
+                className="w-32 h-32 border border-gray-200"
                 style={{borderRadius: '2px'}}
               />
             </div>
@@ -84,11 +84,11 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
           {/* Código PIX */}
           {paymentData?.pixCode && !isLoading && (
-            <div className="space-y-3">
+            <div className="space-y-2">
               <div className="text-center">
-                <p className="text-sm font-medium text-gray-700 mb-2">Código PIX (Copia e Cola):</p>
+                <p className="text-sm font-medium text-gray-700 mb-1">Código PIX (Copia e Cola):</p>
                 <div 
-                  className="bg-gray-50 p-3 text-xs font-mono break-all border"
+                  className="bg-gray-50 p-2 text-xs font-mono break-all border"
                   style={{borderRadius: '2px'}}
                 >
                   {paymentData.pixCode}
@@ -121,9 +121,9 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
           {/* Instruções */}
           {paymentData && !isLoading && (
-            <div className="bg-blue-50 p-4 text-sm text-gray-700" style={{borderRadius: '2px'}}>
-              <p className="font-medium mb-2">Como pagar:</p>
-              <ol className="list-decimal list-inside space-y-1">
+            <div className="bg-blue-50 p-3 text-xs text-gray-700" style={{borderRadius: '2px'}}>
+              <p className="font-medium mb-1">Como pagar:</p>
+              <ol className="list-decimal list-inside space-y-0.5">
                 <li>Abra o app do seu banco</li>
                 <li>Escolha a opção PIX</li>
                 <li>Escaneie o QR Code ou cole o código</li>
