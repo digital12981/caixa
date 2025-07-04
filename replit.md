@@ -139,6 +139,12 @@ Changelog:
   * Integrated data flow from CPF verification to signup form
   * Updated styling to use official Caixa colors (#1964ad, #033c72)
   * Added phone and email formatting with validation
+- July 04, 2025: App crash fix and property count optimization
+  * Fixed JSX syntax error in leiloes-caixa-signup.tsx (missing closing div tags)
+  * Resolved CPFVerificationForm compilation issue
+  * Reduced property count from 8 to 4 to eliminate perceived duplicates
+  * Removed additional properties from DF and RJ, keeping only São Paulo properties
+  * App now displays 4 properties instead of 8 for cleaner user experience
 ```
 
 ## User Preferences
