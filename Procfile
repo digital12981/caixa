@@ -1,1 +1,1 @@
-web: node --import tsx/esm server/index.ts
+web: node dist/server.js

@@ -1,0 +1,36 @@
+Application Logs
+2025-07-04T18:12:29.529664+00:00 app[web.1]: }
+2025-07-04T18:12:29.529664+00:00 app[web.1]: 
+2025-07-04T18:12:29.529665+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:12:29.571956+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:12:29.596555+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T18:15:11.000000+00:00 app[api]: Build started by user paulinhomecanico1212@gmail.com
+2025-07-04T18:15:39.038453+00:00 app[api]: Release v9 created by user paulinhomecanico1212@gmail.com
+2025-07-04T18:15:39.038453+00:00 app[api]: Deploy 34d43bf1 by user paulinhomecanico1212@gmail.com
+2025-07-04T18:15:39.376853+00:00 heroku[web.1]: State changed from crashed to starting
+2025-07-04T18:15:42.000000+00:00 app[api]: Build succeeded
+2025-07-04T18:15:44.658181+00:00 heroku[web.1]: Starting process with command `node --import tsx/esm server/index.ts`
+2025-07-04T18:15:45.351317+00:00 heroku[web.1]: Process exited with status 1
+2025-07-04T18:15:45.307395+00:00 app[web.1]: node:internal/modules/package_json_reader:256
+2025-07-04T18:15:45.307420+00:00 app[web.1]:   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-07-04T18:15:45.307420+00:00 app[web.1]:         ^
+2025-07-04T18:15:45.307420+00:00 app[web.1]: 
+2025-07-04T18:15:45.307421+00:00 app[web.1]: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'tsx' imported from /app/
+2025-07-04T18:15:45.307421+00:00 app[web.1]:     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)
+2025-07-04T18:15:45.307421+00:00 app[web.1]:     at packageResolve (node:internal/modules/esm/resolve:768:81)
+2025-07-04T18:15:45.307422+00:00 app[web.1]:     at moduleResolve (node:internal/modules/esm/resolve:854:18)
+2025-07-04T18:15:45.307422+00:00 app[web.1]:     at defaultResolve (node:internal/modules/esm/resolve:984:11)
+2025-07-04T18:15:45.307423+00:00 app[web.1]:     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:780:12)
+2025-07-04T18:15:45.307423+00:00 app[web.1]:     at #cachedDefaultResolve (node:internal/modules/esm/loader:704:25)
+2025-07-04T18:15:45.307423+00:00 app[web.1]:     at ModuleLoader.resolve (node:internal/modules/esm/loader:687:38)
+2025-07-04T18:15:45.307424+00:00 app[web.1]:     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:305:38)
+2025-07-04T18:15:45.307424+00:00 app[web.1]:     at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:643:36)
+2025-07-04T18:15:45.307424+00:00 app[web.1]:     at TracingChannel.tracePromise (node:diagnostics_channel:344:14) {
+2025-07-04T18:15:45.307424+00:00 app[web.1]:   code: 'ERR_MODULE_NOT_FOUND'
+2025-07-04T18:15:45.307425+00:00 app[web.1]: }
+2025-07-04T18:15:45.307425+00:00 app[web.1]: 
+2025-07-04T18:15:45.307425+00:00 app[web.1]: Node.js v22.17.0
+2025-07-04T18:15:45.377155+00:00 heroku[web.1]: State changed from starting to crashed
+2025-07-04T18:15:46.205315+00:00 heroku[router]: sock=client at=warning code=H27 desc="Client Request Interrupted" method=GET path="/" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=1b998257-a0be-4e18-14cd-4af9faee5e9f fwd="" dyno= connect=0ms service=0ms status=499 bytes=567 protocol=http1.1 tls=true tls_version=unknown
+2025-07-04T18:17:01.725239+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=980de6e2-e545-98d4-532c-d2b17b1e9a21 fwd="" dyno= connect=0ms service=0ms status=503 bytes=567 protocol=http1.1 tls=true tls_version=unknown
+2025-07-04T18:18:16.931777+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=leilaoc-69a9ab2fa5d9.herokuapp.com request_id=36a47c3f-a6e4-8709-c9f9-956e732b182f fwd="" dyno= connect=0ms service=0ms status=503 bytes=567 protocol=http1.1 tls=true tls_version=unknown

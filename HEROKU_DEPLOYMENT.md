@@ -83,11 +83,12 @@ heroku ps
 
 O projeto foi configurado com:
 
-- **Procfile**: Define que o Heroku deve executar `node --import tsx/esm server/index.ts`
+- **Procfile**: Define que o Heroku deve executar `node dist/server.js`
 - **app.json**: Configurações específicas do Heroku  
-- **postinstall.js**: Script que constrói os assets do cliente após npm install
+- **postinstall.js**: Script que compila tanto cliente quanto servidor após npm install
+- **Build Process**: TypeScript é compilado para JavaScript usando esbuild
 - **Porto dinâmico**: A aplicação usa `process.env.PORT` do Heroku
-- **Dependências**: Todas as dependências críticas movidas para dependencies (não devDependencies)
+- **Sem tsx runtime**: Executa JavaScript compilado em vez de TypeScript no runtime
 
 ## Scripts Importantes
 
