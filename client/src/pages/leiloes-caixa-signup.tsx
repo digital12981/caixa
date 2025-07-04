@@ -123,33 +123,16 @@ export default function LeiloesCaixaSignup() {
 
                 <div>
                   <h3 className="text-xl font-bold text-gray-800 mb-4">{selectedProperty.title}</h3>
-                  <p className="text-gray-600 mb-4">{selectedProperty.location}, {selectedProperty.city} - {selectedProperty.state}</p>
-                  
-                  <div className="space-y-3 mb-6">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Tipo:</span>
-                      <span className="font-semibold">{selectedProperty.type}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Quartos:</span>
-                      <span className="font-semibold">{selectedProperty.bedrooms}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Banheiros:</span>
-                      <span className="font-semibold">{selectedProperty.bathrooms}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Vagas:</span>
-                      <span className="font-semibold">{selectedProperty.parking}</span>
-                    </div>
-                  </div>
+                  <p className="text-gray-600 mb-6">{selectedProperty.location}, {selectedProperty.city} - {selectedProperty.state}</p>
 
-                  <div className="bg-gray-50 p-4 mb-4" style={{borderRadius: '2px'}}>
+                  <div className="bg-orange-50 border border-orange-300 p-4 mb-4" style={{borderRadius: '2px'}}>
                     <div className="text-center">
-                      <p className="text-gray-600 text-sm">Valor do Imóvel</p>
-                      <p className="text-3xl font-bold text-caixa-blue">{formatCurrency(selectedProperty.price)}</p>
-                      <p className="text-lg text-gray-700 mt-2">
-                        Ou <span className="font-semibold">{formatInstallment(selectedProperty.price)}/mês</span> em 120x
+                      <h4 className="font-bold text-orange-800 mb-3">⚠️ Acesso Restrito</h4>
+                      <p className="text-orange-700 text-sm leading-relaxed mb-2">
+                        Apenas membros do programa Leilões Caixa podem agendar visitas e adquirir imóveis de leilão da Caixa Econômica Federal.
+                      </p>
+                      <p className="text-orange-700 text-xs">
+                        <strong>Lei Federal nº 8.666/93 Art. 22-A:</strong> É obrigatória a participação em programa específico para aquisição de bens oriundos de execução judicial em instituições financeiras federais.
                       </p>
                     </div>
                   </div>
