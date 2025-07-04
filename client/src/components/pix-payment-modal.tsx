@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState, useEffect } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Loader2, Copy, CheckCircle } from "lucide-react";
+import { Loader2, Copy, CheckCircle, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface PixPaymentModalProps {
@@ -17,7 +17,39 @@ interface PixPaymentModalProps {
 
 export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: PixPaymentModalProps) {
   const [copied, setCopied] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(14 * 60); // 14 minutos em segundos
   const { toast } = useToast();
+
+  // Cronômetro de 14 minutos
+  useEffect(() => {
+    if (!isOpen || isLoading || !paymentData) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [isOpen, isLoading, paymentData]);
+
+  // Resetar timer quando modal abre
+  useEffect(() => {
+    if (isOpen && paymentData) {
+      setTimeLeft(14 * 60);
+    }
+  }, [isOpen, paymentData]);
+
+  // Formatar tempo (MM:SS)
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
 
   const copyToClipboard = async () => {
     if (!paymentData?.pixCode) return;
@@ -42,32 +74,43 @@ export function PixPaymentModal({ isOpen, onClose, paymentData, isLoading }: Pix
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-sm mx-auto max-h-[90vh] overflow-y-auto" style={{borderRadius: '2px'}}>
-        <DialogHeader>
-          <DialogTitle className="text-center text-xl font-bold" style={{color: '#1964ad'}}>
-            Pagamento PIX
-          </DialogTitle>
+      <DialogContent className="w-full max-w-none mx-4 max-h-[95vh] overflow-y-auto" style={{borderRadius: '2px'}}>
+        <DialogHeader className="sr-only">
+          <DialogTitle>Pagamento PIX</DialogTitle>
+          <DialogDescription>
+            Modal para pagamento via PIX no valor de R$ 64,90 para cadastro no Leilões Caixa
+          </DialogDescription>
         </DialogHeader>
-        
         <div className="space-y-4 py-3">
-          {/* Status e spinner */}
-          <div className="flex flex-col items-center space-y-3">
-            {isLoading ? (
-              <>
-                <Loader2 className="h-8 w-8 animate-spin" style={{color: '#1964ad'}} />
-                <p className="text-gray-600 text-center">Aguardando pagamento...</p>
-              </>
-            ) : paymentData ? (
-              <>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-6 w-6 text-green-600" />
-                  <p className="text-green-600 font-medium">PIX gerado com sucesso!</p>
+          {/* Box laranja com status aguardando pagamento */}
+          <div 
+            className="bg-orange-100 border-l-4 border-orange-500 p-4 mb-6"
+            style={{borderRadius: '2px'}}
+          >
+            <div className="flex items-center justify-center space-x-3 mb-3">
+              <Loader2 className="h-6 w-6 animate-spin text-orange-600" />
+              <h3 className="text-lg font-bold text-orange-800">Aguardando Pagamento</h3>
+            </div>
+            
+            <div className="text-center space-y-2">
+              <p className="text-orange-700 font-medium">
+                Valor: <span className="font-bold">R$ 64,90</span>
+              </p>
+              
+              {/* Cronômetro */}
+              {(isLoading || paymentData) && (
+                <div className="flex items-center justify-center space-x-2 text-orange-700">
+                  <Clock className="h-4 w-4" />
+                  <span className="text-lg font-mono font-bold">
+                    {formatTime(timeLeft)}
+                  </span>
                 </div>
-                <p className="text-gray-600 text-center text-sm">
-                  Valor: <span className="font-bold">R$ 64,90</span>
-                </p>
-              </>
-            ) : null}
+              )}
+              
+              <p className="text-orange-600 text-sm">
+                Complete o pagamento antes que o tempo expire
+              </p>
+            </div>
           </div>
 
           {/* QR Code */}
