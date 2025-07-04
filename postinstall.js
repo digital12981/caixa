@@ -19,12 +19,32 @@ try {
   // Ensure dist directory exists
   if (!fs.existsSync('dist')) {
     fs.mkdirSync('dist', { recursive: true });
+    console.log('📁 Created dist directory');
   }
   
-  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/server.js --sourcemap --log-level=info', {
+  // Check if esbuild is available
+  try {
+    execSync('npx esbuild --version', { stdio: 'pipe' });
+    console.log('✅ esbuild is available');
+  } catch (esbuildError) {
+    console.error('❌ esbuild not found:', esbuildError.message);
+    throw new Error('esbuild is required for server compilation');
+  }
+  
+  console.log('🔧 Compiling server/index.ts to dist/server.js...');
+  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/server.js --log-level=info', {
     stdio: 'inherit',
-    timeout: 60000
+    timeout: 60000,
+    env: { ...process.env, NODE_ENV: 'production' }
   });
+  
+  // Verify server compilation
+  if (fs.existsSync('dist/server.js')) {
+    const serverSize = fs.statSync('dist/server.js').size;
+    console.log(`✅ Server compiled successfully (${Math.round(serverSize/1024)}KB)`);
+  } else {
+    throw new Error('Server compilation failed - dist/server.js not created');
+  }
   
   // Build client assets
   console.log('Building client assets...');

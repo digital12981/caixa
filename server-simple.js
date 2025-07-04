@@ -22,69 +22,28 @@ process.on('unhandledRejection', (reason) => {
 
 const compiledPath = './dist/server.js';
 
+console.log('Checking for compiled server...');
+console.log('Current directory:', process.cwd());
+console.log('Files in current directory:', fs.readdirSync('.').join(', '));
+
+if (fs.existsSync('dist')) {
+  console.log('Files in dist:', fs.readdirSync('dist').join(', '));
+}
+
 if (fs.existsSync(compiledPath)) {
-  console.log('Using compiled server...');
+  console.log('✅ Using compiled server...');
   try {
     await import('./dist/server.js');
-    console.log('Server started successfully');
+    console.log('✅ Server started successfully');
   } catch (error) {
-    console.error('Compiled server failed:', error.message);
-    console.log('Trying TypeScript fallback...');
-    startTypescript();
+    console.error('❌ Compiled server failed:', error.message);
+    console.error('Stack:', error.stack);
+    process.exit(1); // No fallback - force rebuild
   }
 } else {
-  console.log('No compiled server, using TypeScript...');
-  startTypescript();
+  console.error('❌ No compiled server found at:', compiledPath);
+  console.error('Build process must have failed. Check postinstall logs.');
+  process.exit(1); // Force failure to trigger rebuild
 }
 
-async function startTypescript() {
-  try {
-    console.log('Attempting tsx execution...');
-    
-    // Method 1: Try tsx directly
-    const { spawn } = await import('child_process');
-    
-    const tsxProcess = spawn('npx', ['tsx', 'server/index.ts'], {
-      stdio: 'inherit',
-      env: { ...process.env },
-      shell: true
-    });
-
-    tsxProcess.on('error', (error) => {
-      console.error('tsx spawn failed:', error.message);
-      tryDirectImport();
-    });
-
-    tsxProcess.on('exit', (code) => {
-      if (code !== 0) {
-        console.error(`tsx exited with code ${code}`);
-        tryDirectImport();
-      }
-    });
-
-    // Handle shutdown
-    ['SIGTERM', 'SIGINT'].forEach(signal => {
-      process.on(signal, () => {
-        console.log(`Received ${signal}, shutting down...`);
-        tsxProcess.kill(signal);
-      });
-    });
-
-  } catch (error) {
-    console.error('tsx method failed:', error.message);
-    tryDirectImport();
-  }
-}
-
-async function tryDirectImport() {
-  try {
-    console.log('Trying direct TypeScript import...');
-    const { register } = await import('tsx/esm');
-    register();
-    await import('./server/index.ts');
-    console.log('Direct TypeScript server started');
-  } catch (error) {
-    console.error('All server startup methods failed:', error.message);
-    process.exit(1);
-  }
-}
+// TypeScript fallback functions removed - Heroku uses compiled JavaScript only
