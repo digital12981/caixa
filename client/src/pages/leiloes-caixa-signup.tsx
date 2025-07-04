@@ -105,7 +105,7 @@ export default function LeiloesCaixaSignup() {
                   <p className="text-green-800 font-semibold">
                     ✓ Imóvel separado especialmente para você
                   </p>
-                  <p className="text-green-700 text-sm mt-2">
+                  <p className="text-green-700 mt-2 text-[16px]">
                     Este imóvel não será mostrado para outras pessoas até você completar o cadastro no programa Leilões Caixa
                   </p>
                 </div>
