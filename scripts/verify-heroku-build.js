@@ -73,6 +73,26 @@ if (fs.existsSync(serverIndexPath)) {
   });
 }
 
+// Verificar se server-prod.js existe
+const serverProdExists = fs.existsSync('server-prod.js');
+checks.push({
+  name: 'server-prod.js',
+  status: serverProdExists,
+  message: serverProdExists ? 'Script de produção encontrado' : 'server-prod.js não encontrado'
+});
+
+// Verificar se tsx está nas dependências normais
+if (fs.existsSync(packageJsonPath)) {
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+  const hasTsx = packageJson.dependencies && packageJson.dependencies.tsx;
+  
+  checks.push({
+    name: 'tsx dependency',
+    status: hasTsx,
+    message: hasTsx ? 'tsx está nas dependências' : 'tsx precisa estar nas dependências normais'
+  });
+}
+
 // Verificar se .gitignore existe e tem configurações básicas
 const gitignoreExists = fs.existsSync('.gitignore');
 if (gitignoreExists) {

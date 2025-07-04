@@ -174,12 +174,15 @@ Changelog:
   * Mobile-optimized modal with reduced QR code size (128px) and compact spacing for better mobile experience
 - July 04, 2025: Heroku deployment configuration
   * Modified server to use dynamic port (process.env.PORT) for Heroku compatibility
-  * Created Procfile specifying web process as "npm run start"
-  * Added app.json with Heroku-specific configuration and buildpack settings
-  * Moved critical build dependencies (TypeScript, esbuild, Vite, etc.) to regular dependencies
-  * Created heroku-postbuild.js script for automated build process on Heroku
+  * Created Procfile specifying web process as "node server-prod.js"
+  * Added server-prod.js production wrapper that runs TypeScript server using tsx
+  * Updated app.json with Heroku-specific configuration and Node.js buildpack
+  * Moved critical build dependencies (TypeScript, esbuild, Vite, tsx) to regular dependencies
+  * Created heroku-postbuild.js script for client-only build process (skips complex server bundling)
   * Added comprehensive HEROKU_DEPLOYMENT.md guide with step-by-step deployment instructions
-  * Configured environment variables for production deployment (NODE_ENV, NPM_CONFIG_PRODUCTION)
+  * Created verification script (scripts/verify-heroku-build.js) to check deployment readiness
+  * Added health check endpoint (/health) for Heroku monitoring
+  * Configured simplified build process that copies client assets to server/public for production
 ```
 
 ## User Preferences

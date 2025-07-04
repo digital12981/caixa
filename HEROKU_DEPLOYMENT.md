@@ -83,9 +83,10 @@ heroku ps
 
 O projeto foi configurado com:
 
-- **Procfile**: Define que o Heroku deve executar `npm run start`
-- **app.json**: Configurações específicas do Heroku
-- **heroku-postbuild.js**: Script personalizado de build
+- **Procfile**: Define que o Heroku deve executar `node server-prod.js`
+- **app.json**: Configurações específicas do Heroku  
+- **server-prod.js**: Script de produção que executa o servidor TypeScript usando tsx
+- **heroku-postbuild.js**: Script que constrói apenas os assets do cliente
 - **Porto dinâmico**: A aplicação usa `process.env.PORT` do Heroku
 
 ## Scripts Importantes
