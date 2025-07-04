@@ -2,8 +2,18 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 
+// Cache para manter consistência dos bairros durante a sessão
+const neighborhoodCache = new Map<string, string[]>();
+
 // Function to get nearby neighborhoods using Perplexity AI
 async function getNearbyNeighborhoods(city: string, state: string): Promise<string[]> {
+  const cacheKey = `${city}-${state}`;
+  
+  // Verificar se já temos os bairros em cache
+  if (neighborhoodCache.has(cacheKey)) {
+    return neighborhoodCache.get(cacheKey)!;
+  }
+  
   try {
     const response = await fetch('https://api.perplexity.ai/chat/completions', {
       method: 'POST',
@@ -47,10 +57,16 @@ async function getNearbyNeighborhoods(city: string, state: string): Promise<stri
       .map((n: string) => n.trim())
       .filter((n: string) => n.length > 0 && n.length < 50) // Filter out explanatory text
       .slice(0, 4); // Ensure we only get 4 neighborhoods
-    return neighborhoods.length >= 1 ? neighborhoods : [city]; // Fallback to at least the original city
+    const result = neighborhoods.length >= 1 ? neighborhoods : [city]; // Fallback to at least the original city
+    
+    // Salvar no cache para manter consistência
+    neighborhoodCache.set(cacheKey, result);
+    return result;
   } catch (error) {
     console.error('Error fetching nearby neighborhoods:', error);
-    return [city]; // Fallback to original city
+    const fallback = [city];
+    neighborhoodCache.set(cacheKey, fallback);
+    return fallback; // Fallback to original city
   }
 }
 
@@ -66,11 +82,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const nearbyCities = await getNearbyNeighborhoods(city as string, state as string);
         
         // Update each property with a nearby city, but keep original state
-        const updatedProperties = properties.map((property, index) => ({
-          ...property,
-          city: nearbyCities[index % nearbyCities.length] || (city as string),
-          location: `${nearbyCities[index % nearbyCities.length] || (city as string)}, ${property.state}`
-        }));
+        const updatedProperties = properties.map((property) => {
+          const cityIndex = (property.id - 1) % nearbyCities.length; // Use property ID to ensure consistency
+          return {
+            ...property,
+            city: nearbyCities[cityIndex] || (city as string),
+            location: `${nearbyCities[cityIndex] || (city as string)}, ${property.state}`
+          };
+        });
         
         res.json(updatedProperties);
       } else {
