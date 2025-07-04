@@ -138,16 +138,9 @@ export default function StateSelection() {
               <Button
                 onClick={handleFormSubmit}
                 disabled={isLoading}
-                className="btn mr-4"
+                className="btn"
               >
                 {isLoading ? "Buscando..." : "Buscar Imóveis"}
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={() => setLocation("/")}
-                className="bg-gray-500 text-white hover:bg-gray-600"
-              >
-                Voltar
               </Button>
             </div>
           </div>
